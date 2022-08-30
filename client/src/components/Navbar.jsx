@@ -11,18 +11,20 @@ const Navbar = () => {
     setValue(newValue);
   };
   return (
-    <Box sx={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      }}>
-    <Tabs value={value} onChange={handleChange} aria-label="icon label tabs example" sx={{marginTop: "30px"}}>
-    <Tab icon={<PhoneIcon sx={{fontSize: "60px"}}/>} label="SALES" sx={{fontSize: "10px", color: "white"}}/>
-    <Tab icon={<AccessTimeIcon sx={{fontSize: "60px"}}/>} label="CLOCKED IN" sx={{fontSize: "10px", color: "white"}} />
-    <Tab icon={<KeyIcon sx={{fontSize: "60px"}}/>} label="PERMISSION" sx={{fontSize: "10px", color: "white"}} />
-  </Tabs>
-  </Box>
+    
+      <Box sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        }}>
+      <Tabs value={value} onChange={handleChange} aria-label="icon label tabs example" sx={{marginTop: "30px"}}>
+      <Tab icon={<PhoneIcon sx={{fontSize: "60px"}}/>} label="SALES" sx={{fontSize: "10px", color: "white"}}/>
+      <Tab icon={<AccessTimeIcon sx={{fontSize: "60px"}}/>} label="CLOCKED IN" sx={{fontSize: "10px", color: "white"}} />
+      <Tab icon={<KeyIcon sx={{fontSize: "60px"}}/>} label="PERMISSION" sx={{fontSize: "10px", color: "white"}} />
+    </Tabs>
+    </Box>
+  
     )
 }
 export default Navbar
