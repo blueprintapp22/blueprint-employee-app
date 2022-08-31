@@ -102,6 +102,7 @@ export default function SearchAppBar(props) {
               <StyledInputBase
                 placeholder="Search invoices…"
                 inputProps={{ 'aria-label': 'search' }}
+                
               />
             </Search>
           </Toolbar>

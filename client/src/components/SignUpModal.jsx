@@ -1,11 +1,37 @@
-import { Box, Button, Modal, TextField } from "@mui/material"
+import { Box, Button,  IconButton,  InputAdornment,  Modal, TextField } from "@mui/material"
 import { useState } from 'react'
+import { styled } from '@mui/material/styles';
 import axios from "axios";
-import SurfingIcon from '@mui/icons-material/Surfing';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+const inputProps = {
+  id: "input"
+}
+const inputLabelProps ={
+  id: "input"
+}
+const CssTextField = styled(TextField)({
+
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: '#3f51b5',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#3f51b5',
+    },
+  },
+});
 function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpModal}) {
+  const [showPassword, toggleShowPassword] = useState(false)
+  const [showConfirmPassword, toggleShowConfirmPassword] = useState(false)
   const [formValue, setFormValue] = useState({
     username: "",
     password: '',
+    confirmPassword: "",
     email: "",
     firstName: ""
 
@@ -28,6 +54,10 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
     handleModalClose("signup")
     setLoginModal(true)
   }
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  }
+ 
   return (
   <div>
     <Modal
@@ -43,8 +73,9 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 400,
-            bgcolor: 'white',
+            bgcolor: '#282c34',
             boxShadow: 24,
+            
             p: 4
           }}
         >
@@ -62,44 +93,96 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
             noValidate
             autoComplete="off"
           >
-            <SurfingIcon
+            <PersonAddIcon
               sx={{
                 fontSize: "50px",
                 color: "#16C172",
               }}
             />
-            <TextField
+            <CssTextField
               id="outlined-basic"
+              className="modal-field"
               label="User Name"
               variant="outlined"
-              sx={{ m: 1, width: '70%' }}
+              inputProps={inputProps}
+              InputLabelProps={inputLabelProps}
+              sx={{ m: 1, width: '70%', color: "white", input: {color: "white"} }}
+              
               onChange={handleUpdateFormChange('username')}
               value={formValue.username}
             />
             
-            <TextField
+            <CssTextField
               id="outlined-basic"
               label="Password"
               variant="outlined"
+              type={showPassword ? "text" : "password"}
+              inputProps={inputProps}
+              InputLabelProps={inputLabelProps}     
+              InputProps={{
+                endAdornment:
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={()=> toggleShowPassword(!showPassword)}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              }        
               sx={{ m: 1, width: '70%' }}
               onChange={handleUpdateFormChange('password')}
               name="password"
               value={formValue.password}
+
             />
-            <TextField
+           <CssTextField
+              id="outlined-basic"
+              label="Confirm Password"
+              variant="outlined"
+              type={showConfirmPassword ? "text" : "password"}
+              inputProps={inputProps}
+              InputLabelProps={inputLabelProps}   
+              InputProps={{
+                endAdornment:
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={()=> toggleShowConfirmPassword(!showConfirmPassword)}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              }            
+              sx={{ m: 1, width: '70%' }}
+              onChange={handleUpdateFormChange('confirmPassword')}
+              name="password"
+              value={formValue.confirmPassword}
+            />
+            <CssTextField
               id="outlined-basic"
               label="Email"
               variant="outlined"
+              inputProps={inputProps}
+              InputLabelProps={inputLabelProps}           
               sx={{ m: 1, width: '70%' }}
               onChange={handleUpdateFormChange('email')}
               name="email"
               value={formValue.email}
             />
             
-              <TextField
+              <CssTextField
                 id="outlined-basic"
                 label="First Name"
                 variant="outlined"
+                InputProps={inputProps}
+                InputLabelProps={inputLabelProps}              
                 sx={{ m: 1, width: '70%' }}
                 onChange={handleUpdateFormChange('firstName')}
                 name="firstName"

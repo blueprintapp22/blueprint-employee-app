@@ -1,12 +1,36 @@
 import { useState } from 'react'
 import axios from 'axios';
-import { Box, Button,  Modal,  TextField } from '@mui/material'
-import WavesIcon from "@mui/icons-material/Waves";
+import { Box, Button,  IconButton,  InputAdornment,  Modal,  TextField } from '@mui/material'
+import logo from '../images/bplogo.png'
+import { styled, alpha } from '@mui/material/styles';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from '@mui/icons-material/Visibility';
+const inputProps = {
+  id: "input"
+}
+const inputLabelProps ={
+  id: "input"
+}
+const CssTextField = styled(TextField)({
+
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: '#3f51b5',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#3f51b5',
+    },
+  },
+});
 function LoginModal({loginModal, handleModalClose,setSignUpModal, setLoginModal, user, setUser}) {
   const [formValue, setFormValue] = useState({
     email: "",
     password: '',
   })
+  const [showPassword, toggleShowPassword] = useState(false)
   
   
   
@@ -25,6 +49,9 @@ function LoginModal({loginModal, handleModalClose,setSignUpModal, setLoginModal,
     setLoginModal(false)
     
   }
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  }
   return (
     <div>
       <Modal
@@ -40,7 +67,7 @@ function LoginModal({loginModal, handleModalClose,setSignUpModal, setLoginModal,
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: 400,
-          bgcolor: 'white',
+          bgcolor: '#282c34',
           boxShadow: 24,
           p: 4
         }}
@@ -58,28 +85,42 @@ function LoginModal({loginModal, handleModalClose,setSignUpModal, setLoginModal,
           noValidate
           autoComplete="off"
         >
-          <WavesIcon
-              sx={{
-                fontSize: "50px",
-                color: "#16C172",
-              }}
-            />
-          <TextField
+          <img src={logo} id="login-logo"/>
+          <CssTextField
             id="outlined-basic"
             label="Email"
+            inputProps={inputProps}
+            InputLabelProps={inputLabelProps}
             variant="outlined"
             sx={{ m: 1, width: '70%' }}
             onChange={handleUpdateFormChange('email')}
             value={formValue.email}
           />
           
-            <TextField
+            <CssTextField
               id="outlined-basic"
               label="Password"
+              inputProps={inputProps}
+              InputLabelProps={inputLabelProps}
               variant="outlined"
               sx={{ m: 1, width: '70%' }}
+              type={showPassword ? "text" : "password"}
               onChange={handleUpdateFormChange('password')}
               value={formValue.password}
+              InputProps={{
+                endAdornment:
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={()=> toggleShowPassword(!showPassword)}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+              }
             />
 
           

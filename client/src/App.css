@@ -13,3 +13,16 @@
 body{
   background-color: #282c34;
 }
+
+#input{
+  color: white;
+  border-color: white;
+}
+#login-logo{
+  height: 80px;
+}
+a {
+  color: #3f51b5;
+  font-weight: bolder;
+  cursor: pointer;
+}
