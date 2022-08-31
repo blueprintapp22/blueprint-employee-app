@@ -1,5 +1,6 @@
 import logo from '../images/bplogo.png'
 import CircularProgress from '@mui/material/CircularProgress'
+import Navbar from './Navbar'
 import { Box } from '@mui/system'
 const Landing = () => {
   return (
@@ -7,6 +8,7 @@ const Landing = () => {
       display:"flex",
       alignItems: "center",
       justifyContent:"center",
+      flexDirection: "column"
     }}>
       <Box sx={{
         display: "flex",
@@ -24,6 +26,7 @@ const Landing = () => {
           
           }}/>
       </Box>
+      <Navbar/>
     </Box>
   )
 }

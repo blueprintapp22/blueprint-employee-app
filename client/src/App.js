@@ -4,6 +4,8 @@ import Landing from './components/Landing'
 import Navbar from './components/Navbar'
 import { useEffect, useState } from 'react'
 import { CheckSession } from './services/Auth'
+import { Route, Routes } from 'react-router-dom'
+import EmployeePage from './pages/EmployeePage'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -37,8 +39,16 @@ function App() {
         authenticated={authenticated}
         handleLogOut={handleLogOut}
       />
-      <Landing />
-      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={<Landing user={user} authenticated={authenticated} />}
+        />
+        <Route
+          path="/employees"
+          element={<EmployeePage user={user} authenticated={authenticated} />}
+        />
+      </Routes>
     </div>
   )
 }
