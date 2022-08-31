@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios';
+import { SignInUser } from '../services/Auth'
 import { Box, Button,  IconButton,  InputAdornment,  Modal,  TextField } from '@mui/material'
 import logo from '../images/bplogo.png'
 import { styled, alpha } from '@mui/material/styles';
@@ -25,9 +25,9 @@ const CssTextField = styled(TextField)({
     },
   },
 });
-function LoginModal({loginModal, handleModalClose,setSignUpModal, setLoginModal, user, setUser}) {
+function LoginModal({loginModal, handleModalClose, setSignUpModal, setLoginModal, user, setUser, toggleAuthenticated}) {
   const [formValue, setFormValue] = useState({
-    email: "",
+    userName: "",
     password: '',
   })
   const [showPassword, toggleShowPassword] = useState(false)
@@ -43,9 +43,9 @@ function LoginModal({loginModal, handleModalClose,setSignUpModal, setLoginModal,
     setSignUpModal(true)
   }
   const handleLoginSubmit = async () => {
-    console.log("Hit!")
-    let res = await axios.post('http://localhost:2121/login', formValue)
-    setUser(res.data)
+    const payload = await SignInUser(formValue)
+    setUser(payload)
+    toggleAuthenticated(true)
     setLoginModal(false)
     
   }
@@ -88,12 +88,12 @@ function LoginModal({loginModal, handleModalClose,setSignUpModal, setLoginModal,
           <img src={logo} id="login-logo"/>
           <CssTextField
             id="outlined-basic"
-            label="Email"
+            label="Username"
             inputProps={inputProps}
             InputLabelProps={inputLabelProps}
             variant="outlined"
             sx={{ m: 1, width: '70%' }}
-            onChange={handleUpdateFormChange('email')}
+            onChange={handleUpdateFormChange('userName')}
             value={formValue.email}
           />
           

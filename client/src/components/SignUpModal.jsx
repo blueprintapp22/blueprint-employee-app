@@ -1,7 +1,7 @@
 import { Box, Button,  IconButton,  InputAdornment,  Modal, TextField } from "@mui/material"
 import { useState } from 'react'
 import { styled } from '@mui/material/styles';
-import axios from "axios";
+import { RegisterUser } from "../services/Auth"
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -29,11 +29,12 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
   const [showPassword, toggleShowPassword] = useState(false)
   const [showConfirmPassword, toggleShowConfirmPassword] = useState(false)
   const [formValue, setFormValue] = useState({
-    username: "",
+    userName: "",
     password: '',
     confirmPassword: "",
     email: "",
-    firstName: ""
+    fullName: "",
+    access: false
 
   })
   
@@ -45,9 +46,22 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
     handleModalClose("login")
     
   }
+
   const handleSignUpSubmit = async () => {
-    console.log("Hit!")
-    await axios.post('http://localhost:2121/signup', formValue)
+    await RegisterUser({
+      userName: formValue.userName,
+      email: formValue.email,
+      password: formValue.password,
+      fullName: formValue.fullName,
+      access: false
+    })
+    setFormValue({
+      userName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      fullName: ''
+    })
     setSignUpModal(false)
   }
   const handleLoginModal = () => {
@@ -108,8 +122,8 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
               InputLabelProps={inputLabelProps}
               sx={{ m: 1, width: '70%', color: "white", input: {color: "white"} }}
               
-              onChange={handleUpdateFormChange('username')}
-              value={formValue.username}
+              onChange={handleUpdateFormChange('userName')}
+              value={formValue.userName}
             />
             
             <CssTextField
@@ -179,14 +193,14 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
             
               <CssTextField
                 id="outlined-basic"
-                label="First Name"
+                label="First/Last Name"
                 variant="outlined"
                 InputProps={inputProps}
                 InputLabelProps={inputLabelProps}              
                 sx={{ m: 1, width: '70%' }}
-                onChange={handleUpdateFormChange('firstName')}
-                name="firstName"
-                value={formValue.firstName}
+                onChange={handleUpdateFormChange('fullName')}
+                name="fullName"
+                value={formValue.fullName}
               />
             
             <Button 

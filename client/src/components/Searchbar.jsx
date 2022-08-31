@@ -59,7 +59,7 @@ export default function SearchAppBar(props) {
   const [loginModal, setLoginModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
-  const [user, setUser] = useState(false)
+  
 
   const handleModalClose = (modal) => {
     switch (modal) {
@@ -114,8 +114,9 @@ export default function SearchAppBar(props) {
         signUpModal={signUpModal}
         setSignUpModal={setSignUpModal}
         setLoginModal={setLoginModal}
-        user={user}
-        setUser={setUser}
+        user={props.user}
+        setUser={props.setUser}
+        toggleAuthenticated={props.toggleAuthenticated}
       />
       <SignUpModal
         signUpModal={signUpModal}
