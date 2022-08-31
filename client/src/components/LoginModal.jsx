@@ -42,10 +42,15 @@ function LoginModal({loginModal, handleModalClose, setSignUpModal, setLoginModal
     handleModalClose("login")
     setSignUpModal(true)
   }
-  const handleLoginSubmit = async () => {
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault()
     const payload = await SignInUser(formValue)
     setUser(payload)
     toggleAuthenticated(true)
+    setFormValue({
+      userName: "",
+      password: '',
+    })
     setLoginModal(false)
     
   }
@@ -125,7 +130,7 @@ function LoginModal({loginModal, handleModalClose, setSignUpModal, setLoginModal
 
           
           <Button
-            onClick={()=>handleLoginSubmit()}
+            onClick={(e)=>handleLoginSubmit(e)}
             >
             Login
           </Button>

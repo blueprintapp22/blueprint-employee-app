@@ -1,5 +1,5 @@
 const express = require('express')
-const axios = require('axios')
+const db = require('./db')
 const cors = require('cors')
 const logger = require('morgan')
 const AuthRouter = require('./routes/AuthRouter')

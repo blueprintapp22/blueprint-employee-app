@@ -1,86 +1,73 @@
-const { User } = require('../models')
+const User = require('../models/User')
 const middleware = require('../middleware')
 
 const Login = async (req, res) => {
   try {
-    const user = await User.findOne({
-      where: { userName: req.body.userName },
-      raw: true
-    })
+    const user = await User.findOne({ userName: req.body.userName })
+    console.log('User:' + user.passwordDigest)
     if (
       user &&
       (await middleware.comparePassword(user.passwordDigest, req.body.password))
     ) {
       let payload = {
-        id: user.id,
-        userName: user.userName
+        id: user._id,
+        userName: user.userName,
+        access: user.access,
+        fullName: user.fullName
       }
       let token = middleware.createToken(payload)
-      res.send({ user: payload, token })
+      return res.send({ user: payload, token })
     }
-  } catch (error) {
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+  } catch (error) {
     throw error
   }
 }
 
 const Register = async (req, res) => {
   try {
-    const { userName, password, email, fullName, access } = req.body
+    const { email, password, fullName, userName } = req.body
     let passwordDigest = await middleware.hashPassword(password)
-    const user = await User.create({
-      userName,
-      passwordDigest,
+    const user = await new User({
       email,
+      passwordDigest,
       fullName,
-      access
+      userName
     })
+    user.save()
     res.send(user)
   } catch (error) {
     throw error
   }
 }
 
-const updatePassword = async (req, res) => {
-  try {
-    const user = await User.findOne({ where: { id: req.body.id } })
-    if (
-      user &&
-      (await middleware.comparePassword(
-        user.dataValues.passwordDigest,
-        req.body.oldPassword
-      ))
-    ) {
-      let passwordDigest = await middleware.hashPassword(req.body.newPassword)
+// const UpdatePassword = async (req, res) => {
+//   try {
+//     const user = await User.findOne({ where: { email: req.body.email } })
+//     if (
+//       user &&
+//       (await middleware.comparePassword(
+//         user.dataValues.passwordDigest,
+//         req.body.oldPassword
+//       ))
+//     ) {
+//       let passwordDigest = await middleware.hashPassword(req.body.newPassword)
 
-      await user.update({ passwordDigest })
-      return res.send({ status: 'Success', msg: 'Password Updated' })
-    }
-    res.status(401).send({ status: 'Error', msg: 'Invalid Credentials' })
-  } catch (error) {
-    throw error
-  }
-}
-
+//       await user.update({ passwordDigest })
+//       return res.send({ status: 'Success', msg: 'Password Updated' })
+//     }
+//     res.status(401).send({ status: 'Error', msg: 'Invalid Credentials' })
+//   } catch (error) {
+//     throw error
+//   }
+// }
 const CheckSession = async (req, res) => {
   const { payload } = res.locals
-
   res.send(payload)
 }
 
-const DeleteUser = async (req, res) => {
-  try {
-    const deleteUser = await User.Destroy({ where: { id: req.params.id } })
-    res.send(deleteUser)
-  } catch (error) {
-    res.status(401).send({ status: 'Error', msg: 'user id does not exist' })
-  }
-}
-
 module.exports = {
-  Login,
   Register,
-  updatePassword,
-  CheckSession,
-  DeleteUser
+  Login,
+  CheckSession
 }

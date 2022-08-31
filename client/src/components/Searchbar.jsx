@@ -93,7 +93,7 @@ export default function SearchAppBar(props) {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             >
-              {props.authenticated ? `Welcome ${props.user.userName}!` : <Button onClick={()=>setLoginModal(true)} sx={{color: "white"}}>Login</Button>}
+              {props.authenticated ? <div onClick={props.handleLogOut}>Welcome {props.user.userName}!</div> : <Button onClick={()=>setLoginModal(true)} sx={{color: "white", fontSize:"26px"}}>Login</Button>}
             </Typography>
             <Search>
               <SearchIconWrapper>
