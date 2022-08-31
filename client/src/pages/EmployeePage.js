@@ -1,18 +1,10 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import GroupsIcon from '@mui/icons-material/Groups'
-import { styled } from '@mui/material/styles'
 import { Box, CircularProgress } from '@mui/material'
-import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Unstable_Grid2' // Grid version 2
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#707070',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: 'white',
-  fontSize: '25px'
-}))
+import EmployeeCard from '../components/EmployeeCard'
+
 const EmployeePage = () => {
   const [employeeData, setEmployeeData] = useState()
   const getEmployees = async () => {
@@ -40,7 +32,7 @@ const EmployeePage = () => {
         >
           {employeeData.map((user, index) => (
             <Grid xs={2} sm={4} md={8} key={index}>
-              <Item elevation={24}>{user.fullName}</Item>
+              <EmployeeCard fullName={user.fullName} />
             </Grid>
           ))}
         </Grid>
