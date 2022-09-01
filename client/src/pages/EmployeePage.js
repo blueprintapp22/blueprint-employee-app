@@ -24,7 +24,7 @@ const EmployeePage = () => {
           flexDirection: 'column'
         }}
       >
-        <GroupsIcon sx={{ fontSize: '200px' }} />
+        <GroupsIcon sx={{ fontSize: '200px', color: 'white' }} />
         <Grid
           container
           spacing={{ xs: 3, md: 3 }}

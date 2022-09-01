@@ -10,15 +10,15 @@ import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 const EmployeeCard = (props) => {
   return (
   <Card p={2} sx={{boxShadow:"15", display: "flex", backgroundColor: "#707070", fontSize: "20px", justifyContent: "space-between", fontWeight: "bolder"}} raised={true}>
-    <CardContent>
+    <CardContent className="font">
       {props.fullName}
-      <Checkbox disabled={true} color="primary" icon={<HistoryToggleOffIcon sx={{fontSize: "30px"}}/>}checkedIcon={<AccessTimeIcon  sx={{fontSize: "30px"}}/>}/>
+      <Checkbox disabled={false}  icon={<HistoryToggleOffIcon sx={{fontSize: "30px"}}/>}checkedIcon={<AccessTimeIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/>}/>
     </CardContent>
     <CardActions>
     
       
-      <PersonRemoveIcon sx={{fontSize: "30px"}}/>
-      <Checkbox icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}checkedIcon={<VisibilityIcon  sx={{fontSize: "30px"}}/>}/>
+      <PersonRemoveIcon className="remove" sx={{fontSize: "30px", color: "white"}}/>
+      <Checkbox icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}checkedIcon={<VisibilityIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/>}/>
       
     </CardActions>
   </Card>

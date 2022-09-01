@@ -134,7 +134,7 @@ function LoginModal({loginModal, handleModalClose, setSignUpModal, setLoginModal
             >
             Login
           </Button>
-          <span id="signup-text">Dont have an account? <a id="signup-link" 
+          <span id="signup-text" className='font'>Dont have an account? <a id="signup-link" 
           onClick={()=> handleSignUpModal(true)}
           >
             Sign up!</a></span>

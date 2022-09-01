@@ -22,6 +22,7 @@ const Search = styled('div')(({ theme }) => ({
   },
   marginLeft: 0,
   width: '100%',
+  
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
     width: 'auto',
@@ -76,7 +77,7 @@ export default function SearchAppBar(props) {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" color="transparent">
+        <AppBar position="static" color="transparent" sx={{boxShadow: "10"}}>
           <Toolbar>
             <IconButton
               size="large"
@@ -97,7 +98,7 @@ export default function SearchAppBar(props) {
             </Typography>
             <Search>
               <SearchIconWrapper>
-                <SearchIcon sx={{fontSize: "35px"}} />
+                <SearchIcon sx={{fontSize: "35px", color: "white"}} />
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Search invoices…"

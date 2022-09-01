@@ -110,7 +110,7 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
             <PersonAddIcon
               sx={{
                 fontSize: "50px",
-                color: "#16C172",
+                color: "white",
               }}
             />
             <CssTextField
@@ -208,7 +208,7 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
             >
               Sign Up!
             </Button>
-            <span id="signup-text">Have an account? <a id="signup-link" onClick={()=> handleLoginModal()}>Login!</a></span>
+            <span className="font" id="signup-text">Have an account? <a id="signup-link" onClick={()=> handleLoginModal()}>Login!</a></span>
           </Box>
         </Box>
 
