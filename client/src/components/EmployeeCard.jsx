@@ -5,12 +5,23 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import HistoryToggleOffIcon from '@mui/icons-material/HistoryToggleOff';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import RemoveModal from "./RemoveModal";
+import { useEffect, useState } from "react";
 
 
 
 const EmployeeCard = (props) => {
-  
+  const [employee, setEmployee] = useState(null)
+  const openRemoveModal = (employee) => {
+    props.setRemoveModal(true)
+    console.log(employee)
+    setEmployee(employee)
+  }
+  useEffect(()=>{
+
+  },[employee])
   return (
+    <div>
   <Card p={2} sx={{boxShadow:"15", display: "flex", backgroundColor: "#707070", fontSize: "20px", justifyContent: "space-between", fontWeight: "bolder"}} raised={true}>
     <CardContent className="font">
       {props.fullName}
@@ -30,11 +41,27 @@ const EmployeeCard = (props) => {
             opacity: [0.9, 0.8, 0.7],
           },
         }} 
-        onClick={()=>props.setRemoveModal(true)}/>
+        onClick={()=>openRemoveModal(props.userName)}/>
       <Checkbox icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}checkedIcon={<VisibilityIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/>}/>
       
     </CardActions>
   </Card>
+    <div>
+        {employee ?  
+          <RemoveModal
+            removeModal={props.removeModal}
+            setRemoveModal={props.setRemoveModal}
+            fullName={props.fullName}
+            userName={props.userName}
+            employeeData={props.employeeData}
+            employee={employee}
+            setEmployee={setEmployee}
+          />
+          :
+          <div></div>
+          }
+    </div>
+  </div>
   )
 }
 export default EmployeeCard

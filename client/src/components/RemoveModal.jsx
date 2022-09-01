@@ -1,14 +1,38 @@
 import { useState } from 'react'
-import { Box, Button,  IconButton,  InputAdornment,  Modal, Typography} from '@mui/material'
+import { Box, Button,  IconButton,  InputAdornment,  Modal, TextField, Typography} from '@mui/material'
 import WarningIcon from '@mui/icons-material/Warning';
+import { styled } from '@mui/material/styles';
+import { useEffect } from 'react';
+const inputProps = {
+  id: "input"
+}
+const inputLabelProps ={
+  id: "input"
+}
+const CssTextField = styled(TextField)({
 
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: '#f44336',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#f44336',
+    },
+  },
+});
 
-function RemoveModal({removeModal, setRemoveModal}) {
+function RemoveModal({removeModal, setRemoveModal, employee, setEmployee}) {
   const [confirmed, setConfirmed] = useState(false)
   const closeRemoveModal = () => {
     setConfirmed(false)
     setRemoveModal(false)
   }
+  useEffect(()=>{
+    
+  },[])
   if (!confirmed){
     return (
     <div>
@@ -51,7 +75,7 @@ function RemoveModal({removeModal, setRemoveModal}) {
                 color: "white"
                 }}
             >
-              Are you sure you want to permanantly remove?
+              {`Are you sure you want to permanantly remove ${employee}?`}
             </Typography>
             <Typography 
               variant="h12" 
@@ -79,7 +103,7 @@ function RemoveModal({removeModal, setRemoveModal}) {
     <div>
     <Modal
       open={removeModal}
-      onClose={() => setRemoveModal(false)}
+      onClose={() => closeRemoveModal()}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       >
@@ -116,7 +140,7 @@ function RemoveModal({removeModal, setRemoveModal}) {
               color: "white"
               }}
           >
-            Are you sure you want to permanantly remove?
+            Type in and match the username exactly to confirm.
           </Typography>
           <Typography 
             variant="h12" 
@@ -124,9 +148,18 @@ function RemoveModal({removeModal, setRemoveModal}) {
               color: "lightgray"
               }}
           >
-            <em>(This action cannot be undone)</em>
+            <em>(Clicking confirm will permanantly remove the user)</em>
           </Typography>
-
+          <CssTextField
+            id="outlined-basic"
+            label="Username"
+            inputProps={inputProps}
+            InputLabelProps={inputLabelProps}
+            variant="outlined"
+            sx={{ m: 1, width: '70%' }}
+            // onChange={handleUpdateFormChange('userName')}
+            // value={formValue.email}
+          />
         </Box>
       </Box>
     </Modal>

@@ -40,16 +40,15 @@ const EmployeePage = () => {
               <Grid xs={2} sm={4} md={8} key={index}>
                 <EmployeeCard
                   fullName={user.fullName}
+                  userName={user.userName}
                   setRemoveModal={setRemoveModal}
+                  removeModal={removeModal}
+                  employeeData={employeeData}
                 />
               </Grid>
             ))}
           </Grid>
         </Box>
-        <RemoveModal
-          removeModal={removeModal}
-          setRemoveModal={setRemoveModal}
-        />
       </div>
     )
   } else
