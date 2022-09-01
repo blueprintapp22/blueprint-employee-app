@@ -49,6 +49,35 @@ const DeleteUser = async (req, res) => {
     throw error
   }
 }
+const GrantAccess = async (req, res) => {
+  try {
+    const { id } = req.params
+    const user = await User.findOne({ userName: id })
+    if (!user.access) {
+      let updated = await User.updateOne(
+        { userName: id },
+        {
+          $set: {
+            access: true
+          }
+        }
+      )
+      res.send(updated)
+    } else {
+      let updated = await User.updateOne(
+        { userName: id },
+        {
+          $set: {
+            access: false
+          }
+        }
+      )
+      res.send(updated)
+    }
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
 
 // const UpdatePassword = async (req, res) => {
 //   try {
@@ -79,5 +108,6 @@ module.exports = {
   Register,
   Login,
   CheckSession,
-  DeleteUser
+  DeleteUser,
+  GrantAccess
 }

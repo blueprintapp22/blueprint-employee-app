@@ -8,6 +8,8 @@ import EmployeeCard from '../components/EmployeeCard'
 const EmployeePage = () => {
   const [employeeData, setEmployeeData] = useState()
   const [removeModal, setRemoveModal] = useState(false)
+  const [accessModal, setAccessModal] = useState(false)
+  const [reload, setReload] = useState(false)
 
   const getEmployees = async () => {
     let res = await axios.get('http://localhost:3001/bea/users')
@@ -16,7 +18,7 @@ const EmployeePage = () => {
 
   useEffect(() => {
     getEmployees()
-  }, [removeModal])
+  }, [removeModal, accessModal])
 
   if (employeeData) {
     return (
@@ -41,8 +43,13 @@ const EmployeePage = () => {
                   fullName={user.fullName}
                   userName={user.userName}
                   setRemoveModal={setRemoveModal}
+                  access={user.access}
                   removeModal={removeModal}
                   employeeData={employeeData}
+                  accessModal={accessModal}
+                  setAccessModal={setAccessModal}
+                  reload={reload}
+                  setReload={setReload}
                 />
               </Grid>
             ))}

@@ -4,15 +4,32 @@ import { Box, Button,    Checkbox,    Modal, TextField, Typography} from '@mui/m
 import axios from 'axios'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import KeyIcon from '@mui/icons-material/Key';
+import { useEffect } from 'react';
 
-
-function AccessModal({accessModal, setAccessModal, employee, setEmployee}) {
-
+function AccessModal({accessModal, setAccessModal, employee, setEmployee, setReload, access}) {
+  const [clicked, setClicked] = useState(false)
+  const [checked, setChecked] = useState(false)
   const closeAccessModal = () => {
     setAccessModal(false)
     setEmployee(null)
+    setReload(true)
+    setReload(false)
+    setClicked(false)
   }
-
+  const toggleAccess = async (id) => {
+    setClicked(true)
+    setReload(true)
+    setReload(false)
+    await axios.put(`http://localhost:3001/auth/user/access/${id}`)
+    
+  }
+  const handleChecked = () => {
+    if (access) setChecked(true)
+  }
+  useEffect(()=>{
+    handleChecked()
+  },[])
 return (
     <div>
       <Modal
@@ -42,10 +59,10 @@ return (
             textAlign: "center"
             }}
           >
-            <VisibilityIcon
+            <KeyIcon
               sx={{
-                color: '#3f51b5',
-                fontSize: "50px"
+                color: 'white',
+                fontSize: "70px"
                 }}
             />
             <Typography 
@@ -57,19 +74,16 @@ return (
               {`Give search access to ${employee}?`}
             </Typography>
             <Checkbox 
-              icon={
-              <VisibilityOffIcon  
-                sx={{
-                  fontSize: "30px"
-                  }}
-                  />}
-              checkedIcon={
-              <VisibilityIcon  
-                sx={{
-                  fontSize: "30px", 
-                  color:"#3f51b5"}}
-                  />}
+              checked={checked}
+              onChange={()=> toggleAccess(employee)}
+              icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}
+              checkedIcon={<VisibilityIcon  
+              sx={{fontSize: "30px", color:"#3f51b5"}}/>}
+              onClick={checked ? ()=>setChecked(false) : ()=>setChecked(true)}
               />
+              <Button disabled={!clicked} onClick={()=>closeAccessModal()}>
+                Confirm
+              </Button>
           </Box>
         </Box>
       </Modal>

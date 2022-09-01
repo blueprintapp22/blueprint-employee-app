@@ -25,7 +25,7 @@ const CssTextField = styled(TextField)({
   },
 });
 
-function RemoveModal({removeModal, setRemoveModal, employee, setEmployee}) {
+function RemoveModal({removeModal, setRemoveModal, employee, setEmployee, setReload}) {
   const [confirmed, setConfirmed] = useState(false)
   const [formValue, setFormValue] = useState({
     userName: "",
@@ -34,14 +34,15 @@ function RemoveModal({removeModal, setRemoveModal, employee, setEmployee}) {
     setConfirmed(false)
     setRemoveModal(false)
     setEmployee(null)
+    setReload(true)
+    setReload(false)
   }
   const handleUpdateFormChange = (prop) => (event) => {
     console.log(event.target.value)
     setFormValue({ ...formValue, [prop]: event.target.value })
   }
   const deleteUser = async (id) => {
-    setRemoveModal(false)
-    setConfirmed(false)
+    closeRemoveModal()
     await axios.delete(`http://localhost:3001/auth/user/${id}`)
     
   }

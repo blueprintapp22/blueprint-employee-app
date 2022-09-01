@@ -13,10 +13,15 @@ import AccessModal from "./AccessModal";
 
 const EmployeeCard = (props) => {
   const [employee, setEmployee] = useState(null)
+  const [access, setAccess] = useState()
   const openRemoveModal = (employee) => {
     props.setRemoveModal(true)
-    console.log(employee)
     setEmployee(employee)
+  }
+  const openAccessModal = (employee, access) => {
+    props.setAccessModal(true)
+    setEmployee(employee)
+    setAccess(access)
   }
   useEffect(()=>{
 
@@ -26,7 +31,7 @@ const EmployeeCard = (props) => {
   <Card p={2} sx={{boxShadow:"15", display: "flex", backgroundColor: "#707070", fontSize: "20px", justifyContent: "space-between", fontWeight: "bolder"}} raised={true}>
     <CardContent className="font">
       {props.fullName}
-      <Checkbox disabled={false}  icon={<HistoryToggleOffIcon sx={{fontSize: "30px"}}/>}checkedIcon={<AccessTimeIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/>}/>
+      <Checkbox  disabled={true}  icon={<HistoryToggleOffIcon sx={{fontSize: "30px"}}/>}checkedIcon={<AccessTimeIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/> }/>
     </CardContent>
     <CardActions>
     
@@ -43,7 +48,14 @@ const EmployeeCard = (props) => {
           },
         }} 
         onClick={()=>openRemoveModal(props.userName)}/>
-      <Checkbox icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}checkedIcon={<VisibilityIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/>}/>
+      <Checkbox 
+      checked={props.access} 
+      icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}
+      checkedIcon={<VisibilityIcon  
+      sx={{fontSize: "30px", color:"#3f51b5"}}/>}
+      onClick={()=>openAccessModal(props.userName, props.access)}
+      />
+      
       
     </CardActions>
   </Card>
@@ -57,6 +69,7 @@ const EmployeeCard = (props) => {
             employeeData={props.employeeData}
             employee={employee}
             setEmployee={setEmployee}
+            setReload={props.setReload}
           />
           :
           <div></div>
@@ -64,12 +77,14 @@ const EmployeeCard = (props) => {
         {employee ?  
           <AccessModal
             accessModal={props.accessModal}
-            setRemoveModal={props.setAccessModal}
+            setAccessModal={props.setAccessModal}
             fullName={props.fullName}
             userName={props.userName}
             employeeData={props.employeeData}
             employee={employee}
             setEmployee={setEmployee}
+            setReload={props.setReload}
+            access={access}
           />
           :
           <div></div>

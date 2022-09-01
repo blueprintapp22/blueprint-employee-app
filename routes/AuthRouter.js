@@ -12,4 +12,5 @@ router.get(
   controller.CheckSession
 )
 router.delete('/user/:id', controller.DeleteUser)
+router.put('/user/access/:id', controller.GrantAccess)
 module.exports = router
