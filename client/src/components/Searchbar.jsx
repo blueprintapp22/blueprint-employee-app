@@ -12,6 +12,7 @@ import logo from '../images/bplogo.png'
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 import { Button } from '@mui/material';
+import RemoveModal from './RemoveModal';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,6 +61,7 @@ export default function SearchAppBar(props) {
   const [loginModal, setLoginModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
+  
   
 
   const handleModalClose = (modal) => {
@@ -125,6 +127,7 @@ export default function SearchAppBar(props) {
         setLoginModal={setLoginModal}
         setSignUpModal={setSignUpModal}
         />
+
     </div>
   );
 }

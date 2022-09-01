@@ -7,7 +7,9 @@ import HistoryToggleOffIcon from '@mui/icons-material/HistoryToggleOff';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 
 
+
 const EmployeeCard = (props) => {
+  
   return (
   <Card p={2} sx={{boxShadow:"15", display: "flex", backgroundColor: "#707070", fontSize: "20px", justifyContent: "space-between", fontWeight: "bolder"}} raised={true}>
     <CardContent className="font">
@@ -17,7 +19,18 @@ const EmployeeCard = (props) => {
     <CardActions>
     
       
-      <PersonRemoveIcon className="remove" sx={{fontSize: "30px", color: "white"}}/>
+      <PersonRemoveIcon 
+        className="remove" 
+        sx={{
+          fontSize: "30px", 
+          color: "white", 
+          cursor: "pointer",
+          '&:hover': {
+            color: '#f44336',
+            opacity: [0.9, 0.8, 0.7],
+          },
+        }} 
+        onClick={()=>props.setRemoveModal(true)}/>
       <Checkbox icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}checkedIcon={<VisibilityIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/>}/>
       
     </CardActions>
