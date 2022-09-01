@@ -3,6 +3,7 @@ import { Box, Button,  IconButton,  InputAdornment,  Modal, TextField, Typograph
 import WarningIcon from '@mui/icons-material/Warning';
 import { styled } from '@mui/material/styles';
 import { useEffect } from 'react';
+import axios from 'axios'
 const inputProps = {
   id: "input"
 }
@@ -26,13 +27,24 @@ const CssTextField = styled(TextField)({
 
 function RemoveModal({removeModal, setRemoveModal, employee, setEmployee}) {
   const [confirmed, setConfirmed] = useState(false)
+  const [formValue, setFormValue] = useState({
+    userName: "",
+  })
   const closeRemoveModal = () => {
     setConfirmed(false)
     setRemoveModal(false)
+    setEmployee(null)
   }
-  useEffect(()=>{
+  const handleUpdateFormChange = (prop) => (event) => {
+    console.log(event.target.value)
+    setFormValue({ ...formValue, [prop]: event.target.value })
+  }
+  const deleteUser = async (id) => {
+    setRemoveModal(false)
+    setConfirmed(false)
+    await axios.delete(`http://localhost:3001/auth/user/${id}`)
     
-  },[])
+  }
   if (!confirmed){
     return (
     <div>
@@ -150,6 +162,14 @@ function RemoveModal({removeModal, setRemoveModal, employee, setEmployee}) {
           >
             <em>(Clicking confirm will permanantly remove the user)</em>
           </Typography>
+          <Typography 
+            variant="h5"
+            sx={{
+            color: '#f44336'
+          }}
+          >
+            {employee}
+          </Typography>
           <CssTextField
             id="outlined-basic"
             label="Username"
@@ -157,9 +177,18 @@ function RemoveModal({removeModal, setRemoveModal, employee, setEmployee}) {
             InputLabelProps={inputLabelProps}
             variant="outlined"
             sx={{ m: 1, width: '70%' }}
-            // onChange={handleUpdateFormChange('userName')}
-            // value={formValue.email}
+            onChange={handleUpdateFormChange('userName')}
+            value={formValue.userName}
           />
+             <Button 
+              onClick={() => deleteUser(employee)}
+              sx={{
+                marginTop: "20px"
+              }}
+              disabled={formValue.userName === employee ? false : true}
+              >
+              CONFIRM
+            </Button>
         </Box>
       </Box>
     </Modal>

@@ -13,7 +13,6 @@
 body{
   background-color: #282c34;
 }
-
 #input{
   color: white;
   border-color: white;
@@ -27,5 +26,8 @@ a {
   cursor: pointer;
 }
 .font{
+  color: white;
+}
+#welcome-text{
   color: white;
 }

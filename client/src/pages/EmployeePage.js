@@ -4,7 +4,6 @@ import GroupsIcon from '@mui/icons-material/Groups'
 import { Box, CircularProgress } from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2' // Grid version 2
 import EmployeeCard from '../components/EmployeeCard'
-import RemoveModal from '../components/RemoveModal'
 
 const EmployeePage = () => {
   const [employeeData, setEmployeeData] = useState()
@@ -17,7 +16,7 @@ const EmployeePage = () => {
 
   useEffect(() => {
     getEmployees()
-  }, [])
+  }, [removeModal])
 
   if (employeeData) {
     return (

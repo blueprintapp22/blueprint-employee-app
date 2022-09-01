@@ -7,6 +7,7 @@ import HistoryToggleOffIcon from '@mui/icons-material/HistoryToggleOff';
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import RemoveModal from "./RemoveModal";
 import { useEffect, useState } from "react";
+import AccessModal from "./AccessModal";
 
 
 
@@ -51,6 +52,19 @@ const EmployeeCard = (props) => {
           <RemoveModal
             removeModal={props.removeModal}
             setRemoveModal={props.setRemoveModal}
+            fullName={props.fullName}
+            userName={props.userName}
+            employeeData={props.employeeData}
+            employee={employee}
+            setEmployee={setEmployee}
+          />
+          :
+          <div></div>
+          }
+        {employee ?  
+          <AccessModal
+            accessModal={props.accessModal}
+            setRemoveModal={props.setAccessModal}
             fullName={props.fullName}
             userName={props.userName}
             employeeData={props.employeeData}

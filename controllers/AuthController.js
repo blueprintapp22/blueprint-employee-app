@@ -40,6 +40,15 @@ const Register = async (req, res) => {
     throw error
   }
 }
+const DeleteUser = async (req, res) => {
+  try {
+    let { id } = req.params
+    let user = await User.deleteOne({ userName: id })
+    res.send(user)
+  } catch (error) {
+    throw error
+  }
+}
 
 // const UpdatePassword = async (req, res) => {
 //   try {
@@ -69,5 +78,6 @@ const CheckSession = async (req, res) => {
 module.exports = {
   Register,
   Login,
-  CheckSession
+  CheckSession,
+  DeleteUser
 }
