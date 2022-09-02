@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import { CheckSession } from './services/Auth'
 import { Route, Routes } from 'react-router-dom'
 import EmployeePage from './pages/EmployeePage'
+import SalesmanPage from './pages/SalesmanPage'
+import SearchPage from './pages/SearchPage'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -47,6 +49,14 @@ function App() {
         <Route
           path="/employees"
           element={<EmployeePage user={user} authenticated={authenticated} />}
+        />
+        <Route
+          path="/salesman"
+          element={<SalesmanPage user={user} authenticated={authenticated} />}
+        />
+        <Route
+          path="/search"
+          element={<SearchPage user={user} authenticated={authenticated} />}
         />
       </Routes>
     </div>

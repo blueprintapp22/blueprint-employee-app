@@ -8,12 +8,14 @@ import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import RemoveModal from "./RemoveModal";
 import { useEffect, useState } from "react";
 import AccessModal from "./AccessModal";
+import { useNavigate } from "react-router-dom";
 
 
 
 const EmployeeCard = (props) => {
   const [employee, setEmployee] = useState(null)
   const [access, setAccess] = useState()
+  let navigate = useNavigate()
   const openRemoveModal = (employee) => {
     props.setRemoveModal(true)
     setEmployee(employee)
@@ -30,7 +32,7 @@ const EmployeeCard = (props) => {
     <div>
   <Card p={2} sx={{boxShadow:"15", display: "flex", backgroundColor: "#707070", fontSize: "20px", justifyContent: "space-between", fontWeight: "bolder"}} raised={true}>
     <CardContent className="font">
-      {props.fullName}
+      <span id="salesman" onClick={()=> navigate('/salesman')}>{props.fullName}</span>
       <Checkbox  disabled={true}  icon={<HistoryToggleOffIcon sx={{fontSize: "30px"}}/>}checkedIcon={<AccessTimeIcon  sx={{fontSize: "30px", color:"#3f51b5"}}/> }/>
     </CardContent>
     <CardActions>
