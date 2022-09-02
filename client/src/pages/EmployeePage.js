@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import GroupsIcon from '@mui/icons-material/Groups'
-import { Box, CircularProgress } from '@mui/material'
+import { Box, CircularProgress, Typography } from '@mui/material'
 import Grid from '@mui/material/Unstable_Grid2' // Grid version 2
 import EmployeeCard from '../components/EmployeeCard'
 
-const EmployeePage = () => {
+const EmployeePage = ({ user, authenticated }) => {
   const [employeeData, setEmployeeData] = useState()
   const [removeModal, setRemoveModal] = useState(false)
   const [accessModal, setAccessModal] = useState(false)
@@ -18,9 +18,10 @@ const EmployeePage = () => {
 
   useEffect(() => {
     getEmployees()
+    console.log(user, authenticated)
   }, [removeModal, accessModal])
 
-  if (employeeData) {
+  if (employeeData && authenticated && user.admin) {
     return (
       <div>
         <Box
@@ -31,7 +32,28 @@ const EmployeePage = () => {
             flexDirection: 'column'
           }}
         >
+          <Typography
+            variant="h2"
+            sx={{
+              color: 'white',
+              marginTop: '20px',
+              fontWeight: 'bolder',
+              marginBottom: '-20px'
+            }}
+          >
+            Admin Dashboard
+          </Typography>
           <GroupsIcon sx={{ fontSize: '200px', color: 'white' }} />
+          <Typography
+            variant="h6"
+            sx={{
+              color: 'lightgray',
+              marginBottom: '60px',
+              marginTop: '-10px'
+            }}
+          >
+            <em> Grant access or remove users</em>
+          </Typography>
           <Grid
             container
             spacing={{ xs: 3, md: 3 }}
@@ -67,7 +89,28 @@ const EmployeePage = () => {
           flexDirection: 'column'
         }}
       >
-        <GroupsIcon sx={{ fontSize: '200px' }} />
+        <Typography
+          variant="h2"
+          sx={{
+            color: 'white',
+            marginTop: '20px',
+            fontWeight: 'bolder',
+            marginBottom: '-20px'
+          }}
+        >
+          Admin Dashboard
+        </Typography>
+        <GroupsIcon sx={{ fontSize: '200px', color: 'white' }} />
+        <Typography
+          variant="h6"
+          sx={{
+            color: 'lightgray',
+            marginBottom: '60px',
+            marginTop: '-10px'
+          }}
+        >
+          <em> Grant access or remove users</em>
+        </Typography>
         <CircularProgress />
       </Box>
     )

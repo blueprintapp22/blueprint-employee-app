@@ -7,7 +7,8 @@ const User = new Schema(
     passwordDigest: { type: String, required: true },
     fullName: { type: String, required: true },
     email: { type: String, required: true },
-    access: { type: Boolean, required: true, default: false }
+    access: { type: Boolean, required: true, default: false },
+    admin: { type: Boolean, required: true, default: false }
   },
   { timestamps: true }
 )

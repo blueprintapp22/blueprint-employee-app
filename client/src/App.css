@@ -30,4 +30,6 @@ a {
 }
 #welcome-text{
   color: white;
+  display: flex;
+  
 }

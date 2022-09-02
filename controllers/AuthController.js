@@ -4,6 +4,7 @@ const middleware = require('../middleware')
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({ userName: req.body.userName })
+
     console.log('User:' + user.passwordDigest)
     if (
       user &&
@@ -13,7 +14,8 @@ const Login = async (req, res) => {
         id: user._id,
         userName: user.userName,
         access: user.access,
-        fullName: user.fullName
+        fullName: user.fullName,
+        admin: user.admin
       }
       let token = middleware.createToken(payload)
       return res.send({ user: payload, token })
@@ -78,27 +80,36 @@ const GrantAccess = async (req, res) => {
     return res.status(500).json({ error: error.message })
   }
 }
+const MakeAdmin = async (req, res) => {
+  try {
+    const { id } = req.params
+    const user = await User.findOne({ userName: id })
+    if (!user.admin) {
+      let updated = await User.updateOne(
+        { userName: id },
+        {
+          $set: {
+            admin: true
+          }
+        }
+      )
+      res.send(updated)
+    } else {
+      let updated = await User.updateOne(
+        { userName: id },
+        {
+          $set: {
+            admin: false
+          }
+        }
+      )
+      res.send(updated)
+    }
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
 
-// const UpdatePassword = async (req, res) => {
-//   try {
-//     const user = await User.findOne({ where: { email: req.body.email } })
-//     if (
-//       user &&
-//       (await middleware.comparePassword(
-//         user.dataValues.passwordDigest,
-//         req.body.oldPassword
-//       ))
-//     ) {
-//       let passwordDigest = await middleware.hashPassword(req.body.newPassword)
-
-//       await user.update({ passwordDigest })
-//       return res.send({ status: 'Success', msg: 'Password Updated' })
-//     }
-//     res.status(401).send({ status: 'Error', msg: 'Invalid Credentials' })
-//   } catch (error) {
-//     throw error
-//   }
-// }
 const CheckSession = async (req, res) => {
   const { payload } = res.locals
   res.send(payload)
@@ -109,5 +120,6 @@ module.exports = {
   Login,
   CheckSession,
   DeleteUser,
-  GrantAccess
+  GrantAccess,
+  MakeAdmin
 }

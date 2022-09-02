@@ -12,7 +12,8 @@ import logo from '../images/bplogo.png'
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
 import { Button } from '@mui/material';
-import RemoveModal from './RemoveModal';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -61,7 +62,7 @@ export default function SearchAppBar(props) {
   const [loginModal, setLoginModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
-  
+  let navigate = useNavigate()
   
 
   const handleModalClose = (modal) => {
@@ -86,6 +87,7 @@ export default function SearchAppBar(props) {
               edge="start"
               color="inherit"
               aria-label="open drawer"
+              onClick={()=> navigate('/')}
               sx={{ mr: 2 }}
             >
               <img src={logo} id="search-logo"/>
@@ -96,7 +98,9 @@ export default function SearchAppBar(props) {
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             >
-              {props.authenticated ? <div id="welcome-text" onClick={props.handleLogOut}>Welcome {props.user.userName}!</div> : <Button onClick={()=>setLoginModal(true)} sx={{color: "white", fontSize:"20px"}}>Login</Button>}
+              {props.authenticated ? 
+              <div id="welcome-text">Welcome {props.user.fullName}! <LogoutIcon onClick={props.handleLogOut} sx={{color: "white", fontSize:"30px", marginTop: "3px", marginLeft: "10px", cursor: "pointer", '&:hover': {opacity: "0.5", transform: "translateY(2px)"}, }}/></div> 
+              : <Button onClick={()=>setLoginModal(true)} sx={{color: "white", fontSize:"20px"}}>Login</Button>}
             </Typography>
             <Search>
               <SearchIconWrapper>

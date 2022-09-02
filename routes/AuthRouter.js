@@ -13,4 +13,5 @@ router.get(
 )
 router.delete('/user/:id', controller.DeleteUser)
 router.put('/user/access/:id', controller.GrantAccess)
+router.put('/user/admin/:id', controller.MakeAdmin)
 module.exports = router
