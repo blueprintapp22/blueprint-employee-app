@@ -2,6 +2,7 @@ import logo from '../images/bplogo.png'
 import CircularProgress from '@mui/material/CircularProgress'
 import Navbar from './Navbar'
 import { Box } from '@mui/system'
+import { Typography } from '@mui/material'
 const Landing = () => {
   return (
     <Box sx={{
@@ -18,13 +19,9 @@ const Landing = () => {
         }}>
         
         <img id="logo" src={logo}/>
-        <h1><em>Now Loading BP Sales Companion</em></h1>
-        <CircularProgress 
-          size={60}
-          sx={{
-            justifySelf:"center",
-          
-          }}/>
+        <Typography variant="h4" sx={{color:"white", fontWeight: "bold"}}>Welcome to Blueprint Sales Companion!</Typography>
+        <Typography variant="h6" sx={{color:"lightgray", fontWeight: "bold"}}><em>Please sign in or sign up to continue...</em></Typography>
+
       </Box>
       <Navbar/>
     </Box>

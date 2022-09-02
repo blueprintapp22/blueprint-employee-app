@@ -79,7 +79,7 @@ const EmployeePage = ({ user, authenticated }) => {
         </Box>
       </div>
     )
-  } else
+  } else if (authenticated) {
     return (
       <Box
         sx={{
@@ -112,6 +112,40 @@ const EmployeePage = ({ user, authenticated }) => {
           <em> Grant access or remove users</em>
         </Typography>
         <CircularProgress />
+      </Box>
+    )
+  } else
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column'
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            color: 'white',
+            marginTop: '20px',
+            fontWeight: 'bolder',
+            marginBottom: '-20px'
+          }}
+        >
+          Admin Dashboard
+        </Typography>
+        <GroupsIcon sx={{ fontSize: '200px', color: 'white' }} />
+        <Typography
+          variant="h6"
+          sx={{
+            color: 'red',
+            marginBottom: '60px',
+            marginTop: '-10px'
+          }}
+        >
+          <em> You must have admin access to do that</em>
+        </Typography>
       </Box>
     )
 }

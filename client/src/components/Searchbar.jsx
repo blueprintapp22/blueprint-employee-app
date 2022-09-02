@@ -14,6 +14,7 @@ import SignUpModal from "./SignUpModal";
 import { Button } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
+import GroupsIcon from '@mui/icons-material/Groups'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -102,7 +103,11 @@ export default function SearchAppBar(props) {
               <div id="welcome-text">Welcome {props.user.fullName}! <LogoutIcon onClick={props.handleLogOut} sx={{color: "white", fontSize:"30px", marginTop: "3px", marginLeft: "10px", cursor: "pointer", '&:hover': {opacity: "0.5", transform: "translateY(2px)"}, }}/></div> 
               : <Button onClick={()=>setLoginModal(true)} sx={{color: "white", fontSize:"20px"}}>Login</Button>}
             </Typography>
+            {props.authenticated && props.user.admin ? 
+             <GroupsIcon sx={{fontSize: "45px", color: "white",cursor: "pointer",'&:hover': {color: "#3f51b5",opacity: [0.9, 0.8, 0.7],}}} onClick={()=>navigate('/employees')}/> 
+              : <div></div>}
             <Search>
+            
               <SearchIconWrapper>
                 <SearchIcon sx={{fontSize: "35px", color: "white"}} />
               </SearchIconWrapper>
