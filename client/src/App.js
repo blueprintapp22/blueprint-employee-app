@@ -4,6 +4,7 @@ import Landing from './components/Landing'
 import Navbar from './components/Navbar'
 import { useEffect, useState } from 'react'
 import { CheckSession } from './services/Auth'
+import { SearchDropbox, GetPreview } from './services/dropbox'
 import { Route, Routes } from 'react-router-dom'
 import EmployeePage from './pages/EmployeePage'
 import SalesmanPage from './pages/SalesmanPage'
@@ -25,6 +26,8 @@ function App() {
     toggleAuthenticated(true)
   }
   useEffect(() => {
+    SearchDropbox()
+    GetPreview()
     const token = localStorage.getItem('token')
 
     // Check if token exists before requesting to validate the token
