@@ -9,10 +9,12 @@ import { Route, Routes } from 'react-router-dom'
 import EmployeePage from './pages/EmployeePage'
 import SalesmanPage from './pages/SalesmanPage'
 import SearchPage from './pages/SearchPage'
+import { Button } from '@mui/material'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
+  const [preview, setPreview] = useState()
   const handleLogOut = () => {
     //Reset all auth related state and clear localStorage
     setUser(null)
@@ -26,8 +28,8 @@ function App() {
     toggleAuthenticated(true)
   }
   useEffect(() => {
-    SearchDropbox()
-    GetPreview()
+    // SearchDropbox()
+
     const token = localStorage.getItem('token')
 
     // Check if token exists before requesting to validate the token
@@ -44,6 +46,7 @@ function App() {
         authenticated={authenticated}
         handleLogOut={handleLogOut}
       />
+      <Button onClick={() => GetPreview()}></Button>
       <Routes>
         <Route
           path="/"
