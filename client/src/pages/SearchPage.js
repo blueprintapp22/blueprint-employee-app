@@ -1,7 +1,6 @@
 import {
   AppBar,
   Button,
-  Checkbox,
   CircularProgress,
   TextField,
   Toolbar,
@@ -10,7 +9,6 @@ import {
 import { Box } from '@mui/system'
 import { styled } from '@mui/material/styles'
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone'
-import { SearchDropbox, GetPreview } from '../services/dropbox'
 import SearchResult from '../components/SearchResult'
 import { useState } from 'react'
 import { Dropbox } from 'dropbox'
@@ -36,6 +34,15 @@ const CssTextField = styled(TextField)({
 const SearchPage = () => {
   const [searching, setSearching] = useState(false)
   const [searchResult, setSearchResult] = useState(false)
+  const [formValue, setFormValue] = useState({
+    searchValue: ''
+  })
+
+  const handleUpdateFormChange = (prop) => (event) => {
+    console.log(event.target.value)
+    setFormValue({ ...formValue, [prop]: event.target.value })
+  }
+
   const dbx = new Dropbox({
     accessToken: process.env.REACT_APP_DBX_TOKEN
   })
@@ -49,6 +56,9 @@ const SearchPage = () => {
       .then((res) => {
         setSearching(false)
         setSearchResult(res.result.matches)
+        setFormValue({
+          searchValue: ''
+        })
         console.log(res.result.matches)
       })
   }
@@ -95,34 +105,17 @@ const SearchPage = () => {
           }}
           color="transparent"
         >
-          <Toolbar sx={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
             <CssTextField
               id="outlined-basic"
-              label="Business Name"
+              label="Search by keyword..."
               inputProps={inputProps}
               InputLabelProps={inputLabelProps}
               variant="outlined"
-            />
-            <CssTextField
-              id="outlined-basic"
-              label="Salesman"
-              inputProps={inputProps}
-              InputLabelProps={inputLabelProps}
-              variant="outlined"
-            />
-            <CssTextField
-              id="outlined-basic"
-              label="Location"
-              inputProps={inputProps}
-              InputLabelProps={inputLabelProps}
-              variant="outlined"
-            />
-            <CssTextField
-              id="outlined-basic"
-              label="Date"
-              inputProps={inputProps}
-              InputLabelProps={inputLabelProps}
-              variant="outlined"
+              onChange={handleUpdateFormChange('searchValue')}
+              name="searchValue"
+              value={formValue.searchValue}
+              sx={{ width: '800px' }}
             />
           </Toolbar>
           <Box
@@ -133,8 +126,9 @@ const SearchPage = () => {
             }}
           >
             <Button
-              onClick={() => SearchDropbox('Jeff Levar')}
+              onClick={() => SearchDropbox(formValue.searchValue)}
               sx={{ margin: '20px', fontSize: '20px' }}
+              disabled={formValue.searchValue ? false : true}
             >
               Search
             </Button>

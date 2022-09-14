@@ -1,11 +1,12 @@
 import { Card, CardContent } from "@mui/material"
+import FolderIcon from '@mui/icons-material/Folder';
 import { Box } from "@mui/system"
 
 const SearchResult = (props) => {
 
   return (
-    <Box onClick={()=> props.GetPreview(props.path)} sx={{ display: 'flex', justifyContent: 'center', color: "white" }} >
-      <Card sx={{width: "500px", margin: "10px"}}><CardContent>{props.name.toLowerCase().charAt(0).toUpperCase() + props.name.toLowerCase().slice(1)}</CardContent></Card>
+    <Box onClick={()=> props.GetPreview(props.path)} sx={{  display: 'flex', justifyContent: 'center', color: "white" }} >
+      <Card sx={{ cursor:"pointer", width: "350px", margin: "10px", fontWeight:"bolder"}}><CardContent><FolderIcon sx={{marginRight: "10px"}}/>  {props.name.toLowerCase().charAt(0).toUpperCase() + props.name.toLowerCase().slice(1)}</CardContent></Card>
     </Box>
   )
 }
