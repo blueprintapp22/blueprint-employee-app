@@ -1,15 +1,19 @@
 import {
   AppBar,
+  Button,
   Checkbox,
-  FormControlLabel,
-  FormGroup,
+  CircularProgress,
   TextField,
   Toolbar,
   Typography
 } from '@mui/material'
 import { Box } from '@mui/system'
-import { styled, alpha } from '@mui/material/styles'
+import { styled } from '@mui/material/styles'
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone'
+import { SearchDropbox, GetPreview } from '../services/dropbox'
+import SearchResult from '../components/SearchResult'
+import { useState } from 'react'
+import { Dropbox } from 'dropbox'
 const inputProps = {
   id: 'input'
 }
@@ -30,6 +34,35 @@ const CssTextField = styled(TextField)({
   }
 })
 const SearchPage = () => {
+  const [searching, setSearching] = useState(false)
+  const [searchResult, setSearchResult] = useState(false)
+  const dbx = new Dropbox({
+    accessToken: process.env.REACT_APP_DBX_TOKEN
+  })
+
+  const SearchDropbox = (searchQuery) => {
+    setSearching(true)
+    dbx
+      .filesSearchV2({
+        query: searchQuery
+      })
+      .then((res) => {
+        setSearching(false)
+        setSearchResult(res.result.matches)
+        console.log(res.result.matches)
+      })
+  }
+  const GetPreview = (filePath) => {
+    console.log('Hit')
+    dbx
+      .filesGetPreview({
+        path: filePath
+      })
+      .then((res) => {
+        let downloadUrl = URL.createObjectURL(res.result.fileBlob)
+        window.open(downloadUrl)
+      })
+  }
   return (
     <div>
       <Box
@@ -40,7 +73,7 @@ const SearchPage = () => {
           flexDirection: 'column'
         }}
       >
-        <ContactPhoneIcon sx={{ fontSize: '200px', color: 'white' }} />
+        <ContactPhoneIcon sx={{ fontSize: '150px', color: 'white' }} />
         <Typography variant="h4" sx={{ color: 'white', fontWeight: 'bold' }}>
           Invoice Finder
         </Typography>
@@ -92,16 +125,44 @@ const SearchPage = () => {
               variant="outlined"
             />
           </Toolbar>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Show last current invoice"
-              />
-            </FormGroup>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Button
+              onClick={() => SearchDropbox('Jeff Levar')}
+              sx={{ margin: '20px', fontSize: '20px' }}
+            >
+              Search
+            </Button>
           </Box>
         </AppBar>
       </Box>
+      {searching ? (
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      ) : null}
+      {searchResult
+        ? searchResult.map((file) => (
+            <div key={file.metadata.metadata.id}>
+              <SearchResult
+                GetPreview={GetPreview}
+                path={file.metadata.metadata.path_lower}
+                name={file.metadata.metadata.name}
+              />
+            </div>
+          ))
+        : null}
     </div>
   )
 }
