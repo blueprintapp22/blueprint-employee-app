@@ -147,15 +147,45 @@ const SearchPage = () => {
         </Box>
       ) : null}
       {searchResult
-        ? searchResult.map((file) => (
-            <div key={file.metadata.metadata.id}>
-              <SearchResult
-                GetPreview={GetPreview}
-                path={file.metadata.metadata.path_lower}
-                name={file.metadata.metadata.name}
-              />
-            </div>
-          ))
+        ? searchResult
+            .filter(
+              (word) =>
+                !word.metadata.metadata.name
+                  .toLowerCase()
+                  .includes('payroll') &&
+                !word.metadata.metadata.name
+                  .toLowerCase()
+                  .includes('collection') &&
+                !word.metadata.metadata.name.toLowerCase().includes('tbp') &&
+                !word.metadata.metadata.name
+                  .toLowerCase()
+                  .includes('king of the hill') &&
+                !word.metadata.metadata.name
+                  .toLowerCase()
+                  .includes('undersold') &&
+                !word.metadata.metadata.name
+                  .toLowerCase()
+                  .includes('overdue') &&
+                !word.metadata.metadata.name.toLowerCase().includes('sales') &&
+                !word.metadata.metadata.name.toLowerCase().includes('cancel') &&
+                !word.metadata.metadata.name
+                  .toLowerCase()
+                  .includes('past due') &&
+                !word.metadata.metadata.name
+                  .toLowerCase()
+                  .includes('schedule') &&
+                !word.metadata.metadata.name.toLowerCase().includes('report') &&
+                !word.metadata.metadata.name.toLowerCase().includes('client')
+            )
+            .map((file) => (
+              <div key={file.metadata.metadata.id}>
+                <SearchResult
+                  GetPreview={GetPreview}
+                  path={file.metadata.metadata.path_lower}
+                  name={file.metadata.metadata.name}
+                />
+              </div>
+            ))
         : null}
     </div>
   )
