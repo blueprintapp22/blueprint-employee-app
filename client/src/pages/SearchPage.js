@@ -10,8 +10,8 @@ import { Box } from '@mui/system'
 import { styled } from '@mui/material/styles'
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone'
 import SearchResult from '../components/SearchResult'
-import { useState } from 'react'
-import { Dropbox } from 'dropbox'
+import { useEffect, useState } from 'react'
+import { Dropbox, DropboxAuth } from 'dropbox'
 const inputProps = {
   id: 'input'
 }
@@ -44,11 +44,14 @@ const SearchPage = () => {
   }
 
   const dbx = new Dropbox({
-    accessToken: process.env.REACT_APP_DBX_TOKEN
+    clientId: '90dgr7j93zv48ct',
+    clientSecret: process.env.REACT_APP_SECRET,
+    refreshToken: process.env.REACT_APP_REFRESH_TOKEN
   })
 
   const SearchDropbox = (searchQuery) => {
     setSearching(true)
+
     dbx
       .filesSearchV2({
         query: searchQuery
@@ -62,6 +65,7 @@ const SearchPage = () => {
         console.log(res.result.matches)
       })
   }
+
   const GetPreview = (filePath) => {
     console.log('Hit')
     dbx
@@ -73,6 +77,8 @@ const SearchPage = () => {
         window.open(downloadUrl)
       })
   }
+
+  useEffect(() => {}, [])
   return (
     <div>
       <Box
@@ -190,4 +196,5 @@ const SearchPage = () => {
     </div>
   )
 }
+
 export default SearchPage
