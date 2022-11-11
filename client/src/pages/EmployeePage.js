@@ -18,7 +18,6 @@ const EmployeePage = ({ user, authenticated }) => {
 
   useEffect(() => {
     getEmployees()
-    console.log(user, authenticated)
   }, [removeModal, accessModal])
 
   if (employeeData && authenticated && user.admin) {

@@ -7,7 +7,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
 import logo from '../images/bplogo.png'
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
@@ -15,6 +14,10 @@ import { Button } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
 import GroupsIcon from '@mui/icons-material/Groups'
+import PinIcon from '@mui/icons-material/Pin';
+import PincodeModal from './PincodeModal';
+import QuickbooksModal from './QuickbooksModal';
+import FactCheckIcon from '@mui/icons-material/FactCheck';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -63,6 +66,8 @@ export default function SearchAppBar(props) {
   const [loginModal, setLoginModal] = useState(false);
   const [logoutModal, setLogoutModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
+  const [pincodeModal, setPincodeModal] = useState(false);
+  const [quickbooksModal, setQuickbooksModal] = useState(false);
   let navigate = useNavigate()
   
 
@@ -103,20 +108,18 @@ export default function SearchAppBar(props) {
               <div id="welcome-text">Welcome {props.user.fullName}! <LogoutIcon onClick={props.handleLogOut} sx={{color: "white", fontSize:"30px", marginTop: "3px", marginLeft: "10px", cursor: "pointer", '&:hover': {opacity: "0.5", transform: "translateY(2px)"}, }}/></div> 
               : <Button onClick={()=>setLoginModal(true)} sx={{color: "white", fontSize:"20px"}}>Login</Button>}
             </Typography>
-            {props.authenticated && props.user.admin ? 
-             <GroupsIcon sx={{fontSize: "45px", color: "white",cursor: "pointer",'&:hover': {color: "#3f51b5",opacity: [0.9, 0.8, 0.7],}}} onClick={()=>navigate('/employees')}/> 
+            {props.authenticated && props.user.access ? 
+            <div>
+              <FactCheckIcon sx={{fontSize: "45px", color: "white",cursor: "pointer", marginRight: "10px", '&:hover': {color: "#3f51b5",opacity: [0.9, 0.8, 0.7],}}} onClick={()=>setQuickbooksModal(true)}/> 
+            </div>
               : <div></div>}
-            <Search>
-            
-              <SearchIconWrapper>
-                <SearchIcon sx={{fontSize: "35px", color: "white"}} />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search invoices…"
-                inputProps={{ 'aria-label': 'search' }}
-                sx={{fontSize:"20px"}}
-              />
-            </Search>
+            {props.authenticated && props.user.admin ? 
+            <div>
+              <GroupsIcon sx={{fontSize: "45px", color: "white",cursor: "pointer",'&:hover': {color: "#3f51b5",opacity: [0.9, 0.8, 0.7],}}} onClick={()=>navigate('/employees')}/> 
+              <PinIcon sx={{fontSize: "45px", color: "white",cursor: "pointer", marginLeft: "10px",'&:hover': {color: "#3f51b5",opacity: [0.9, 0.8, 0.7],}}} onClick={()=>setPincodeModal(true)}/>
+            </div>
+              : <div></div>}
+              
           </Toolbar>
         </AppBar>
       </Box>
@@ -136,7 +139,14 @@ export default function SearchAppBar(props) {
         setLoginModal={setLoginModal}
         setSignUpModal={setSignUpModal}
         />
-
+      <PincodeModal
+        pincodeModal={pincodeModal}
+        setPincodeModal={setPincodeModal}
+      />
+      <QuickbooksModal
+        quickbooksModal={quickbooksModal}
+        setQuickbooksModal={setQuickbooksModal}
+      />
     </div>
   );
 }

@@ -35,7 +35,6 @@ function LoginModal({loginModal, handleModalClose, setSignUpModal, setLoginModal
   
   
   const handleUpdateFormChange = (prop) => (event) => {
-    console.log(event.target.value)
     setFormValue({ ...formValue, [prop]: event.target.value })
   }
   const handleSignUpModal = () => {
@@ -130,6 +129,7 @@ function LoginModal({loginModal, handleModalClose, setSignUpModal, setLoginModal
 
           
           <Button
+            disabled={!formValue.userName || !formValue.password}
             onClick={(e)=>handleLoginSubmit(e)}
             >
             Login

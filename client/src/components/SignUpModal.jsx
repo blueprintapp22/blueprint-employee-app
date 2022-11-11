@@ -204,6 +204,7 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
               />
             
             <Button 
+            disabled={!formValue.userName || !formValue.password || !formValue.confirmPassword || !formValue.email || !formValue.fullName}
             onClick={()=>handleSignUpSubmit()}
             >
               Sign Up!
