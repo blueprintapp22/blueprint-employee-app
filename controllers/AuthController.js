@@ -1,4 +1,4 @@
-const User = require('/home/ubuntu/blueprint-employee-app/models/User')
+const User = require('../models/User')
 const middleware = require('../middleware')
 
 const Login = async (req, res) => {
