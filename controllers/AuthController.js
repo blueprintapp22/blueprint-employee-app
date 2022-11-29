@@ -5,7 +5,7 @@ const Login = async (req, res) => {
   try {
     const user = await User.findOne({ userName: req.body.userName })
 
-    console.log('User:' + user.passwordDigest)
+    // console.log('User:' + user.passwordDigest)
     if (
       user &&
       (await middleware.comparePassword(user.passwordDigest, req.body.password))
