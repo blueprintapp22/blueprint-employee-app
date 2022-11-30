@@ -1,50 +1,81 @@
 const { compareSync } = require('bcrypt')
 const Quickbooks = require('node-quickbooks')
 const OAuthClient = require('intuit-oauth')
-const axios = require('axios')
 
-// let clientId = 'ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc'
-// let clientSecret = 'MrLZSS6qFawcQdFahSIE6a5aGoPfjYWYHe62Cztl'
+let oauthToken = null
 
-let realmId = '1342692165'
-let oauthToken = ''
-let refreshToken = ''
-
-const oauthClient = new OAuthClient({
-  clientId: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
-  environment: 'production',
-  redirectUri: 'https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl',
-  logging: true
-})
-
-let qbo = new Quickbooks(
-  process.env.CLIENT_ID,
-  process.env.CLIENT_SECRET,
-  oauthToken,
-  false,
-  realmId,
-  false,
-  true,
-  null,
-  '2.0',
-  refreshToken
-)
+let oauthClient = null
+let qbo = null
 
 const GetToken = async (req, res) => {
   try {
-    const res = await axios.post(
-      `https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer?grant_type=authorization_code&code=${process.env.INTUIT_AUTH_CODE}&redirect_uri=${OAuthClient.redirectUri}`,
-      {
-        headers: {
-          Authorization:
-            'Basic QUJQa2g2VExKNldyYldQR2ExYW9XZkxQM051c0hOd2dQMzNiWDhxMjZ5Vm5CVDUwUGM6TXJMWlNTNnFGYXdjUWRGYWhTSUU2YTVhR29QZmpZV1lIZTYyQ3p0bA'
-        }
-      }
+    oauthClient = new OAuthClient({
+      clientId: 'ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs',
+      clientSecret: 'e24Mns5EUOCFaNjLX95SXPXhW42qZECmhxteuuDs',
+      environment: 'sandbox',
+      redirectUri: 'http://localhost:3001/bea/quickbooks/callback',
+      logging: true
+    })
+
+    const authUri = oauthClient.authorizeUri({
+      scope: [OAuthClient.scopes.Accounting],
+      state: 'intuit-test'
+    })
+
+    res.redirect(authUri)
+  } catch (error) {
+    throw error
+  }
+}
+
+const Callback = async (req, res) => {
+  try {
+    await oauthClient.createToken(req.url).then(function (authResponse) {
+      oauthToken = JSON.stringify(authResponse.getJson(), null, 2)
+    })
+
+    qbo = new Quickbooks(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      oauthClient.getToken().access_token,
+      false,
+      oauthClient.getToken().realmId,
+      false,
+      true,
+      null,
+      '2.0',
+      oauthClient.getToken().refresh_token
     )
 
-    console.log(res)
-    return res
+    console.log(qbo)
+
+    res.redirect('http://localhost:3000')
+  } catch (error) {
+    throw error
+  }
+}
+
+const RefreshAccessToken = (req, res) => {
+  try {
+    console.log('oauth Client: ', oauthClient)
+    oauthClient.refresh().then(function (authResponse) {
+      oauthToken = JSON.stringify(authResponse.getJson(), null, 2)
+    })
+    qbo = new Quickbooks(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      oauthClient.getToken().access_token,
+      false,
+      oauthClient.getToken().realmId,
+      false,
+      true,
+      null,
+      '2.0',
+      oauthClient.getToken().refresh_token
+    )
+
+    console.log(qbo)
+    res.send(oauthToken)
   } catch (error) {
     throw error
   }
@@ -84,5 +115,7 @@ const InvoiceChecker = (req, res) => {
 module.exports = {
   BusinessGetter,
   InvoiceChecker,
-  GetToken
+  GetToken,
+  Callback,
+  RefreshAccessToken
 }

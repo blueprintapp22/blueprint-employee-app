@@ -1,14 +1,21 @@
-import { useState } from 'react'
-import { Box, Button,    Checkbox,    Modal, Switch, TextField, Typography} from '@mui/material'
+import { useState, useEffect } from 'react'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Modal,
+  Switch,
+  TextField,
+  Typography
+} from '@mui/material'
 import axios from 'axios'
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import { useEffect } from 'react';
+import FactCheckIcon from '@mui/icons-material/FactCheck'
 import { styled } from '@mui/material/styles'
-const inputProps ={
-  id: "input"
+const inputProps = {
+  id: 'input'
 }
-const inputLabelProps ={
-  id: "input"
+const inputLabelProps = {
+  id: 'input'
 }
 const CssTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
@@ -23,26 +30,37 @@ const CssTextField = styled(TextField)({
     }
   }
 })
-function QuickbooksModal({quickbooksModal, setQuickbooksModal}) {
+function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   const [clicked, setClicked] = useState(false)
   const [custNum, setCustNum] = useState(false)
   const [invoiceData, setInvoiceData] = useState(false)
   const [checked, setChecked] = useState(false)
   const [formValue, setFormValue] = useState({
-    docNum: ""
+    docNum: ''
   })
-  const handleChange  = (event) => {
+  const handleChange = (event) => {
     setClicked(true)
-    setFormValue({ ...formValue, ["docNum"]: event.target.value})
+    setFormValue({ ...formValue, ['docNum']: event.target.value })
   }
+  useEffect(() => {
+    refreshToken()
+  }, [quickbooksModal])
 
+  const refreshToken = async () => {
+    let token = axios.get(`http://localhost:3001/bea/quickbooks/refresh`)
+    console.log('token: ', token)
+  }
   const checkInvoice = async (id) => {
-    let code = await axios.get(`http://localhost:3001/bea/quickbooks/business/${id}`)
+    let code = await axios.get(
+      `http://localhost:3001/bea/quickbooks/business/${id}`
+    )
     setCustNum(code)
     console.log(code)
   }
   const getData = async (id) => {
-    let code = await axios.get(`http://localhost:3001/bea/quickbooks/invoice/${id}`)
+    let code = await axios.get(
+      `http://localhost:3001/bea/quickbooks/invoice/${id}`
+    )
     setInvoiceData(code)
     console.log(code)
   }
@@ -52,18 +70,17 @@ function QuickbooksModal({quickbooksModal, setQuickbooksModal}) {
     setClicked(false)
     setCustNum(false)
     setInvoiceData(false)
-    setFormValue({ ...formValue, ["docNum"]: ""})
+    setFormValue({ ...formValue, ['docNum']: '' })
   }
 
-return (
+  return (
     <div>
       <Modal
         open={quickbooksModal}
         onClose={() => closeQuickbooksModal()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-
-        >
+      >
         <Box
           sx={{
             position: 'absolute',
@@ -79,92 +96,104 @@ return (
         >
           <Box
             sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            textAlign: "center"
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              textAlign: 'center'
             }}
           >
             <FactCheckIcon
               sx={{
                 color: 'white',
-                fontSize: "70px",
-                marginBottom: "10px"
-                }}
+                fontSize: '70px',
+                marginBottom: '10px'
+              }}
             />
-            <Typography 
-              variant="h6" 
+            <Typography
+              variant="h6"
               sx={{
-                color: "white"
-                }}
+                color: 'white'
+              }}
             >
               Check invoice status
             </Typography>
 
-          
-                <CssTextField
-                  inputProps={inputProps}
-                  InputLabelProps={inputLabelProps}
-                  id="outlined-basic"
-                  label="Invoice #"
-                  variant="outlined"
-                  value={formValue.docNum}
-                  onChange={handleChange}
-                  sx={{margin: "15px"}}
-                  
-                /> 
-                {custNum ? 
-                <Button disabled={invoiceData ? true : false }onClick={()=>getData(custNum.data)}>Get data</Button>
-                :
-                <Button onClick={()=>checkInvoice(formValue.docNum)}>Check Invoice</Button>
-                }
-                {invoiceData ?
-                <Box>             
-                  <Typography variant="h6"  sx={{color: "white"}}>{invoiceData.data[0].CustomerRef.name}</Typography>
-                  <Typography variant="h6"  sx={{color: "white"}}># of Invoices: {invoiceData.data.length}</Typography>
-                </Box>
-                : null}
-                {invoiceData ?
-                <Box
+            <CssTextField
+              inputProps={inputProps}
+              InputLabelProps={inputLabelProps}
+              id="outlined-basic"
+              label="Invoice #"
+              variant="outlined"
+              value={formValue.docNum}
+              onChange={handleChange}
+              sx={{ margin: '15px' }}
+            />
+            {custNum ? (
+              <Button
+                disabled={invoiceData ? true : false}
+                onClick={() => getData(custNum.data)}
+              >
+                Get data
+              </Button>
+            ) : (
+              <Button onClick={() => checkInvoice(formValue.docNum)}>
+                Check Invoice
+              </Button>
+            )}
+            {invoiceData ? (
+              <Box>
+                <Typography variant="h6" sx={{ color: 'white' }}>
+                  {invoiceData.data[0].CustomerRef.name}
+                </Typography>
+                <Typography variant="h6" sx={{ color: 'white' }}>
+                  # of Invoices: {invoiceData.data.length}
+                </Typography>
+              </Box>
+            ) : null}
+            {invoiceData ? (
+              <Box
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexDirection: 'column',
-                  textAlign: "center",
-                  height: "200px",
-                  overflow: "auto",
-                  whiteSpace: 'nowrap',
-                  
-                  }}
-                >             
-                  {invoiceData.data.map((invoice)=>(
+                  textAlign: 'center',
+                  height: '200px',
+                  overflow: 'auto',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                {invoiceData.data.map((invoice) => (
                   <Box
                     sx={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexDirection: 'column',
-                      textAlign: "center",
-                      margin: "15px",
-                      width: "150px"
-
-                      }}
-                    >   
-                    <Typography variant="h7" sx={{color: "white"}}>Date: {invoice.TxnDate}</Typography>
-                    <Typography variant="h7"  sx={{color: "white"}}>Invoice #: {invoice.DocNumber} </Typography>
-                    <Typography variant="h7"  sx={{color: "white"}}>Balance: {invoice.Balance}</Typography>
-                    </Box>
-                  ))}
-                </Box>
-                : null}
+                      textAlign: 'center',
+                      margin: '15px',
+                      width: '150px'
+                    }}
+                  >
+                    <Typography variant="h7" sx={{ color: 'white' }}>
+                      Date: {invoice.TxnDate}
+                    </Typography>
+                    <Typography variant="h7" sx={{ color: 'white' }}>
+                      Invoice #: {invoice.DocNumber}{' '}
+                    </Typography>
+                    <Typography variant="h7" sx={{ color: 'white' }}>
+                      Balance: {invoice.Balance}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            ) : null}
           </Box>
         </Box>
       </Modal>
     </div>
-    )
-  }
- 
+  )
+}
 
-export default QuickbooksModal;
+export default QuickbooksModal
