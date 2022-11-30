@@ -42,9 +42,9 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
     setClicked(true)
     setFormValue({ ...formValue, ['docNum']: event.target.value })
   }
-  useEffect(() => {
-    refreshToken()
-  }, [quickbooksModal])
+  // useEffect(() => {
+  //   refreshToken()
+  // }, [quickbooksModal])
 
   const refreshToken = async () => {
     let token = axios.get(`http://localhost:3001/bea/quickbooks/refresh`)
@@ -66,6 +66,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   }
 
   const closeQuickbooksModal = () => {
+    refreshToken()
     setQuickbooksModal(false)
     setClicked(false)
     setCustNum(false)

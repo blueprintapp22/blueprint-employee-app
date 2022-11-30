@@ -4,19 +4,17 @@ const OAuthClient = require('intuit-oauth')
 
 let oauthToken = null
 
-let oauthClient = null
 let qbo = null
 
-const GetToken = async (req, res) => {
+let oauthClient = new OAuthClient({
+  clientId: 'ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs',
+  clientSecret: 'e24Mns5EUOCFaNjLX95SXPXhW42qZECmhxteuuDs',
+  environment: 'sandbox',
+  redirectUri: 'http://localhost:3001/bea/quickbooks/callback',
+  logging: true
+})
+const GetToken = (req, res) => {
   try {
-    oauthClient = new OAuthClient({
-      clientId: 'ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs',
-      clientSecret: 'e24Mns5EUOCFaNjLX95SXPXhW42qZECmhxteuuDs',
-      environment: 'sandbox',
-      redirectUri: 'http://localhost:3001/bea/quickbooks/callback',
-      logging: true
-    })
-
     const authUri = oauthClient.authorizeUri({
       scope: [OAuthClient.scopes.Accounting],
       state: 'intuit-test'
@@ -57,7 +55,6 @@ const Callback = async (req, res) => {
 
 const RefreshAccessToken = (req, res) => {
   try {
-    console.log('oauth Client: ', oauthClient)
     oauthClient.refresh().then(function (authResponse) {
       oauthToken = JSON.stringify(authResponse.getJson(), null, 2)
     })
@@ -74,8 +71,7 @@ const RefreshAccessToken = (req, res) => {
       oauthClient.getToken().refresh_token
     )
 
-    console.log(qbo)
-    res.send(oauthToken)
+    res.send(oauthToken.data)
   } catch (error) {
     throw error
   }

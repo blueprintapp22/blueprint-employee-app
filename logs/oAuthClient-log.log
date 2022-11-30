@@ -757,3 +757,289 @@
   },
   "intuit_tid": "1-6387a815-6eb5fbd1445cc43401c55db4"
 }
+2022-11-30T19:59:33.815Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2022-11-30T20:00:20.466Z error: Refresh Token () threw an exception : {}
+2022-11-30T20:02:33.854Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2022-11-30T20:02:36.847Z info: Create Token response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..5U8i1tf2Av6u9D0zac84xg.EvzV1VATABIeEYMCcYhFVbwdV02a-xEEFmzX1e5GTdGfNEeIh1rlyZYmHjjEP2Te_QNdcHIQ2P2Yfx_CVuV0YOmfQuGAaKsrvne3ZSenOECK212fLlgwmDVc0s88TFqUQmISVXtT6YHzYwm2IUj9ybwSxmKx_G8s-b_m1nY2peG-LjVuP6olw7ocXbF8iovpMiUMarDqvoVSE-1d9utSLCwNJ96cuVk3IqbRiSVoBHd8ab12c4u3SQCP7PWls6pVB47NOB2ydMviYHuMOtfGt4Jrj7Y-jQo2VZzIAquQaq99X-GlkB3yjBINiji4subNlRp01hWEjZ1Dao4w-GbdbPLMUhegLX2nxPfVjjqipp0gjNgVSKbQPC1EUeOc-ainvE7_lpAmniu0fQCKNbxYY9S8sm3xEMilzpplvIsOOZnH6eGbGnU0HGxb-pwT0ueSYdeGQzfMp4X9v1hijbuVBJ9HdxTSCqZLVJ6VqzYkClJdW1XA4SSKoN0h0WiQwFzC225miJLtOsMDvl7kstmVej6uiMEzvXRGsjJ1ihasmr91iniPkYTVEMCGTeidNkW0tC91E5_83Ep45543CCyqB6utU24bmZhJd5BG55KnwLPajK6v_LwzHtJZBZemBwa6l43tGx8kC7g1OHlFLa65bFP7H4lN1nOwDn7GRv6T9OOBE1LdO65OWNRcREOiYFJOJkelqNQP41VTwU5GUqn-45v4Z4sDC2s-Yf0OKB7j_IM.qKBbGs9A55ZqIqSBgtpaog",
+    "refresh_token": "AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726400,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1669838556847,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Wed, 30 Nov 2022 20:02:36 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-6387b6dc-0179919a53eb325d748d9e82",
+      "x-spanid": "9bf74910-22c5-4005-9f71-3edf5b598016",
+      "x-amzn-trace-id": "Root=1-6387b6dc-0179919a53eb325d748d9e82",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "26",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..5U8i1tf2Av6u9D0zac84xg.EvzV1VATABIeEYMCcYhFVbwdV02a-xEEFmzX1e5GTdGfNEeIh1rlyZYmHjjEP2Te_QNdcHIQ2P2Yfx_CVuV0YOmfQuGAaKsrvne3ZSenOECK212fLlgwmDVc0s88TFqUQmISVXtT6YHzYwm2IUj9ybwSxmKx_G8s-b_m1nY2peG-LjVuP6olw7ocXbF8iovpMiUMarDqvoVSE-1d9utSLCwNJ96cuVk3IqbRiSVoBHd8ab12c4u3SQCP7PWls6pVB47NOB2ydMviYHuMOtfGt4Jrj7Y-jQo2VZzIAquQaq99X-GlkB3yjBINiji4subNlRp01hWEjZ1Dao4w-GbdbPLMUhegLX2nxPfVjjqipp0gjNgVSKbQPC1EUeOc-ainvE7_lpAmniu0fQCKNbxYY9S8sm3xEMilzpplvIsOOZnH6eGbGnU0HGxb-pwT0ueSYdeGQzfMp4X9v1hijbuVBJ9HdxTSCqZLVJ6VqzYkClJdW1XA4SSKoN0h0WiQwFzC225miJLtOsMDvl7kstmVej6uiMEzvXRGsjJ1ihasmr91iniPkYTVEMCGTeidNkW0tC91E5_83Ep45543CCyqB6utU24bmZhJd5BG55KnwLPajK6v_LwzHtJZBZemBwa6l43tGx8kC7g1OHlFLa65bFP7H4lN1nOwDn7GRv6T9OOBE1LdO65OWNRcREOiYFJOJkelqNQP41VTwU5GUqn-45v4Z4sDC2s-Yf0OKB7j_IM.qKBbGs9A55ZqIqSBgtpaog\",\"refresh_token\":\"AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq\",\"x_refresh_token_expires_in\":8726400,\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..5U8i1tf2Av6u9D0zac84xg.EvzV1VATABIeEYMCcYhFVbwdV02a-xEEFmzX1e5GTdGfNEeIh1rlyZYmHjjEP2Te_QNdcHIQ2P2Yfx_CVuV0YOmfQuGAaKsrvne3ZSenOECK212fLlgwmDVc0s88TFqUQmISVXtT6YHzYwm2IUj9ybwSxmKx_G8s-b_m1nY2peG-LjVuP6olw7ocXbF8iovpMiUMarDqvoVSE-1d9utSLCwNJ96cuVk3IqbRiSVoBHd8ab12c4u3SQCP7PWls6pVB47NOB2ydMviYHuMOtfGt4Jrj7Y-jQo2VZzIAquQaq99X-GlkB3yjBINiji4subNlRp01hWEjZ1Dao4w-GbdbPLMUhegLX2nxPfVjjqipp0gjNgVSKbQPC1EUeOc-ainvE7_lpAmniu0fQCKNbxYY9S8sm3xEMilzpplvIsOOZnH6eGbGnU0HGxb-pwT0ueSYdeGQzfMp4X9v1hijbuVBJ9HdxTSCqZLVJ6VqzYkClJdW1XA4SSKoN0h0WiQwFzC225miJLtOsMDvl7kstmVej6uiMEzvXRGsjJ1ihasmr91iniPkYTVEMCGTeidNkW0tC91E5_83Ep45543CCyqB6utU24bmZhJd5BG55KnwLPajK6v_LwzHtJZBZemBwa6l43tGx8kC7g1OHlFLa65bFP7H4lN1nOwDn7GRv6T9OOBE1LdO65OWNRcREOiYFJOJkelqNQP41VTwU5GUqn-45v4Z4sDC2s-Yf0OKB7j_IM.qKBbGs9A55ZqIqSBgtpaog\",\"refresh_token\":\"AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq\",\"x_refresh_token_expires_in\":8726400,\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..5U8i1tf2Av6u9D0zac84xg.EvzV1VATABIeEYMCcYhFVbwdV02a-xEEFmzX1e5GTdGfNEeIh1rlyZYmHjjEP2Te_QNdcHIQ2P2Yfx_CVuV0YOmfQuGAaKsrvne3ZSenOECK212fLlgwmDVc0s88TFqUQmISVXtT6YHzYwm2IUj9ybwSxmKx_G8s-b_m1nY2peG-LjVuP6olw7ocXbF8iovpMiUMarDqvoVSE-1d9utSLCwNJ96cuVk3IqbRiSVoBHd8ab12c4u3SQCP7PWls6pVB47NOB2ydMviYHuMOtfGt4Jrj7Y-jQo2VZzIAquQaq99X-GlkB3yjBINiji4subNlRp01hWEjZ1Dao4w-GbdbPLMUhegLX2nxPfVjjqipp0gjNgVSKbQPC1EUeOc-ainvE7_lpAmniu0fQCKNbxYY9S8sm3xEMilzpplvIsOOZnH6eGbGnU0HGxb-pwT0ueSYdeGQzfMp4X9v1hijbuVBJ9HdxTSCqZLVJ6VqzYkClJdW1XA4SSKoN0h0WiQwFzC225miJLtOsMDvl7kstmVej6uiMEzvXRGsjJ1ihasmr91iniPkYTVEMCGTeidNkW0tC91E5_83Ep45543CCyqB6utU24bmZhJd5BG55KnwLPajK6v_LwzHtJZBZemBwa6l43tGx8kC7g1OHlFLa65bFP7H4lN1nOwDn7GRv6T9OOBE1LdO65OWNRcREOiYFJOJkelqNQP41VTwU5GUqn-45v4Z4sDC2s-Yf0OKB7j_IM.qKBbGs9A55ZqIqSBgtpaog",
+    "refresh_token": "AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq",
+    "x_refresh_token_expires_in": 8726400,
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-6387b6dc-0179919a53eb325d748d9e82"
+}
+2022-11-30T20:13:36.348Z info: Refresh Token () response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..I-1RE44hsCrvZN1XWhcNLw.3HuHoPbTRHF5FnSn_U5ylDLrQF884f7ebhIHbygGtNjqTFFq7pmNqSBDFV_ecyTFI-bixg8g8JFz8w-_GtTOnB2YufBuCPGn64nHJa0b1oFAgOkkuY1FjrBfbE-yEV6Ju2JwZWonZVM3oHCei2BdqmPao1ngacIuS0yViIE-VuwU2Q-9oUdMoaDh74_UbtiV44nHNSCNLOYF-D8CWO-HOiVxSBfNXYJUlPAunCEpG9YR7i8c-RlBM2QzMaWHViMzDAlK64dT4LSY9SEu6dHHBLgQ8gD1p2e-3GDhkvYRMLJA9-SI00ssJot8kkEP10QWyMkayW9FpCWlZOyDfpvHWWO6bt43-rLYehktxaYGBVjx61kqcgkUCtZKDnh3ND47s5BsdkliMVvLLpgzvlr2q6RYdHHWngCUYs_w0TiGOQkELLfdKNJfoMXU-A0rwxRCdaxrGo38ZqSaj35k9l-NaVSRd9G8DTI6PnqjrSu37p3Or4-uYxU8EDZjPaNJq9qJClmrS4-KCUEiox3UNbM2o_XB6uIMXUIkKiuX6QLIAsgfvMLqgIVPTgfNOsMUr96TGq4rOJsSbM3WcMad-T8CIiEKQ4YVo128fZrgXJZ0m3kOHSyoOTI-klzfe-Chxn5r8EEsTaLisd-u2Z4iB5TG2h2JMCrP3DNhjGPO7_Nt_0eYJ511tT1IGpAI_oxibrrTQmgz-xRdUknAtJT7MV3kxU_Q8Y6YBNYvFPDzhSRV4Rs.x4Uk1Wa5HwERZxTFMkvWAA",
+    "refresh_token": "AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8725741,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1669839216348,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Wed, 30 Nov 2022 20:13:36 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-6387b970-24933e5e18d92d3622ffc284",
+      "x-spanid": "9378ba1e-ca3b-40b1-b354-ed75fbb76cc6",
+      "x-amzn-trace-id": "Root=1-6387b970-24933e5e18d92d3622ffc284",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "28",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..I-1RE44hsCrvZN1XWhcNLw.3HuHoPbTRHF5FnSn_U5ylDLrQF884f7ebhIHbygGtNjqTFFq7pmNqSBDFV_ecyTFI-bixg8g8JFz8w-_GtTOnB2YufBuCPGn64nHJa0b1oFAgOkkuY1FjrBfbE-yEV6Ju2JwZWonZVM3oHCei2BdqmPao1ngacIuS0yViIE-VuwU2Q-9oUdMoaDh74_UbtiV44nHNSCNLOYF-D8CWO-HOiVxSBfNXYJUlPAunCEpG9YR7i8c-RlBM2QzMaWHViMzDAlK64dT4LSY9SEu6dHHBLgQ8gD1p2e-3GDhkvYRMLJA9-SI00ssJot8kkEP10QWyMkayW9FpCWlZOyDfpvHWWO6bt43-rLYehktxaYGBVjx61kqcgkUCtZKDnh3ND47s5BsdkliMVvLLpgzvlr2q6RYdHHWngCUYs_w0TiGOQkELLfdKNJfoMXU-A0rwxRCdaxrGo38ZqSaj35k9l-NaVSRd9G8DTI6PnqjrSu37p3Or4-uYxU8EDZjPaNJq9qJClmrS4-KCUEiox3UNbM2o_XB6uIMXUIkKiuX6QLIAsgfvMLqgIVPTgfNOsMUr96TGq4rOJsSbM3WcMad-T8CIiEKQ4YVo128fZrgXJZ0m3kOHSyoOTI-klzfe-Chxn5r8EEsTaLisd-u2Z4iB5TG2h2JMCrP3DNhjGPO7_Nt_0eYJ511tT1IGpAI_oxibrrTQmgz-xRdUknAtJT7MV3kxU_Q8Y6YBNYvFPDzhSRV4Rs.x4Uk1Wa5HwERZxTFMkvWAA\",\"refresh_token\":\"AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq\",\"x_refresh_token_expires_in\":8725741,\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..I-1RE44hsCrvZN1XWhcNLw.3HuHoPbTRHF5FnSn_U5ylDLrQF884f7ebhIHbygGtNjqTFFq7pmNqSBDFV_ecyTFI-bixg8g8JFz8w-_GtTOnB2YufBuCPGn64nHJa0b1oFAgOkkuY1FjrBfbE-yEV6Ju2JwZWonZVM3oHCei2BdqmPao1ngacIuS0yViIE-VuwU2Q-9oUdMoaDh74_UbtiV44nHNSCNLOYF-D8CWO-HOiVxSBfNXYJUlPAunCEpG9YR7i8c-RlBM2QzMaWHViMzDAlK64dT4LSY9SEu6dHHBLgQ8gD1p2e-3GDhkvYRMLJA9-SI00ssJot8kkEP10QWyMkayW9FpCWlZOyDfpvHWWO6bt43-rLYehktxaYGBVjx61kqcgkUCtZKDnh3ND47s5BsdkliMVvLLpgzvlr2q6RYdHHWngCUYs_w0TiGOQkELLfdKNJfoMXU-A0rwxRCdaxrGo38ZqSaj35k9l-NaVSRd9G8DTI6PnqjrSu37p3Or4-uYxU8EDZjPaNJq9qJClmrS4-KCUEiox3UNbM2o_XB6uIMXUIkKiuX6QLIAsgfvMLqgIVPTgfNOsMUr96TGq4rOJsSbM3WcMad-T8CIiEKQ4YVo128fZrgXJZ0m3kOHSyoOTI-klzfe-Chxn5r8EEsTaLisd-u2Z4iB5TG2h2JMCrP3DNhjGPO7_Nt_0eYJ511tT1IGpAI_oxibrrTQmgz-xRdUknAtJT7MV3kxU_Q8Y6YBNYvFPDzhSRV4Rs.x4Uk1Wa5HwERZxTFMkvWAA\",\"refresh_token\":\"AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq\",\"x_refresh_token_expires_in\":8725741,\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..I-1RE44hsCrvZN1XWhcNLw.3HuHoPbTRHF5FnSn_U5ylDLrQF884f7ebhIHbygGtNjqTFFq7pmNqSBDFV_ecyTFI-bixg8g8JFz8w-_GtTOnB2YufBuCPGn64nHJa0b1oFAgOkkuY1FjrBfbE-yEV6Ju2JwZWonZVM3oHCei2BdqmPao1ngacIuS0yViIE-VuwU2Q-9oUdMoaDh74_UbtiV44nHNSCNLOYF-D8CWO-HOiVxSBfNXYJUlPAunCEpG9YR7i8c-RlBM2QzMaWHViMzDAlK64dT4LSY9SEu6dHHBLgQ8gD1p2e-3GDhkvYRMLJA9-SI00ssJot8kkEP10QWyMkayW9FpCWlZOyDfpvHWWO6bt43-rLYehktxaYGBVjx61kqcgkUCtZKDnh3ND47s5BsdkliMVvLLpgzvlr2q6RYdHHWngCUYs_w0TiGOQkELLfdKNJfoMXU-A0rwxRCdaxrGo38ZqSaj35k9l-NaVSRd9G8DTI6PnqjrSu37p3Or4-uYxU8EDZjPaNJq9qJClmrS4-KCUEiox3UNbM2o_XB6uIMXUIkKiuX6QLIAsgfvMLqgIVPTgfNOsMUr96TGq4rOJsSbM3WcMad-T8CIiEKQ4YVo128fZrgXJZ0m3kOHSyoOTI-klzfe-Chxn5r8EEsTaLisd-u2Z4iB5TG2h2JMCrP3DNhjGPO7_Nt_0eYJ511tT1IGpAI_oxibrrTQmgz-xRdUknAtJT7MV3kxU_Q8Y6YBNYvFPDzhSRV4Rs.x4Uk1Wa5HwERZxTFMkvWAA",
+    "refresh_token": "AB11678564956Tpk3jImDiFhba9W2yWynW7aW11Z8VZ2YsnZDq",
+    "x_refresh_token_expires_in": 8725741,
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-6387b970-24933e5e18d92d3622ffc284"
+}
+2022-11-30T20:16:30.984Z error: Refresh Token () threw an exception : {}
+2022-11-30T20:20:40.849Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2022-11-30T20:20:44.971Z info: Create Token response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..7hloWGDsFC1oQmnUm3kdPA.URgUEfGfnsQj2WihNR2yQV968zCE2VQ2Ud93cKN7YTmx3Rrip_KTNI3CRvxg8Dw2g_SApCNyVD4G0_tC6p_zuc5tUvhPLfnBp3WdP8ZWZ3WI6Rth2N6PV_Wauy3cHrTo6FQM3RmQdczeAVyh6R833OQFsVjTXuXud6DuyvJyXSgQnzUYPeyiFsQ_CGRfrl_KUYirC8vsVSzraBUma3JcaQyfapEN-wKVq2n5YXpV9ppti1cWWH8et2UauLhra2AfbaRORAEzYswKD48uAYvj7-FM-gYSMcnd5R2X3xIoSzGfUP7O34O4A9tyV_DT5WGz74XZ5MOj6OEvMXYzTikI8m2jvP0Eg47LJ6a9W78dKW4789M59EtBUyccdLIk5efy93plgyWnoMTVOW30aE0_2ErOFDVv0hODejtE-BoYuwM5T2Fl4-4gBDU1Jd1UlbfoxYJhXYkBABHV_y8o_3GQ6tq37ix_7h1pCZ385GQNVqx9tgKakAFSYqVOpkiZK-tx5M_NbbqIPG8gXSNrqa04Y8oHmp9dPe6d2nA-5rS5IOmGALONMfvWLw2OAKKDXZUhZXapePDFotzgrWg-8UOKIjR6NkovI6xVejX1EioXr5_C9rR5mZAeG46UY-PsJ2ks71uF7aQ437sRhelsRoIctP8cCb2YD-VUu50vFstvHyGseNFyydaW2rIbkMyzbCCgsdGdL64Gm0zM9JubZsXPL5tyBIVfhQld2teIi8RTWrc.hU5tES1X86A9T0SzgQWYEg",
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726400,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1669839644971,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Wed, 30 Nov 2022 20:20:44 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-6387bb1c-4f2a889749af29c67f45355a",
+      "x-spanid": "c627d0f5-969e-47d7-8b8c-e26133965b44",
+      "x-amzn-trace-id": "Root=1-6387bb1c-4f2a889749af29c67f45355a",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "19",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..7hloWGDsFC1oQmnUm3kdPA.URgUEfGfnsQj2WihNR2yQV968zCE2VQ2Ud93cKN7YTmx3Rrip_KTNI3CRvxg8Dw2g_SApCNyVD4G0_tC6p_zuc5tUvhPLfnBp3WdP8ZWZ3WI6Rth2N6PV_Wauy3cHrTo6FQM3RmQdczeAVyh6R833OQFsVjTXuXud6DuyvJyXSgQnzUYPeyiFsQ_CGRfrl_KUYirC8vsVSzraBUma3JcaQyfapEN-wKVq2n5YXpV9ppti1cWWH8et2UauLhra2AfbaRORAEzYswKD48uAYvj7-FM-gYSMcnd5R2X3xIoSzGfUP7O34O4A9tyV_DT5WGz74XZ5MOj6OEvMXYzTikI8m2jvP0Eg47LJ6a9W78dKW4789M59EtBUyccdLIk5efy93plgyWnoMTVOW30aE0_2ErOFDVv0hODejtE-BoYuwM5T2Fl4-4gBDU1Jd1UlbfoxYJhXYkBABHV_y8o_3GQ6tq37ix_7h1pCZ385GQNVqx9tgKakAFSYqVOpkiZK-tx5M_NbbqIPG8gXSNrqa04Y8oHmp9dPe6d2nA-5rS5IOmGALONMfvWLw2OAKKDXZUhZXapePDFotzgrWg-8UOKIjR6NkovI6xVejX1EioXr5_C9rR5mZAeG46UY-PsJ2ks71uF7aQ437sRhelsRoIctP8cCb2YD-VUu50vFstvHyGseNFyydaW2rIbkMyzbCCgsdGdL64Gm0zM9JubZsXPL5tyBIVfhQld2teIi8RTWrc.hU5tES1X86A9T0SzgQWYEg\",\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"x_refresh_token_expires_in\":8726400,\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..7hloWGDsFC1oQmnUm3kdPA.URgUEfGfnsQj2WihNR2yQV968zCE2VQ2Ud93cKN7YTmx3Rrip_KTNI3CRvxg8Dw2g_SApCNyVD4G0_tC6p_zuc5tUvhPLfnBp3WdP8ZWZ3WI6Rth2N6PV_Wauy3cHrTo6FQM3RmQdczeAVyh6R833OQFsVjTXuXud6DuyvJyXSgQnzUYPeyiFsQ_CGRfrl_KUYirC8vsVSzraBUma3JcaQyfapEN-wKVq2n5YXpV9ppti1cWWH8et2UauLhra2AfbaRORAEzYswKD48uAYvj7-FM-gYSMcnd5R2X3xIoSzGfUP7O34O4A9tyV_DT5WGz74XZ5MOj6OEvMXYzTikI8m2jvP0Eg47LJ6a9W78dKW4789M59EtBUyccdLIk5efy93plgyWnoMTVOW30aE0_2ErOFDVv0hODejtE-BoYuwM5T2Fl4-4gBDU1Jd1UlbfoxYJhXYkBABHV_y8o_3GQ6tq37ix_7h1pCZ385GQNVqx9tgKakAFSYqVOpkiZK-tx5M_NbbqIPG8gXSNrqa04Y8oHmp9dPe6d2nA-5rS5IOmGALONMfvWLw2OAKKDXZUhZXapePDFotzgrWg-8UOKIjR6NkovI6xVejX1EioXr5_C9rR5mZAeG46UY-PsJ2ks71uF7aQ437sRhelsRoIctP8cCb2YD-VUu50vFstvHyGseNFyydaW2rIbkMyzbCCgsdGdL64Gm0zM9JubZsXPL5tyBIVfhQld2teIi8RTWrc.hU5tES1X86A9T0SzgQWYEg\",\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"x_refresh_token_expires_in\":8726400,\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..7hloWGDsFC1oQmnUm3kdPA.URgUEfGfnsQj2WihNR2yQV968zCE2VQ2Ud93cKN7YTmx3Rrip_KTNI3CRvxg8Dw2g_SApCNyVD4G0_tC6p_zuc5tUvhPLfnBp3WdP8ZWZ3WI6Rth2N6PV_Wauy3cHrTo6FQM3RmQdczeAVyh6R833OQFsVjTXuXud6DuyvJyXSgQnzUYPeyiFsQ_CGRfrl_KUYirC8vsVSzraBUma3JcaQyfapEN-wKVq2n5YXpV9ppti1cWWH8et2UauLhra2AfbaRORAEzYswKD48uAYvj7-FM-gYSMcnd5R2X3xIoSzGfUP7O34O4A9tyV_DT5WGz74XZ5MOj6OEvMXYzTikI8m2jvP0Eg47LJ6a9W78dKW4789M59EtBUyccdLIk5efy93plgyWnoMTVOW30aE0_2ErOFDVv0hODejtE-BoYuwM5T2Fl4-4gBDU1Jd1UlbfoxYJhXYkBABHV_y8o_3GQ6tq37ix_7h1pCZ385GQNVqx9tgKakAFSYqVOpkiZK-tx5M_NbbqIPG8gXSNrqa04Y8oHmp9dPe6d2nA-5rS5IOmGALONMfvWLw2OAKKDXZUhZXapePDFotzgrWg-8UOKIjR6NkovI6xVejX1EioXr5_C9rR5mZAeG46UY-PsJ2ks71uF7aQ437sRhelsRoIctP8cCb2YD-VUu50vFstvHyGseNFyydaW2rIbkMyzbCCgsdGdL64Gm0zM9JubZsXPL5tyBIVfhQld2teIi8RTWrc.hU5tES1X86A9T0SzgQWYEg",
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "x_refresh_token_expires_in": 8726400,
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-6387bb1c-4f2a889749af29c67f45355a"
+}
+2022-11-30T20:20:55.385Z info: Refresh Token () response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..HFGlLMioko6EsR9EA5JPIg.EVSUh1FetwzZuU8S4ilEXnYGQqcHZ7_p3LdbJlzKiPhMFEFQv0IkmyWNfkeH_JpGTf1H0XYqY6U98AoD5eol6-7Z3X9OIwgcNaxMyYJUdxxt46rQGDzvtwlh5XWDO-7SqIHZ_i8qVBi0B0gu255T6IbA5ZyuQ2IxNqjHNa8wFNw_Pp6sx6jdUGQgglzy-r4ixhrL8ySTf7uCXHpPSDpVjT1CsmJSVOi_PLwY0shnR3wr6xsMK6r5FhL4lEjHWci_xTxE-Cjp_J17EKnxP-cjzjhPyCzPlhKDRnAUXy-c9ofDBge5OALAVdAWAoqZP4WUE6G-UtjjaaTxP-E0-QJC2lnPe8ca5tm0xGORUT4d6MV0Qyy7b2LHvGYjcahz-kyL9AjaET_b5TPvpOKy1sBtvumoY8e-CvKIGkCh6q1wtyz5PvSE3ZtIxeHiCo69B6Y6k3AEIY0mnx57AoNx5vm181Oi_p9r31u-yn0ksEc0uUxKEEMHzZkPIWOkzq6af0KFQuCHJjnYWr2LsB-Uj-fOcv4BhzW4fhfS1aDr2i8-V9QxOCfZCSil5PgNt3orLHSdjOgGhsNxao_lnEGJoN1EkvgxxOx2jILqSpdzCH_4F-w3xhCZtfXNW3sjKcY4E8E8p5_XB1LDoluHqAK08cA84q_07wyV5W5GHpm7IiNI6KQw3-avmV8ewyOsY8SXeHehrJU8bMeonHgci6jzWRLXhibVXmQ3i_KgOvrpqGmyrD0.5duiX7BNZz-PsQBKDT_Sag",
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726390,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1669839655385,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Wed, 30 Nov 2022 20:20:55 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-6387bb27-6531eb7d008c30f81f7ef553",
+      "x-spanid": "c62620bf-090b-40d3-8fab-724b30ff5515",
+      "x-amzn-trace-id": "Root=1-6387bb27-6531eb7d008c30f81f7ef553",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "22",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"x_refresh_token_expires_in\":8726390,\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..HFGlLMioko6EsR9EA5JPIg.EVSUh1FetwzZuU8S4ilEXnYGQqcHZ7_p3LdbJlzKiPhMFEFQv0IkmyWNfkeH_JpGTf1H0XYqY6U98AoD5eol6-7Z3X9OIwgcNaxMyYJUdxxt46rQGDzvtwlh5XWDO-7SqIHZ_i8qVBi0B0gu255T6IbA5ZyuQ2IxNqjHNa8wFNw_Pp6sx6jdUGQgglzy-r4ixhrL8ySTf7uCXHpPSDpVjT1CsmJSVOi_PLwY0shnR3wr6xsMK6r5FhL4lEjHWci_xTxE-Cjp_J17EKnxP-cjzjhPyCzPlhKDRnAUXy-c9ofDBge5OALAVdAWAoqZP4WUE6G-UtjjaaTxP-E0-QJC2lnPe8ca5tm0xGORUT4d6MV0Qyy7b2LHvGYjcahz-kyL9AjaET_b5TPvpOKy1sBtvumoY8e-CvKIGkCh6q1wtyz5PvSE3ZtIxeHiCo69B6Y6k3AEIY0mnx57AoNx5vm181Oi_p9r31u-yn0ksEc0uUxKEEMHzZkPIWOkzq6af0KFQuCHJjnYWr2LsB-Uj-fOcv4BhzW4fhfS1aDr2i8-V9QxOCfZCSil5PgNt3orLHSdjOgGhsNxao_lnEGJoN1EkvgxxOx2jILqSpdzCH_4F-w3xhCZtfXNW3sjKcY4E8E8p5_XB1LDoluHqAK08cA84q_07wyV5W5GHpm7IiNI6KQw3-avmV8ewyOsY8SXeHehrJU8bMeonHgci6jzWRLXhibVXmQ3i_KgOvrpqGmyrD0.5duiX7BNZz-PsQBKDT_Sag\",\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"x_refresh_token_expires_in\":8726390,\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..HFGlLMioko6EsR9EA5JPIg.EVSUh1FetwzZuU8S4ilEXnYGQqcHZ7_p3LdbJlzKiPhMFEFQv0IkmyWNfkeH_JpGTf1H0XYqY6U98AoD5eol6-7Z3X9OIwgcNaxMyYJUdxxt46rQGDzvtwlh5XWDO-7SqIHZ_i8qVBi0B0gu255T6IbA5ZyuQ2IxNqjHNa8wFNw_Pp6sx6jdUGQgglzy-r4ixhrL8ySTf7uCXHpPSDpVjT1CsmJSVOi_PLwY0shnR3wr6xsMK6r5FhL4lEjHWci_xTxE-Cjp_J17EKnxP-cjzjhPyCzPlhKDRnAUXy-c9ofDBge5OALAVdAWAoqZP4WUE6G-UtjjaaTxP-E0-QJC2lnPe8ca5tm0xGORUT4d6MV0Qyy7b2LHvGYjcahz-kyL9AjaET_b5TPvpOKy1sBtvumoY8e-CvKIGkCh6q1wtyz5PvSE3ZtIxeHiCo69B6Y6k3AEIY0mnx57AoNx5vm181Oi_p9r31u-yn0ksEc0uUxKEEMHzZkPIWOkzq6af0KFQuCHJjnYWr2LsB-Uj-fOcv4BhzW4fhfS1aDr2i8-V9QxOCfZCSil5PgNt3orLHSdjOgGhsNxao_lnEGJoN1EkvgxxOx2jILqSpdzCH_4F-w3xhCZtfXNW3sjKcY4E8E8p5_XB1LDoluHqAK08cA84q_07wyV5W5GHpm7IiNI6KQw3-avmV8ewyOsY8SXeHehrJU8bMeonHgci6jzWRLXhibVXmQ3i_KgOvrpqGmyrD0.5duiX7BNZz-PsQBKDT_Sag\",\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "x_refresh_token_expires_in": 8726390,
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..HFGlLMioko6EsR9EA5JPIg.EVSUh1FetwzZuU8S4ilEXnYGQqcHZ7_p3LdbJlzKiPhMFEFQv0IkmyWNfkeH_JpGTf1H0XYqY6U98AoD5eol6-7Z3X9OIwgcNaxMyYJUdxxt46rQGDzvtwlh5XWDO-7SqIHZ_i8qVBi0B0gu255T6IbA5ZyuQ2IxNqjHNa8wFNw_Pp6sx6jdUGQgglzy-r4ixhrL8ySTf7uCXHpPSDpVjT1CsmJSVOi_PLwY0shnR3wr6xsMK6r5FhL4lEjHWci_xTxE-Cjp_J17EKnxP-cjzjhPyCzPlhKDRnAUXy-c9ofDBge5OALAVdAWAoqZP4WUE6G-UtjjaaTxP-E0-QJC2lnPe8ca5tm0xGORUT4d6MV0Qyy7b2LHvGYjcahz-kyL9AjaET_b5TPvpOKy1sBtvumoY8e-CvKIGkCh6q1wtyz5PvSE3ZtIxeHiCo69B6Y6k3AEIY0mnx57AoNx5vm181Oi_p9r31u-yn0ksEc0uUxKEEMHzZkPIWOkzq6af0KFQuCHJjnYWr2LsB-Uj-fOcv4BhzW4fhfS1aDr2i8-V9QxOCfZCSil5PgNt3orLHSdjOgGhsNxao_lnEGJoN1EkvgxxOx2jILqSpdzCH_4F-w3xhCZtfXNW3sjKcY4E8E8p5_XB1LDoluHqAK08cA84q_07wyV5W5GHpm7IiNI6KQw3-avmV8ewyOsY8SXeHehrJU8bMeonHgci6jzWRLXhibVXmQ3i_KgOvrpqGmyrD0.5duiX7BNZz-PsQBKDT_Sag",
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-6387bb27-6531eb7d008c30f81f7ef553"
+}
+2022-11-30T20:21:11.495Z info: Refresh Token () response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..4sP-T7rjEvRXDIP9BytY1A.GaJIcC5Bln2Hf76bulsm0Azn-8pLyKGunor6eCnSGp0jeR1geEd2NCrF0UcrH38gNACtvraEW9pK4ZXNcX6Rckfpvb16PG3PvQlnTylYg1KZFC0Vu3gkSKHkRNB1qcoaJo1gQXygZQVmFo1lrYV9porqwJigoDPh5ia-uc4Vt4UVsUBR23uv25Ova3_EHPQaiAr_Kf_vhL0qZdJ02TL2aR0QRiXvSGew4xJyITOl8cpc0he2C9mPb0seo4jlJpWjUvJoXJJHGCN7dnonszTJNcvu9O0_R0pLBfgp3VAD2gVGP7Zy0ytJJVpUNP_F70u62hwQZ6mmgTDsmhueom4fJ_XXEj4hvro2P5QdsgDQHAdIaMQmywtdKvsvz8SFubYuFMc4HlgLLnenwOWKQxqv7_aYVXyQ39L2_Kre88G2EGiYSURLFV33kXZ6tUIEvtBROw63KOcrezGTA-BMzJyn3TbQ4IUTnyIt2HnsYc77KoRwkGOkVJ6W0FKqUImcMgCWYHVRNmd9QW5-fvITeOJAtBUvEX2d02lMkxmhWcOlw6b4eL1Y8fUuh-ncYA1GuK5QAN8_uhNRAmzCYXTPe9rTeSsbC74JuSmvnZb61ySmCcVRox9pkcnTPMaTO9NzH4H4bEESGyBOAlulQgE_XH1RufrS9YXqnPqh9zNy_UYG77aaZ7JE_xng8-NdukvJyo2oY1GvWAH4N-DTAbLxuvkIJn03frlbZMkPMOhkpqr5YvA.NCFqJK7n7L4f08pf3bbmrA",
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726374,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1669839671495,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Wed, 30 Nov 2022 20:21:11 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-6387bb37-1a896b1b36ce43947402e975",
+      "x-spanid": "daf85307-6717-44b8-9138-e9dfa1695666",
+      "x-amzn-trace-id": "Root=1-6387bb37-1a896b1b36ce43947402e975",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "33",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..4sP-T7rjEvRXDIP9BytY1A.GaJIcC5Bln2Hf76bulsm0Azn-8pLyKGunor6eCnSGp0jeR1geEd2NCrF0UcrH38gNACtvraEW9pK4ZXNcX6Rckfpvb16PG3PvQlnTylYg1KZFC0Vu3gkSKHkRNB1qcoaJo1gQXygZQVmFo1lrYV9porqwJigoDPh5ia-uc4Vt4UVsUBR23uv25Ova3_EHPQaiAr_Kf_vhL0qZdJ02TL2aR0QRiXvSGew4xJyITOl8cpc0he2C9mPb0seo4jlJpWjUvJoXJJHGCN7dnonszTJNcvu9O0_R0pLBfgp3VAD2gVGP7Zy0ytJJVpUNP_F70u62hwQZ6mmgTDsmhueom4fJ_XXEj4hvro2P5QdsgDQHAdIaMQmywtdKvsvz8SFubYuFMc4HlgLLnenwOWKQxqv7_aYVXyQ39L2_Kre88G2EGiYSURLFV33kXZ6tUIEvtBROw63KOcrezGTA-BMzJyn3TbQ4IUTnyIt2HnsYc77KoRwkGOkVJ6W0FKqUImcMgCWYHVRNmd9QW5-fvITeOJAtBUvEX2d02lMkxmhWcOlw6b4eL1Y8fUuh-ncYA1GuK5QAN8_uhNRAmzCYXTPe9rTeSsbC74JuSmvnZb61ySmCcVRox9pkcnTPMaTO9NzH4H4bEESGyBOAlulQgE_XH1RufrS9YXqnPqh9zNy_UYG77aaZ7JE_xng8-NdukvJyo2oY1GvWAH4N-DTAbLxuvkIJn03frlbZMkPMOhkpqr5YvA.NCFqJK7n7L4f08pf3bbmrA\",\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"x_refresh_token_expires_in\":8726374,\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..4sP-T7rjEvRXDIP9BytY1A.GaJIcC5Bln2Hf76bulsm0Azn-8pLyKGunor6eCnSGp0jeR1geEd2NCrF0UcrH38gNACtvraEW9pK4ZXNcX6Rckfpvb16PG3PvQlnTylYg1KZFC0Vu3gkSKHkRNB1qcoaJo1gQXygZQVmFo1lrYV9porqwJigoDPh5ia-uc4Vt4UVsUBR23uv25Ova3_EHPQaiAr_Kf_vhL0qZdJ02TL2aR0QRiXvSGew4xJyITOl8cpc0he2C9mPb0seo4jlJpWjUvJoXJJHGCN7dnonszTJNcvu9O0_R0pLBfgp3VAD2gVGP7Zy0ytJJVpUNP_F70u62hwQZ6mmgTDsmhueom4fJ_XXEj4hvro2P5QdsgDQHAdIaMQmywtdKvsvz8SFubYuFMc4HlgLLnenwOWKQxqv7_aYVXyQ39L2_Kre88G2EGiYSURLFV33kXZ6tUIEvtBROw63KOcrezGTA-BMzJyn3TbQ4IUTnyIt2HnsYc77KoRwkGOkVJ6W0FKqUImcMgCWYHVRNmd9QW5-fvITeOJAtBUvEX2d02lMkxmhWcOlw6b4eL1Y8fUuh-ncYA1GuK5QAN8_uhNRAmzCYXTPe9rTeSsbC74JuSmvnZb61ySmCcVRox9pkcnTPMaTO9NzH4H4bEESGyBOAlulQgE_XH1RufrS9YXqnPqh9zNy_UYG77aaZ7JE_xng8-NdukvJyo2oY1GvWAH4N-DTAbLxuvkIJn03frlbZMkPMOhkpqr5YvA.NCFqJK7n7L4f08pf3bbmrA\",\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"x_refresh_token_expires_in\":8726374,\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..4sP-T7rjEvRXDIP9BytY1A.GaJIcC5Bln2Hf76bulsm0Azn-8pLyKGunor6eCnSGp0jeR1geEd2NCrF0UcrH38gNACtvraEW9pK4ZXNcX6Rckfpvb16PG3PvQlnTylYg1KZFC0Vu3gkSKHkRNB1qcoaJo1gQXygZQVmFo1lrYV9porqwJigoDPh5ia-uc4Vt4UVsUBR23uv25Ova3_EHPQaiAr_Kf_vhL0qZdJ02TL2aR0QRiXvSGew4xJyITOl8cpc0he2C9mPb0seo4jlJpWjUvJoXJJHGCN7dnonszTJNcvu9O0_R0pLBfgp3VAD2gVGP7Zy0ytJJVpUNP_F70u62hwQZ6mmgTDsmhueom4fJ_XXEj4hvro2P5QdsgDQHAdIaMQmywtdKvsvz8SFubYuFMc4HlgLLnenwOWKQxqv7_aYVXyQ39L2_Kre88G2EGiYSURLFV33kXZ6tUIEvtBROw63KOcrezGTA-BMzJyn3TbQ4IUTnyIt2HnsYc77KoRwkGOkVJ6W0FKqUImcMgCWYHVRNmd9QW5-fvITeOJAtBUvEX2d02lMkxmhWcOlw6b4eL1Y8fUuh-ncYA1GuK5QAN8_uhNRAmzCYXTPe9rTeSsbC74JuSmvnZb61ySmCcVRox9pkcnTPMaTO9NzH4H4bEESGyBOAlulQgE_XH1RufrS9YXqnPqh9zNy_UYG77aaZ7JE_xng8-NdukvJyo2oY1GvWAH4N-DTAbLxuvkIJn03frlbZMkPMOhkpqr5YvA.NCFqJK7n7L4f08pf3bbmrA",
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "x_refresh_token_expires_in": 8726374,
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-6387bb37-1a896b1b36ce43947402e975"
+}
+2022-11-30T20:24:45.957Z info: Refresh Token () response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..Y-_9JTFLWUDGfvoTu6pYjA.GCqu6iR8zafYAJapDOtCljvQ17pFxHmDVGooiAuonnhSIRD5SUOgKlZBqvrc6aiMmy4l466LZqTXhcICmrZdcqC6Y5aPg2jWbtmnX8c2Lt-VdhCB2nQyxY0Uj0w4_UKFoBpLFKcxkUV5y3K2KbhNKqs5uATH2oJV2UB3pDukaQiZUvgBsdLqvT5iSZ9Af7aRM0zMGKls6zudBSZQ_lmsTRTt2wuKaiz4Fxd4GLejPoAIX1sRiEeq-Sn06qmuG8e36Asm6ozPj1ipUOPNJMdsiBqXT82JJ0CkYIsOO6hvKBiwyCHeey_DwXNpJfiBxVjEZMd5gg0ZtoUzhRRTupxL1vTo1vBDWklVKcysBUtYEVPhwQK2T0eHmtLsKAWRo74TCJPX-8yoVcJSeUjBfs5CcqwF2oSFCWmSg09xh4rihT5J0TqyJ-Hd22Cn22H7b4wuJc7fJEMLbSxd3KxFv4WHVeflzuKXcyYsF9upwpoQSqlVnZ-uF-rnVUYPPEu9hsS509BqYDUIYSKBFrlhoRXKUbx5q_z_akrt0GKM88gWyqZjQ3JH4958HWPhq405OYHGvPwUMbjaG07n6IaUbmFlHzhXcDugsEXycBGksug2eaUrO6uspYTF61Vry7ClNZ73stGQVB-Nh4KmBsVk_rY4_pSJOSl705GEsfj2LeFu5GkTBWTMX9bMvRVHJGYCi4_vgTwB166g8TTtF29nflu3P7wSfHBilylebSAtkt9GYQM.3IlTQFyBT_qftue5CiJndg",
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726160,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1669839885957,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Wed, 30 Nov 2022 20:24:45 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-6387bc0d-37185bd554069c2918b81518",
+      "x-spanid": "e3942944-73a9-4ee8-b6fc-c7c2fd23ff1d",
+      "x-amzn-trace-id": "Root=1-6387bc0d-37185bd554069c2918b81518",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "35",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"x_refresh_token_expires_in\":8726160,\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..Y-_9JTFLWUDGfvoTu6pYjA.GCqu6iR8zafYAJapDOtCljvQ17pFxHmDVGooiAuonnhSIRD5SUOgKlZBqvrc6aiMmy4l466LZqTXhcICmrZdcqC6Y5aPg2jWbtmnX8c2Lt-VdhCB2nQyxY0Uj0w4_UKFoBpLFKcxkUV5y3K2KbhNKqs5uATH2oJV2UB3pDukaQiZUvgBsdLqvT5iSZ9Af7aRM0zMGKls6zudBSZQ_lmsTRTt2wuKaiz4Fxd4GLejPoAIX1sRiEeq-Sn06qmuG8e36Asm6ozPj1ipUOPNJMdsiBqXT82JJ0CkYIsOO6hvKBiwyCHeey_DwXNpJfiBxVjEZMd5gg0ZtoUzhRRTupxL1vTo1vBDWklVKcysBUtYEVPhwQK2T0eHmtLsKAWRo74TCJPX-8yoVcJSeUjBfs5CcqwF2oSFCWmSg09xh4rihT5J0TqyJ-Hd22Cn22H7b4wuJc7fJEMLbSxd3KxFv4WHVeflzuKXcyYsF9upwpoQSqlVnZ-uF-rnVUYPPEu9hsS509BqYDUIYSKBFrlhoRXKUbx5q_z_akrt0GKM88gWyqZjQ3JH4958HWPhq405OYHGvPwUMbjaG07n6IaUbmFlHzhXcDugsEXycBGksug2eaUrO6uspYTF61Vry7ClNZ73stGQVB-Nh4KmBsVk_rY4_pSJOSl705GEsfj2LeFu5GkTBWTMX9bMvRVHJGYCi4_vgTwB166g8TTtF29nflu3P7wSfHBilylebSAtkt9GYQM.3IlTQFyBT_qftue5CiJndg\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"x_refresh_token_expires_in\":8726160,\"refresh_token\":\"AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6\",\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..Y-_9JTFLWUDGfvoTu6pYjA.GCqu6iR8zafYAJapDOtCljvQ17pFxHmDVGooiAuonnhSIRD5SUOgKlZBqvrc6aiMmy4l466LZqTXhcICmrZdcqC6Y5aPg2jWbtmnX8c2Lt-VdhCB2nQyxY0Uj0w4_UKFoBpLFKcxkUV5y3K2KbhNKqs5uATH2oJV2UB3pDukaQiZUvgBsdLqvT5iSZ9Af7aRM0zMGKls6zudBSZQ_lmsTRTt2wuKaiz4Fxd4GLejPoAIX1sRiEeq-Sn06qmuG8e36Asm6ozPj1ipUOPNJMdsiBqXT82JJ0CkYIsOO6hvKBiwyCHeey_DwXNpJfiBxVjEZMd5gg0ZtoUzhRRTupxL1vTo1vBDWklVKcysBUtYEVPhwQK2T0eHmtLsKAWRo74TCJPX-8yoVcJSeUjBfs5CcqwF2oSFCWmSg09xh4rihT5J0TqyJ-Hd22Cn22H7b4wuJc7fJEMLbSxd3KxFv4WHVeflzuKXcyYsF9upwpoQSqlVnZ-uF-rnVUYPPEu9hsS509BqYDUIYSKBFrlhoRXKUbx5q_z_akrt0GKM88gWyqZjQ3JH4958HWPhq405OYHGvPwUMbjaG07n6IaUbmFlHzhXcDugsEXycBGksug2eaUrO6uspYTF61Vry7ClNZ73stGQVB-Nh4KmBsVk_rY4_pSJOSl705GEsfj2LeFu5GkTBWTMX9bMvRVHJGYCi4_vgTwB166g8TTtF29nflu3P7wSfHBilylebSAtkt9GYQM.3IlTQFyBT_qftue5CiJndg\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "x_refresh_token_expires_in": 8726160,
+    "refresh_token": "AB11678566044SmN7Z2QoRbOJj2tM09DxAavNdsCY8GZVWHZF6",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..Y-_9JTFLWUDGfvoTu6pYjA.GCqu6iR8zafYAJapDOtCljvQ17pFxHmDVGooiAuonnhSIRD5SUOgKlZBqvrc6aiMmy4l466LZqTXhcICmrZdcqC6Y5aPg2jWbtmnX8c2Lt-VdhCB2nQyxY0Uj0w4_UKFoBpLFKcxkUV5y3K2KbhNKqs5uATH2oJV2UB3pDukaQiZUvgBsdLqvT5iSZ9Af7aRM0zMGKls6zudBSZQ_lmsTRTt2wuKaiz4Fxd4GLejPoAIX1sRiEeq-Sn06qmuG8e36Asm6ozPj1ipUOPNJMdsiBqXT82JJ0CkYIsOO6hvKBiwyCHeey_DwXNpJfiBxVjEZMd5gg0ZtoUzhRRTupxL1vTo1vBDWklVKcysBUtYEVPhwQK2T0eHmtLsKAWRo74TCJPX-8yoVcJSeUjBfs5CcqwF2oSFCWmSg09xh4rihT5J0TqyJ-Hd22Cn22H7b4wuJc7fJEMLbSxd3KxFv4WHVeflzuKXcyYsF9upwpoQSqlVnZ-uF-rnVUYPPEu9hsS509BqYDUIYSKBFrlhoRXKUbx5q_z_akrt0GKM88gWyqZjQ3JH4958HWPhq405OYHGvPwUMbjaG07n6IaUbmFlHzhXcDugsEXycBGksug2eaUrO6uspYTF61Vry7ClNZ73stGQVB-Nh4KmBsVk_rY4_pSJOSl705GEsfj2LeFu5GkTBWTMX9bMvRVHJGYCi4_vgTwB166g8TTtF29nflu3P7wSfHBilylebSAtkt9GYQM.3IlTQFyBT_qftue5CiJndg",
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-6387bc0d-37185bd554069c2918b81518"
+}
+2022-11-30T20:25:07.807Z error: Refresh Token () threw an exception : {}
+2022-11-30T20:42:37.073Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2022-11-30T20:43:07.982Z error: Refresh Token () threw an exception : {}
+2022-11-30T20:47:52.269Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2022-11-30T20:51:32.160Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
