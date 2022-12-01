@@ -13,6 +13,7 @@ let oauthClient = new OAuthClient({
   redirectUri: 'http://localhost:3001/bea/quickbooks/callback',
   logging: true
 })
+
 const GetToken = (req, res) => {
   try {
     const authUri = oauthClient.authorizeUri({

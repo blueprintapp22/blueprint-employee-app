@@ -78,10 +78,8 @@ function LoginModal({
         userName: '',
         password: ''
       })
-      axios.get(`http://localhost:3001/bea/quickbooks`, {
-        withCredentials: false
-      })
       setLoginModal(false)
+      window.location.replace(`http://localhost:3001/bea/quickbooks`)
     }
   }
   const handleMouseDownPassword = (event) => {
