@@ -1,25 +1,82 @@
 const { compareSync } = require('bcrypt')
 const Quickbooks = require('node-quickbooks')
+const OAuthClient = require('intuit-oauth')
 
-let clientId = 'ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc'
-let clientSecret = 'MrLZSS6qFawcQdFahSIE6a5aGoPfjYWYHe62Cztl'
-let oauthToken =
-  'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0.._dxrq9ggU-bldW3MA4D8Eg.dh18s93SCFsxc0HKfj4ZtP7kpNK-dWkrjNgzdQQsHiflvyD2Gop6iHi53_FLOqYnz7Qa-ym6OcJCmAJa3bxA3E3Zhj6Ew41T7A0e5DOybpHA-NR-GAfi8bWmFHBL9wKuZ65QuLnRmGELh5cEvjCZIU5FcaL26UzJ98orjC7vu3fvEsfmE-MZvRt1DT8mG15cvSFo8jiJ2qZzIWHn-9B3LpyFNP0o0HQk5GDtnG1b8YdrI7x8i5VYDA7Jqm-CRf66Xs5ybtCnOw4dsyaATc8WHQlkLxBjVPzj1pQqLmlL5cPWvHKHBbOdMcxbwNQyepUc_LPiROHm347ZSY8VfENJkKjCh1W_ggeura-kUGhO0nkpqZ7D1YHcNgA6MgA_wSDr4T9sWLkRkEBGrlwAddvG24klct7oIbNjZ0y0PxDPoEs3Hb-WtEphpCYsFLSYIgOi3HZSZA2-G4OhkNN4YERJoKROTRxLyiySUjqhvqu377BsTPbWJvdrW7o2H4JyaB1m9zthRN1NlGCo_eY9ZbSzNnXnKMAmSvZEU6senylEtd0MOZcMezEfX_XWi9nOZTJDJQffLSQkA63IOECM7LFU-b4tVutqooyaS_hu3IIk59QbLG-vXVbhIsR_2LqFqg4GKGNG-SWAHeTATSIinhXtCo2q_T75I_nU8w9WpmfwVPqo0j4DMyCzPYpOKaoVWHtjVTjfWjpKNhNdLtqGygF62pZJtmuIO4AzdO3wonsuwPw.7LG8Uob8RkFx2msU2HI_DA'
-let realmId = '1342692165'
-let refreshToken = 'AB11674321952ID5GHoqAkCXeX9U45LLUbutCJwJr2ZacfzfwG'
+let oauthToken = null
 
-let qbo = new Quickbooks(
-  clientId,
-  clientSecret,
-  oauthToken,
-  false,
-  realmId,
-  false,
-  true,
-  null,
-  '2.0',
-  refreshToken
-)
+let qbo = null
+
+let oauthClient = new OAuthClient({
+  clientId: 'ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs',
+  clientSecret: 'e24Mns5EUOCFaNjLX95SXPXhW42qZECmhxteuuDs',
+  environment: 'sandbox',
+  redirectUri: 'http://localhost:3001/bea/quickbooks/callback',
+  logging: true
+})
+
+const GetToken = (req, res) => {
+  try {
+    const authUri = oauthClient.authorizeUri({
+      scope: [OAuthClient.scopes.Accounting],
+      state: 'intuit-test'
+    })
+
+    res.redirect(authUri)
+  } catch (error) {
+    throw error
+  }
+}
+
+const Callback = async (req, res) => {
+  try {
+    await oauthClient.createToken(req.url).then(function (authResponse) {
+      oauthToken = JSON.stringify(authResponse.getJson(), null, 2)
+    })
+
+    qbo = new Quickbooks(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      oauthClient.getToken().access_token,
+      false,
+      oauthClient.getToken().realmId,
+      false,
+      true,
+      null,
+      '2.0',
+      oauthClient.getToken().refresh_token
+    )
+
+    console.log(qbo)
+
+    res.redirect('http://localhost:3000')
+  } catch (error) {
+    throw error
+  }
+}
+
+const RefreshAccessToken = (req, res) => {
+  try {
+    oauthClient.refresh().then(function (authResponse) {
+      oauthToken = JSON.stringify(authResponse.getJson(), null, 2)
+    })
+    qbo = new Quickbooks(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      oauthClient.getToken().access_token,
+      false,
+      oauthClient.getToken().realmId,
+      false,
+      true,
+      null,
+      '2.0',
+      oauthClient.getToken().refresh_token
+    )
+
+    res.send(oauthToken.data)
+  } catch (error) {
+    throw error
+  }
+}
 const BusinessGetter = (req, res) => {
   try {
     let { id } = req.params
@@ -54,5 +111,8 @@ const InvoiceChecker = (req, res) => {
 }
 module.exports = {
   BusinessGetter,
-  InvoiceChecker
+  InvoiceChecker,
+  GetToken,
+  Callback,
+  RefreshAccessToken
 }
