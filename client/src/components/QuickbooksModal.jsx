@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
   Box,
   Button,
@@ -42,12 +42,9 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
     setClicked(true)
     setFormValue({ ...formValue, ['docNum']: event.target.value })
   }
-  // useEffect(() => {
-  //   refreshToken()
-  // }, [quickbooksModal])
 
   const refreshToken = async () => {
-    let token = axios.get(`http://localhost:3001/bea/quickbooks/refresh`)
+    axios.get(`http://localhost:3001/bea/quickbooks/refresh`)
     
   }
   const checkInvoice = async (id) => {
