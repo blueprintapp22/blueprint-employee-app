@@ -43,7 +43,7 @@ const SearchPage = ({ authenticated, user }) => {
   })
 
   const handleUpdateFormChange = (prop) => (event) => {
-    console.log(event.target.value)
+    
     setFormValue({ ...formValue, [prop]: event.target.value })
   }
 
@@ -66,12 +66,12 @@ const SearchPage = ({ authenticated, user }) => {
         setFormValue({
           searchValue: ''
         })
-        console.log(res.result.matches)
+       
       })
   }
 
   const GetPreview = (filePath) => {
-    console.log('Hit')
+   
     dbx
       .filesGetPreview({
         path: filePath

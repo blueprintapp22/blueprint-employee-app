@@ -48,21 +48,21 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
 
   const refreshToken = async () => {
     let token = axios.get(`http://localhost:3001/bea/quickbooks/refresh`)
-    console.log('token: ', token)
+    
   }
   const checkInvoice = async (id) => {
     let code = await axios.get(
       `http://localhost:3001/bea/quickbooks/business/${id}`
     )
     setCustNum(code)
-    console.log(code)
+    
   }
   const getData = async (id) => {
     let code = await axios.get(
       `http://localhost:3001/bea/quickbooks/invoice/${id}`
     )
     setInvoiceData(code)
-    console.log(code)
+    
   }
 
   const closeQuickbooksModal = () => {
