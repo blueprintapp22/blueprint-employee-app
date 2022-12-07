@@ -44,19 +44,19 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   }
 
   const refreshToken = async () => {
-    axios.get(`http://localhost:3001/bea/quickbooks/refresh`)
+    axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/refresh`)
     
   }
   const checkInvoice = async (id) => {
     let code = await axios.get(
-      `http://localhost:3001/bea/quickbooks/business/${id}`
+      `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/business/${id}`
     )
     setCustNum(code)
     
   }
   const getData = async (id) => {
     let code = await axios.get(
-      `http://localhost:3001/bea/quickbooks/invoice/${id}`
+      `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/invoice/${id}`
     )
     setInvoiceData(code)
     

@@ -20,7 +20,7 @@ function AccessModal({accessModal, setAccessModal, employee, setEmployee, setRel
     setClicked(true)
     setReload(true)
     setReload(false)
-    await axios.put(`http://localhost:3001/auth/user/access/${id}`)
+    await axios.put(`https://blueprint-employee-app-production.up.railway.app/auth/user/access/${id}`)
     
   }
   const handleChecked = () => {

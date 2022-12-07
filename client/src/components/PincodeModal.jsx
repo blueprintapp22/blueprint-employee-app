@@ -37,17 +37,17 @@ function PincodeModal({pincodeModal, setPincodeModal}) {
     if (bool) setChecked(true)
   }
   const getPincode = async (id) => {
-    let code = await axios.get(`http://localhost:3001/bea/pincode/${id}`)
+    let code = await axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/pincode/${id}`)
     handleChecked(code.data.pinCode.boolVal)
     setFormValue({ ...formValue, ["pinCode"]:code.data.pinCode.code})
   }
   const togglePincode = async (id) => {
     setClicked(true)
-    await axios.put(`http://localhost:3001/bea/pincode/${id}`)
+    await axios.put(`https://blueprint-employee-app-production.up.railway.app/bea/pincode/${id}`)
     
   }
   const updatePincode = async (id) => {
-    await axios.put(`http://localhost:3001/bea/pincode/update/${id}`, formValue)
+    await axios.put(`https://blueprint-employee-app-production.up.railway.app/bea/pincode/update/${id}`, formValue)
     closePincodeModal()
   }
   const closePincodeModal = () => {

@@ -82,7 +82,7 @@ const SearchPage = ({ authenticated, user }) => {
       })
   }
   const getPincode = async (id) => {
-    let code = await axios.get(`http://localhost:3001/bea/pincode/${id}`)
+    let code = await axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/pincode/${id}`)
     setPinBool(code.data.pinCode.boolVal)
     setCode(code.data.pinCode.code)
   }
