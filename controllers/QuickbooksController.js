@@ -48,7 +48,7 @@ const Callback = async (req, res) => {
 
     
 
-    res.redirect('http://localhost:3000')
+    res.redirect('http://bpbd.io')
   } catch (error) {
     throw error
   }
