@@ -85,7 +85,7 @@ export default function SearchAppBar(props) {
   }
 
   const handleQuickbooksModal = async () => {
-    await axios.get(`http://localhost:3001/bea/quickbooks/refresh`)
+    await axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/refresh`)
     setQuickbooksModal(true)
   }
 

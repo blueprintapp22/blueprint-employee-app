@@ -42,7 +42,7 @@ function RemoveModal({removeModal, setRemoveModal, employee, setEmployee, setRel
   }
   const deleteUser = async (id) => {
     closeRemoveModal()
-    await axios.delete(`http://localhost:3001/auth/user/${id}`)
+    await axios.delete(`https://blueprint-employee-app-production.up.railway.app/auth/user/${id}`)
     
   }
   if (!confirmed){

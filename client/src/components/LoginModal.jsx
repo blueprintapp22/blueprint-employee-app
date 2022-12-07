@@ -79,7 +79,7 @@ function LoginModal({
         password: ''
       })
       setLoginModal(false)
-      window.location.replace(`http://localhost:3001/bea/quickbooks`)
+      window.location.replace(`https://blueprint-employee-app-production.up.railway.app//bea/quickbooks`)
     }
   }
   const handleMouseDownPassword = (event) => {
