@@ -7,10 +7,10 @@ let oauthToken = null
 let qbo = null
 
 let oauthClient = new OAuthClient({
-  clientId: 'ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs',
-  clientSecret: 'e24Mns5EUOCFaNjLX95SXPXhW42qZECmhxteuuDs',
-  environment: 'sandbox',
-  redirectUri: 'http://localhost:3001/bea/quickbooks/callback',
+  clientId: proccess.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  environment: 'production',
+  redirectUri: 'https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/callback',
   logging: true
 })
 

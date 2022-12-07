@@ -12,7 +12,7 @@ const EmployeePage = ({ user, authenticated }) => {
   const [reload, setReload] = useState(false)
 
   const getEmployees = async () => {
-    let res = await axios.get('http://localhost:3001/bea/users')
+    let res = await axios.get('https://blueprint-employee-app-production.up.railway.app/bea/users')
     setEmployeeData(res.data.user)
   }
 
