@@ -39,7 +39,7 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
   })
   
   const handleUpdateFormChange = (prop) => (event) => {
-    console.log(event.target.value)
+    
     setFormValue({ ...formValue, [prop]: event.target.value })
   }
   const handleSignUpModal = () => {
@@ -209,7 +209,7 @@ function SignUpModal({signUpModal,  handleModalClose, setLoginModal, setSignUpMo
             >
               Sign Up!
             </Button>
-            <span className="font" id="signup-text">Have an account? <a id="signup-link" onClick={()=> handleLoginModal()}>Login!</a></span>
+            <span className="font" id="signup-text">Have an account? <button id="signup-link" onClick={()=> handleLoginModal()}>Login!</button></span>
           </Box>
         </Box>
 

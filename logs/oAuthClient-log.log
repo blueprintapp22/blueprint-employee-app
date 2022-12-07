@@ -1470,3 +1470,50 @@
   },
   "intuit_tid": "1-63881f93-2dc65af430e8da584dc6998a"
 }
+2022-12-06T15:05:03.709Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2022-12-06T15:59:42.171Z info: Create Token response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..uegmGzX-gz5HbKQVnyPHBg.qDyRvLGZS_YT3CRcSwn106hISO5xtRX8_ikZyN14mklPV_7KV2PRumj68JmUe3MQMETB3VsBYPID1sd1W4da-FI7p-54jIyIWYnHZdNMvIj2B2pjCAJChMo0U1eZ4E9GQJ1Mf-UmjtsHY58jzlK4KggMgIpfz84kA7IzlQKlipQGGmfi2SYZWC2RozMAYJbeWmohbJhviKQ694EalxYM0koZ7vXcRFO2e3jJfGptk2lGMe4NB9PVoeuIHBqmN0nIhit-t3uJ3O_RMnj-7SGNkgnlgBvivF7sG91IewvPFiMm30pDL5Hi9XoSzzezMm5fLqBYYv3HngsR81LFA1cv5dCoOis0BudYw88zOIFmiOfIJ1LpHSAI79SjU343Eko39A99EarTk99Z93Prt5_xxaM-04PFODRXtUtz9CzVUTx047u62msSM5rSSsHUbtHsThypVa_FdesfJMnPhbVfJI9kVlCGfjGi1Qp1NwVYEKJ6IPRm3MVTsES_cpZ70H-3bowydGHXoDRZZMyneZc0hVBL4_titwi9Gmq4Nnzhq5Bs04NloTea_VPCmj5tt0VHdD4tZOuFky1dLWWaEh0QVil_zB0RJtHMwjZZICVYy6cofF1patDyNSOCS9eLc3jFdg-I2T97sVOyUFIjL1dl-p2UKOwaKH8iVnjvaQ8qK7mE0_cEgGGn9hwA6iVFthsFRpPymx7-3fBOST_jIaDzAAbBqKjwvZWxeh56gtUXMxo.9WtZmBlTkKzM_XUYLPpZ6g",
+    "refresh_token": "AB11679068782wQxFcofbEFT5zVEWEr1bEQX8xukNrLRjjtxH4",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726400,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1670342382171,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Tue, 06 Dec 2022 15:59:42 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "keep-alive",
+      "intuit_tid": "1-638f66ee-0c1f8df86086838a218a7163",
+      "x-spanid": "369dabad-759a-4a0c-a7c4-3ac4f8654b73",
+      "x-amzn-trace-id": "Root=1-638f66ee-0c1f8df86086838a218a7163",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "19",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"x_refresh_token_expires_in\":8726400,\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..uegmGzX-gz5HbKQVnyPHBg.qDyRvLGZS_YT3CRcSwn106hISO5xtRX8_ikZyN14mklPV_7KV2PRumj68JmUe3MQMETB3VsBYPID1sd1W4da-FI7p-54jIyIWYnHZdNMvIj2B2pjCAJChMo0U1eZ4E9GQJ1Mf-UmjtsHY58jzlK4KggMgIpfz84kA7IzlQKlipQGGmfi2SYZWC2RozMAYJbeWmohbJhviKQ694EalxYM0koZ7vXcRFO2e3jJfGptk2lGMe4NB9PVoeuIHBqmN0nIhit-t3uJ3O_RMnj-7SGNkgnlgBvivF7sG91IewvPFiMm30pDL5Hi9XoSzzezMm5fLqBYYv3HngsR81LFA1cv5dCoOis0BudYw88zOIFmiOfIJ1LpHSAI79SjU343Eko39A99EarTk99Z93Prt5_xxaM-04PFODRXtUtz9CzVUTx047u62msSM5rSSsHUbtHsThypVa_FdesfJMnPhbVfJI9kVlCGfjGi1Qp1NwVYEKJ6IPRm3MVTsES_cpZ70H-3bowydGHXoDRZZMyneZc0hVBL4_titwi9Gmq4Nnzhq5Bs04NloTea_VPCmj5tt0VHdD4tZOuFky1dLWWaEh0QVil_zB0RJtHMwjZZICVYy6cofF1patDyNSOCS9eLc3jFdg-I2T97sVOyUFIjL1dl-p2UKOwaKH8iVnjvaQ8qK7mE0_cEgGGn9hwA6iVFthsFRpPymx7-3fBOST_jIaDzAAbBqKjwvZWxeh56gtUXMxo.9WtZmBlTkKzM_XUYLPpZ6g\",\"refresh_token\":\"AB11679068782wQxFcofbEFT5zVEWEr1bEQX8xukNrLRjjtxH4\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"x_refresh_token_expires_in\":8726400,\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..uegmGzX-gz5HbKQVnyPHBg.qDyRvLGZS_YT3CRcSwn106hISO5xtRX8_ikZyN14mklPV_7KV2PRumj68JmUe3MQMETB3VsBYPID1sd1W4da-FI7p-54jIyIWYnHZdNMvIj2B2pjCAJChMo0U1eZ4E9GQJ1Mf-UmjtsHY58jzlK4KggMgIpfz84kA7IzlQKlipQGGmfi2SYZWC2RozMAYJbeWmohbJhviKQ694EalxYM0koZ7vXcRFO2e3jJfGptk2lGMe4NB9PVoeuIHBqmN0nIhit-t3uJ3O_RMnj-7SGNkgnlgBvivF7sG91IewvPFiMm30pDL5Hi9XoSzzezMm5fLqBYYv3HngsR81LFA1cv5dCoOis0BudYw88zOIFmiOfIJ1LpHSAI79SjU343Eko39A99EarTk99Z93Prt5_xxaM-04PFODRXtUtz9CzVUTx047u62msSM5rSSsHUbtHsThypVa_FdesfJMnPhbVfJI9kVlCGfjGi1Qp1NwVYEKJ6IPRm3MVTsES_cpZ70H-3bowydGHXoDRZZMyneZc0hVBL4_titwi9Gmq4Nnzhq5Bs04NloTea_VPCmj5tt0VHdD4tZOuFky1dLWWaEh0QVil_zB0RJtHMwjZZICVYy6cofF1patDyNSOCS9eLc3jFdg-I2T97sVOyUFIjL1dl-p2UKOwaKH8iVnjvaQ8qK7mE0_cEgGGn9hwA6iVFthsFRpPymx7-3fBOST_jIaDzAAbBqKjwvZWxeh56gtUXMxo.9WtZmBlTkKzM_XUYLPpZ6g\",\"refresh_token\":\"AB11679068782wQxFcofbEFT5zVEWEr1bEQX8xukNrLRjjtxH4\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "x_refresh_token_expires_in": 8726400,
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..uegmGzX-gz5HbKQVnyPHBg.qDyRvLGZS_YT3CRcSwn106hISO5xtRX8_ikZyN14mklPV_7KV2PRumj68JmUe3MQMETB3VsBYPID1sd1W4da-FI7p-54jIyIWYnHZdNMvIj2B2pjCAJChMo0U1eZ4E9GQJ1Mf-UmjtsHY58jzlK4KggMgIpfz84kA7IzlQKlipQGGmfi2SYZWC2RozMAYJbeWmohbJhviKQ694EalxYM0koZ7vXcRFO2e3jJfGptk2lGMe4NB9PVoeuIHBqmN0nIhit-t3uJ3O_RMnj-7SGNkgnlgBvivF7sG91IewvPFiMm30pDL5Hi9XoSzzezMm5fLqBYYv3HngsR81LFA1cv5dCoOis0BudYw88zOIFmiOfIJ1LpHSAI79SjU343Eko39A99EarTk99Z93Prt5_xxaM-04PFODRXtUtz9CzVUTx047u62msSM5rSSsHUbtHsThypVa_FdesfJMnPhbVfJI9kVlCGfjGi1Qp1NwVYEKJ6IPRm3MVTsES_cpZ70H-3bowydGHXoDRZZMyneZc0hVBL4_titwi9Gmq4Nnzhq5Bs04NloTea_VPCmj5tt0VHdD4tZOuFky1dLWWaEh0QVil_zB0RJtHMwjZZICVYy6cofF1patDyNSOCS9eLc3jFdg-I2T97sVOyUFIjL1dl-p2UKOwaKH8iVnjvaQ8qK7mE0_cEgGGn9hwA6iVFthsFRpPymx7-3fBOST_jIaDzAAbBqKjwvZWxeh56gtUXMxo.9WtZmBlTkKzM_XUYLPpZ6g",
+    "refresh_token": "AB11679068782wQxFcofbEFT5zVEWEr1bEQX8xukNrLRjjtxH4",
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-638f66ee-0c1f8df86086838a218a7163"
+}

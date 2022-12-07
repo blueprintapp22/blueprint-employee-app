@@ -37,7 +37,7 @@ function RemoveModal({removeModal, setRemoveModal, employee, setEmployee, setRel
     setReload(false)
   }
   const handleUpdateFormChange = (prop) => (event) => {
-    console.log(event.target.value)
+    
     setFormValue({ ...formValue, [prop]: event.target.value })
   }
   const deleteUser = async (id) => {

@@ -46,7 +46,7 @@ const Callback = async (req, res) => {
       oauthClient.getToken().refresh_token
     )
 
-    console.log(qbo)
+    
 
     res.redirect('http://localhost:3000')
   } catch (error) {
@@ -101,7 +101,7 @@ const InvoiceChecker = (req, res) => {
       ],
       (err, invoice) => {
         if (err) console.log(err)
-        console.log('INVOICES: ' + invoice.QueryResponse.Invoice.length)
+        
         res.send(invoice.QueryResponse.Invoice)
       }
     )
