@@ -84,7 +84,9 @@ const BusinessGetter = (req, res) => {
     qbo.findInvoices({ DocNumber: id }, (err, invoice) => {
       if (err) console.log(err)
       if(!invoice) res.send('No invoice found')
+      console.log('invoice: ', invoice)
       res.send(invoice.QueryResponse.Invoice[0].CustomerRef.value)
+      
     })
   } catch (error) {
     res.send(error)
