@@ -43,7 +43,6 @@ const SearchPage = ({ authenticated, user }) => {
   })
 
   const handleUpdateFormChange = (prop) => (event) => {
-    
     setFormValue({ ...formValue, [prop]: event.target.value })
   }
 
@@ -66,12 +65,10 @@ const SearchPage = ({ authenticated, user }) => {
         setFormValue({
           searchValue: ''
         })
-       
       })
   }
 
   const GetPreview = (filePath) => {
-   
     dbx
       .filesGetPreview({
         path: filePath
@@ -81,13 +78,13 @@ const SearchPage = ({ authenticated, user }) => {
         window.open(downloadUrl)
       })
   }
-  const getPincode = async (id) => {
-    let code = await axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/pincode/${id}`)
-    setPinBool(code.data.pinCode.boolVal)
-    setCode(code.data.pinCode.code)
-  }
+  // const getPincode = async (id) => {
+  //   let code = await axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/pincode/${id}`)
+  //   setPinBool(code.data.pinCode.boolVal)
+  //   setCode(code.data.pinCode.code)
+  // }
   useEffect(() => {
-    getPincode('63448cff8d6725af9b52b8a2')
+    // getPincode('63448cff8d6725af9b52b8a2')
   }, [])
   if (authenticated && user.access) {
     return (

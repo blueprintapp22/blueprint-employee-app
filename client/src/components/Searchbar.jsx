@@ -164,7 +164,7 @@ export default function SearchAppBar(props) {
                   }}
                   onClick={() => navigate('/employees')}
                 />
-                <PinIcon
+                {/* <PinIcon
                   sx={{
                     fontSize: '45px',
                     color: 'white',
@@ -173,7 +173,7 @@ export default function SearchAppBar(props) {
                     '&:hover': { color: '#3f51b5', opacity: [0.9, 0.8, 0.7] }
                   }}
                   onClick={() => setPincodeModal(true)}
-                />
+                /> */}
               </div>
             ) : (
               <div></div>
@@ -197,10 +197,10 @@ export default function SearchAppBar(props) {
         setLoginModal={setLoginModal}
         setSignUpModal={setSignUpModal}
       />
-      <PincodeModal
+      {/* <PincodeModal
         pincodeModal={pincodeModal}
         setPincodeModal={setPincodeModal}
-      />
+      /> */}
       <QuickbooksModal
         quickbooksModal={quickbooksModal}
         setQuickbooksModal={setQuickbooksModal}
