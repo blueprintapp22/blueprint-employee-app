@@ -34,7 +34,6 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   const [clicked, setClicked] = useState(false)
   const [custNum, setCustNum] = useState(false)
   const [invoiceData, setInvoiceData] = useState(false)
-  const [checked, setChecked] = useState(false)
   const [formValue, setFormValue] = useState({
     docNum: ''
   })

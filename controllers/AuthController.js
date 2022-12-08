@@ -5,7 +5,6 @@ const Login = async (req, res) => {
   try {
     const user = await User.findOne({ userName: req.body.userName })
 
-    
     if (
       user &&
       (await middleware.comparePassword(user.passwordDigest, req.body.password))
@@ -84,6 +83,7 @@ const MakeAdmin = async (req, res) => {
   try {
     const { id } = req.params
     const user = await User.findOne({ userName: id })
+
     if (!user.admin) {
       let updated = await User.updateOne(
         { userName: id },
