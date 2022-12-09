@@ -50,7 +50,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   const checkInvoice = async (id) => {
     let reg = /[a-zA-Z]+/g
     if(formValue.docNum.length === 6 && !reg.text(formValue.docNum)){
-
+      setInvoiceInputError(false)
       let code = await axios.get(
         `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/business/${id}`
         )
