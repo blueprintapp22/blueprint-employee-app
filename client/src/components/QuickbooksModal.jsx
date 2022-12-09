@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Button,
@@ -35,9 +35,16 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   const [custNum, setCustNum] = useState(false)
   const [invoiceData, setInvoiceData] = useState(false)
   const [invoiceInputError, setInvoiceInputError] = useState(false)
+  const [noInvoice, setNoInvoice] = useState(false)
   const [formValue, setFormValue] = useState({
     docNum: ''
   })
+
+  useEffect(() => {
+    setInvoiceInputError(false)
+    setNoInvoice(false)
+  }, [quickbooksModal])
+
   const handleChange = (event) => {
     setClicked(true)
     setFormValue({ ...formValue, ['docNum']: event.target.value })
@@ -49,7 +56,9 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   }
   const checkInvoice = async (id) => {
     let reg = /[a-zA-Z]+/g
-    if(formValue.docNum.length === 6 && !reg.text(formValue.docNum)){
+    if(formValue.docNum.length === 6 && !reg.test(formValue.docNum)){
+      setNoInvoice(false)
+      setTimeout(invoiceError, 3000)
       setInvoiceInputError(false)
       let code = await axios.get(
         `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/business/${id}`
@@ -59,6 +68,12 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
         setInvoiceInputError(true)
       }
     
+  }
+
+  const invoiceError = () => {
+    if(!custNum){
+      setNoInvoice(true)
+    }
   }
   const getData = async (id) => {
     let code = await axios.get(
@@ -132,6 +147,8 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
               value={formValue.docNum}
               onChange={handleChange}
               sx={{ margin: '15px' }}
+              error={invoiceInputError}
+              helperText="Invoice must be six digits"
               
             />
             {custNum ? (
@@ -146,6 +163,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
                 Check Invoice
               </Button>
             )}
+            {noInvoice ? <p style={{color: 'red'}}>Invoice not found</p> : null}
             {invoiceData ? (
               <Box>
                 <Typography variant="h6" sx={{ color: 'white' }}>
