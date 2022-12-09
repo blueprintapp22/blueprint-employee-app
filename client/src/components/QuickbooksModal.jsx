@@ -132,8 +132,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
               value={formValue.docNum}
               onChange={handleChange}
               sx={{ margin: '15px' }}
-              error={invoiceInputError}
-              helperText="Invoice must be six digits"
+              
             />
             {custNum ? (
               <Button
