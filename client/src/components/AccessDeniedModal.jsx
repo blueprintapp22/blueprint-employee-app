@@ -47,7 +47,7 @@ function AccessDeniedModal({accessDeniedModal, setAccessDeniedModal}) {
                 color: "lightgrey"
                 }}
             >
-              <em>{`Access is from admin is required to use finder`}</em>
+              <em>{`Access from admin is required to use finder`}</em>
             </Typography>
 
 

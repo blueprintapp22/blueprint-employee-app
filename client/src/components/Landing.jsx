@@ -31,14 +31,13 @@ const Landing = ({user, authenticated}) => {
           }}>
           
           <img id="logo" src={logo} alt="Blueprint Logo"/>
-          <Typography variant="h4" sx={{color:"white", fontWeight: "bold"}}>Welcome to Blueprint Sales Companion!</Typography>
+          <Typography variant="h4" sx={{color:"white", fontWeight: "bold"}}>Welcome to Blueprint Database!</Typography>
 
           <ContactPhoneIcon onClick={()=>checkAccess(user.access)}sx={{ fontSize: '100px', color: 'white', marginTop: "20px",cursor:"pointer",'&:hover': {color: "#3f51b5",opacity: [0.9, 0.8, 0.7],} }} />
           <Typography variant="h5" sx={{ color: 'white', fontWeight: 'bold' }}>
             Invoice Finder
           </Typography>
         </Box>
-        <Navbar/>
         <AccessDeniedModal accessDeniedModal={accessDeniedModal} setAccessDeniedModal={setAccessDeniedModal} />
       </Box>
     )
@@ -58,7 +57,7 @@ const Landing = ({user, authenticated}) => {
         }}>
         
         <img id="logo" src={logo} alt="blueprint Logo"/>
-        <Typography variant="h4" sx={{color:"white", fontWeight: "bold"}}>Welcome to Blueprint Sales Companion!</Typography>
+        <Typography variant="h4" sx={{color:"white", fontWeight: "bold"}}>Welcome to Blueprint Database!!</Typography>
         <Typography variant="h6" sx={{color:"lightgray", fontWeight: "bold"}}><em>Please sign in or sign up to continue...</em></Typography>
 
       </Box>

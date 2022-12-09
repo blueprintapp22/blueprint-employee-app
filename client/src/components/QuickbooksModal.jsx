@@ -56,7 +56,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   }
   const checkInvoice = async (id) => {
     let reg = /[a-zA-Z]+/g
-    if(formValue.docNum.length === 6 && !reg.test(formValue.docNum)){
+    if(formValue.docNum.length > 4 && formValue.docNum.length <= 6 && !reg.test(formValue.docNum)){
       setNoInvoice(false)
       setTimeout(invoiceError, 3000)
       setInvoiceInputError(false)
@@ -148,7 +148,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
               onChange={handleChange}
               sx={{ margin: '15px' }}
               error={invoiceInputError}
-              helperText="Invoice must be six digits"
+              helperText="Invoice must be at least 5 digits"
               
             />
             {custNum ? (
