@@ -34,6 +34,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   const [clicked, setClicked] = useState(false)
   const [custNum, setCustNum] = useState(false)
   const [invoiceData, setInvoiceData] = useState(false)
+  const [invoiceInputError, setInvoiceInputError] = useState(false)
   const [formValue, setFormValue] = useState({
     docNum: ''
   })
@@ -47,10 +48,16 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
     
   }
   const checkInvoice = async (id) => {
-    let code = await axios.get(
-      `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/business/${id}`
-    )
-    setCustNum(code)
+    let reg = /[a-zA-Z]+/g
+    if(formValue.docNum.length === 6 && !reg.text(formValue.docNum)){
+
+      let code = await axios.get(
+        `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/business/${id}`
+        )
+        setCustNum(code)
+      } else {
+        setInvoiceInputError(true)
+      }
     
   }
   const getData = async (id) => {
@@ -125,6 +132,8 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
               value={formValue.docNum}
               onChange={handleChange}
               sx={{ margin: '15px' }}
+              error={invoiceInputError}
+              helperText="Invoice must be six digits"
             />
             {custNum ? (
               <Button
