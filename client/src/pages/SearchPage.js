@@ -2,6 +2,7 @@ import {
   AppBar,
   Button,
   CircularProgress,
+  Grid,
   TextField,
   Toolbar,
   Typography
@@ -186,8 +187,9 @@ const SearchPage = ({ authenticated, user }) => {
             <CircularProgress />
           </Box>
         ) : null}
-        {searchResult
-          ? searchResult
+        {searchResult ? (
+          <Grid container>
+            {searchResult
               .filter(
                 (word) =>
                   !word.metadata.metadata.name
@@ -224,15 +226,16 @@ const SearchPage = ({ authenticated, user }) => {
                   !word.metadata.metadata.name.toLowerCase().includes('client')
               )
               .map((file) => (
-                <div key={file.metadata.metadata.id}>
+                <Grid item xs={2} sm={3} md={3} key={file.metadata.metadata.id}>
                   <SearchResult
                     GetPreview={GetPreview}
                     path={file.metadata.metadata.path_lower}
                     name={file.metadata.metadata.name}
                   />
-                </div>
-              ))
-          : null}
+                </Grid>
+              ))}
+          </Grid>
+        ) : null}
       </div>
     )
   }

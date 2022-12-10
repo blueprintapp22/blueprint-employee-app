@@ -1,13 +1,14 @@
-import { Card, CardContent } from "@mui/material"
+import { Card, CardContent, Grid } from "@mui/material"
 import FolderIcon from '@mui/icons-material/Folder';
 import { Box } from "@mui/system"
 
 const SearchResult = (props) => {
 
   return (
-    <Box 
+    <Grid
+      item
       sx={{ display: 'flex', justifyContent: 'center', color: "white" }} >
-      
+      <Grid xs={2} sm={4} md={8} item>
       <Card 
         sx={{ cursor:"pointer", width: "350px", margin: "10px", fontWeight:"bolder"}}
         onClick={()=> props.GetPreview(props.path)}
@@ -17,8 +18,9 @@ const SearchResult = (props) => {
             {props.name.toLowerCase().charAt(0).toUpperCase() + props.name.toLowerCase().slice(1)}
           </CardContent>
       </Card>
+      </Grid>
 
-    </Box>
+    </Grid>
   )
 }
 export default SearchResult

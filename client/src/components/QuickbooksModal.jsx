@@ -58,7 +58,7 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
     let reg = /[a-zA-Z]+/g
     if(formValue.docNum.length > 4 && formValue.docNum.length <= 6 && !reg.test(formValue.docNum)){
       setNoInvoice(false)
-      setTimeout(invoiceError, 3000)
+      setTimeout(invoiceError, 5000)
       setInvoiceInputError(false)
       let code = await axios.get(
         `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/business/${id}`
