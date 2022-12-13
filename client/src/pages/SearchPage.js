@@ -2,6 +2,7 @@ import {
   AppBar,
   Button,
   CircularProgress,
+  Grid,
   TextField,
   Toolbar,
   Typography
@@ -12,7 +13,6 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone'
 import SearchResult from '../components/SearchResult'
 import { useEffect, useState } from 'react'
 import { Dropbox } from 'dropbox'
-import axios from 'axios'
 const inputProps = {
   id: 'input'
 }
@@ -35,7 +35,7 @@ const CssTextField = styled(TextField)({
 const SearchPage = ({ authenticated, user }) => {
   const [searching, setSearching] = useState(false)
   const [searchResult, setSearchResult] = useState(false)
-  const [pinBool, setPinBool] = useState()
+
   const [code, setCode] = useState()
   const [formValue, setFormValue] = useState({
     searchValue: '',
@@ -54,20 +54,27 @@ const SearchPage = ({ authenticated, user }) => {
 
   const SearchDropbox = (searchQuery) => {
     setSearching(true)
-
     dbx
       .filesSearchV2({
         query: searchQuery
       })
       .then((res) => {
         setSearching(false)
-        setSearchResult(res.result.matches)
+        setSearchResult(res.result)
+        console.log(res.result)
         setFormValue({
           searchValue: ''
         })
       })
   }
-
+  const showMore = (cursor) => {
+    setSearching(true)
+    dbx.filesSearchContinueV2({ cursor: cursor }).then((res) => {
+      setSearching(false)
+      setSearchResult(res.result)
+      console.log(searchResult)
+    })
+  }
   const GetPreview = (filePath) => {
     dbx
       .filesGetPreview({
@@ -140,38 +147,13 @@ const SearchPage = ({ authenticated, user }) => {
                 alignItems: 'center'
               }}
             >
-              {pinBool ? (
-                <CssTextField
-                  id="outlined-basic"
-                  label="Pincode"
-                  inputProps={inputProps}
-                  InputLabelProps={inputLabelProps}
-                  sx={{ width: '90px', marginTop: '10px' }}
-                  value={formValue.codeValue}
-                  onChange={handleUpdateFormChange('codeValue')}
-                />
-              ) : null}
-              {pinBool ? (
-                <Button
-                  onClick={() => SearchDropbox(formValue.searchValue)}
-                  sx={{ margin: '20px', fontSize: '20px' }}
-                  disabled={
-                    formValue.searchValue && code === formValue.codeValue
-                      ? false
-                      : true
-                  }
-                >
-                  Search
-                </Button>
-              ) : (
-                <Button
-                  onClick={() => SearchDropbox(formValue.searchValue)}
-                  sx={{ margin: '20px', fontSize: '20px' }}
-                  disabled={formValue.searchValue ? false : true}
-                >
-                  Search
-                </Button>
-              )}
+              <Button
+                onClick={() => SearchDropbox(formValue.searchValue)}
+                sx={{ margin: '20px', fontSize: '20px' }}
+                disabled={formValue.searchValue ? false : true}
+              >
+                Search
+              </Button>
             </Box>
           </AppBar>
         </Box>
@@ -186,53 +168,80 @@ const SearchPage = ({ authenticated, user }) => {
             <CircularProgress />
           </Box>
         ) : null}
-        {searchResult
-          ? searchResult
-              .filter(
-                (word) =>
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('payroll') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('collection') &&
-                  !word.metadata.metadata.name.toLowerCase().includes('tbp') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('king of the hill') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('undersold') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('overdue') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('sales') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('cancel') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('past due') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('schedule') &&
-                  !word.metadata.metadata.name
-                    .toLowerCase()
-                    .includes('report') &&
-                  !word.metadata.metadata.name.toLowerCase().includes('client')
-              )
-              .map((file) => (
-                <div key={file.metadata.metadata.id}>
-                  <SearchResult
-                    GetPreview={GetPreview}
-                    path={file.metadata.metadata.path_lower}
-                    name={file.metadata.metadata.name}
-                  />
-                </div>
-              ))
-          : null}
+        {searchResult ? (
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Grid container>
+              {searchResult.matches
+                .filter(
+                  (word) =>
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('payroll') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('collection') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('tbp') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('king of the hill') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('undersold') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('overdue') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('sales') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('cancel') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('past due') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('schedule') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('report') &&
+                    !word.metadata.metadata.name
+                      .toLowerCase()
+                      .includes('client')
+                )
+                .map((file) => (
+                  <Grid
+                    item
+                    xs={2}
+                    sm={3}
+                    md={3}
+                    key={file.metadata.metadata.id}
+                    sx={{ marginTop: '10px' }}
+                  >
+                    <SearchResult
+                      GetPreview={GetPreview}
+                      path={file.metadata.metadata.path_lower}
+                      name={file.metadata.metadata.name}
+                    />
+                  </Grid>
+                ))}
+            </Grid>
+            {searchResult.cursor ? (
+              <Button onClick={() => showMore(searchResult.cursor)}>
+                More?
+              </Button>
+            ) : null}
+          </Box>
+        ) : null}
       </div>
     )
   }
