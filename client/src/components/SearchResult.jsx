@@ -7,7 +7,7 @@ const SearchResult = (props) => {
   return (
     <Grid
       item
-      sx={{ display: 'flex', justifyContent: 'center', color: "white" }} >
+      >
       <Grid xs={2} sm={4} md={8} item>
       <Card 
         sx={{ cursor:"pointer", width: "350px", margin: "10px", fontWeight:"bolder"}}
