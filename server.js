@@ -6,7 +6,7 @@ const app = express()
 
 const PORT = process.env.PORT || 3001
 
-app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 })) // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
+app.use(cors({ origin: 'https://bpbd.io/', optionsSuccessStatus: 200 })) // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
 
