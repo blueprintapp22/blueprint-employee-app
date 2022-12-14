@@ -10,7 +10,7 @@ app.use(
   cors({
     origin: 'https://bpbd.io',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
+    preflightContinue: true,
     optionsSuccessStatus: 200
   })
 ) // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
