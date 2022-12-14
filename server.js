@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3001
 // )
 // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
 
-app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
+app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
