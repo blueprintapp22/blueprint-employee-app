@@ -13,11 +13,12 @@ const PORT = process.env.PORT || 3001
 
 const ipCheck = (req, res, next) => {
   const ipList = process.env.WHITELIST.split(' ')
-  console.log(req.ip)
-  if (ipList.includes(req.ip)) {
+
+  if (!ipList.includes(req.ip)) {
+    return res.status(403).send()
+  } else {
     next()
   }
-  return res.status(403).send()
 }
 
 // app.use(
