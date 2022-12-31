@@ -12,7 +12,7 @@ const app = express()
 const PORT = process.env.PORT || 3001
 
 const ipCheck = (req, res, next) => {
-  const ipList = process.env.WHITELIST.split(' ')
+  const ipList = ['192.168.44.6', '73.29.203.229']
 
   if (!ipList.includes(req.ip)) {
     return res.status(403).send()
