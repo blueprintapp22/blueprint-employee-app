@@ -11,6 +11,13 @@ const app = express()
 
 const PORT = process.env.PORT || 3001
 
+const ipCheck = (req, res, next) => {
+  if (!process.env.WHITELIST.includes(req.ip)) {
+    return res.status(403).send()
+  }
+  next()
+}
+
 // app.use(
 //   cors({
 //     origin: 'https://bpbd.io',
@@ -22,15 +29,10 @@ const PORT = process.env.PORT || 3001
 // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
 
 app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
-app.use(function (req, res, next) {
-  if (req.ip.includes(process.env.WHITELIST)) {
-    return res.status(403).send()
-  }
-  next()
-})
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
+app.use(ipCheck)
 
 app.get('/', (req, res) => res.json({ message: 'Server Works' }))
 app.use('/auth', AuthRouter)
