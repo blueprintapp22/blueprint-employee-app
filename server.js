@@ -12,10 +12,10 @@ const app = express()
 const PORT = process.env.PORT || 3001
 
 const ipCheck = (req, res, next) => {
-  if (!process.env.WHITELIST.includes(req.ip)) {
-    return res.status(403).send()
+  if (process.env.WHITELIST.includes(req.ip)) {
+    next()
   }
-  next()
+  return res.status(403).send()
 }
 
 // app.use(
