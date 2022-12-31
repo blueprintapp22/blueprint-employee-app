@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3001
 
 app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
 app.use(function (req, res, next) {
-  if (req.ip !== process.env.WHITELIST) {
+  if (req.ip.includes(process.env.WHITELIST)) {
     return res.status(403).send()
   }
   next()
