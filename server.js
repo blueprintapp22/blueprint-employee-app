@@ -16,8 +16,10 @@ const ipCheck = (req, res, next) => {
   // ['192.168.44.6', '73.29.203.229']
   console.dir(ipList)
 
-  if (!ipList.includes(req.ip)) {
-    return res.status(403).send(`Invalid IP: ${req.ip}.  Valid IPs: ${ipList}`)
+  if (!ipList.includes(req.socket.localAddress)) {
+    return res
+      .status(403)
+      .send(`Invalid IP: ${req.socket.localAddress}.  Valid IPs: ${ipList}`)
   } else {
     next()
   }
