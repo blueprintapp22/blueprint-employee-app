@@ -16,10 +16,8 @@ const ipCheck = (req, res, next) => {
   // ['192.168.44.6', '73.29.203.229']
   console.dir(ipList)
 
-  if (!ipList.includes(req.socket.remoteAddress)) {
-    return res
-      .status(403)
-      .send(`Invalid IP: ${req.socket.remoteAddress}.  Valid IPs: ${ipList}`)
+  if (!ipList.includes(req.ip)) {
+    return res.status(403).send(`Invalid IP: ${req.ip}.  Valid IPs: ${ipList}`)
   } else {
     next()
   }
@@ -34,7 +32,7 @@ const ipCheck = (req, res, next) => {
 //   })
 // )
 // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
-
+app.set('trust proxy', true)
 app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
 app.use(logger('dev'))
 app.use(express.json())
