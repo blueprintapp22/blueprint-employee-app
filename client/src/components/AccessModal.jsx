@@ -1,12 +1,27 @@
 import { useState } from 'react'
-import { Box, Button,    Checkbox,    Modal, TextField, Typography} from '@mui/material'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Modal,
+  TextField,
+  Typography
+} from '@mui/material'
 import axios from 'axios'
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import KeyIcon from '@mui/icons-material/Key';
-import { useEffect } from 'react';
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
+import KeyIcon from '@mui/icons-material/Key'
+import { useEffect } from 'react'
+import { BASE_URL } from '../services/api'
 
-function AccessModal({accessModal, setAccessModal, employee, setEmployee, setReload, access}) {
+function AccessModal({
+  accessModal,
+  setAccessModal,
+  employee,
+  setEmployee,
+  setReload,
+  access
+}) {
   const [clicked, setClicked] = useState(false)
   const [checked, setChecked] = useState(false)
   const closeAccessModal = () => {
@@ -20,23 +35,22 @@ function AccessModal({accessModal, setAccessModal, employee, setEmployee, setRel
     setClicked(true)
     setReload(true)
     setReload(false)
-    await axios.put(`https://blueprint-employee-app-production.up.railway.app/auth/user/access/${id}`)
-    
+    await axios.put(`${BASE_URL}/auth/user/access/${id}`)
   }
   const handleChecked = () => {
     if (access) setChecked(true)
   }
-  useEffect(()=>{
+  useEffect(() => {
     handleChecked()
-  },[])
-return (
+  }, [])
+  return (
     <div>
       <Modal
         open={accessModal}
         onClose={() => closeAccessModal()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        >
+      >
         <Box
           sx={{
             position: 'absolute',
@@ -51,44 +65,46 @@ return (
         >
           <Box
             sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            textAlign: "center"
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              textAlign: 'center'
             }}
           >
             <KeyIcon
               sx={{
                 color: 'white',
-                fontSize: "70px"
-                }}
+                fontSize: '70px'
+              }}
             />
-            <Typography 
-              variant="h6" 
+            <Typography
+              variant="h6"
               sx={{
-                color: "white"
-                }}
+                color: 'white'
+              }}
             >
               {`Give search access to ${employee}?`}
             </Typography>
-            <Checkbox 
+            <Checkbox
               checked={checked}
-              onChange={()=> toggleAccess(employee)}
-              icon={<VisibilityOffIcon  sx={{fontSize: "30px"}}/>}
-              checkedIcon={<VisibilityIcon  
-              sx={{fontSize: "30px", color:"#3f51b5"}}/>}
-              onClick={checked ? ()=>setChecked(false) : ()=>setChecked(true)}
-              />
-              <Button disabled={!clicked} onClick={()=>closeAccessModal()}>
-                Confirm
-              </Button>
+              onChange={() => toggleAccess(employee)}
+              icon={<VisibilityOffIcon sx={{ fontSize: '30px' }} />}
+              checkedIcon={
+                <VisibilityIcon sx={{ fontSize: '30px', color: '#3f51b5' }} />
+              }
+              onClick={
+                checked ? () => setChecked(false) : () => setChecked(true)
+              }
+            />
+            <Button disabled={!clicked} onClick={() => closeAccessModal()}>
+              Confirm
+            </Button>
           </Box>
         </Box>
       </Modal>
     </div>
-    )
-  }
- 
+  )
+}
 
-export default AccessModal;
+export default AccessModal

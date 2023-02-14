@@ -11,6 +11,8 @@ import {
 import axios from 'axios'
 import FactCheckIcon from '@mui/icons-material/FactCheck'
 import { styled } from '@mui/material/styles'
+import { BASE_URL } from '../services/api'
+
 const inputProps = {
   id: 'input'
 }
@@ -51,36 +53,33 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
   }
 
   const refreshToken = async () => {
-    axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/refresh`)
-    
+    axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
   }
   const checkInvoice = async (id) => {
     let reg = /[a-zA-Z]+/g
-    if(formValue.docNum.length > 4 && formValue.docNum.length <= 6 && !reg.test(formValue.docNum)){
+    if (
+      formValue.docNum.length > 4 &&
+      formValue.docNum.length <= 6 &&
+      !reg.test(formValue.docNum)
+    ) {
       setNoInvoice(false)
       setTimeout(invoiceError, 5000)
       setInvoiceInputError(false)
-      let code = await axios.get(
-        `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/business/${id}`
-        )
-        setCustNum(code)
-      } else {
-        setInvoiceInputError(true)
-      }
-    
+      let code = await axios.get(`${BASE_URL}/bea/quickbooks/business/${id}`)
+      setCustNum(code)
+    } else {
+      setInvoiceInputError(true)
+    }
   }
 
   const invoiceError = () => {
-    if(!custNum){
+    if (!custNum) {
       setNoInvoice(true)
     }
   }
   const getData = async (id) => {
-    let code = await axios.get(
-      `https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/invoice/${id}`
-    )
+    let code = await axios.get(`${BASE_URL}/bea/quickbooks/invoice/${id}`)
     setInvoiceData(code)
-    
   }
 
   const closeQuickbooksModal = () => {
@@ -149,7 +148,6 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
               sx={{ margin: '15px' }}
               error={invoiceInputError}
               helperText="Invoice must be at least 5 digits"
-              
             />
             {custNum ? (
               <Button
@@ -163,7 +161,9 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
                 Check Invoice
               </Button>
             )}
-            {noInvoice ? <p style={{color: 'red'}}>Invoice not found</p> : null}
+            {noInvoice ? (
+              <p style={{ color: 'red' }}>Invoice not found</p>
+            ) : null}
             {invoiceData ? (
               <Box>
                 <Typography variant="h6" sx={{ color: 'white' }}>

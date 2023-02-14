@@ -1564,3 +1564,4 @@
   },
   "intuit_tid": "1-638fe615-4bd8a58245aca44d13824c16"
 }
+2023-02-14T18:23:35.600Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc&redirect_uri=https%3A%2F%2Fblueprint-employee-app-production.up.railway.app%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test

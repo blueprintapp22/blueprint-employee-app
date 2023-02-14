@@ -1,8 +1,10 @@
 import Axios from 'axios'
 
 export const BASE_URL =
-  'https://blueprint-employee-app-production.up.railway.app/'
-// export const BASE_URL = 'http://localhost:3001'
+  process.env.NODE_ENV === 'production'
+    ? 'https://blueprint-employee-app-production.up.railway.app/'
+    : 'http://localhost:3001'
+
 const Client = Axios.create({ baseURL: BASE_URL })
 // Client.defaults.headers.post['Access-Control-Allow-Origin'] = '*'
 Client.interceptors.request.use(
