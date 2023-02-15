@@ -13,6 +13,8 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone'
 import SearchResult from '../components/SearchResult'
 import { useEffect, useState } from 'react'
 import { Dropbox } from 'dropbox'
+
+let reader = new FileReader()
 const inputProps = {
   id: 'input'
 }
@@ -61,7 +63,6 @@ const SearchPage = ({ authenticated, user }) => {
       .then((res) => {
         setSearching(false)
         setSearchResult(res.result)
-        console.log(res.result)
         setFormValue({
           searchValue: ''
         })
@@ -72,7 +73,6 @@ const SearchPage = ({ authenticated, user }) => {
     dbx.filesSearchContinueV2({ cursor: cursor }).then((res) => {
       setSearching(false)
       setSearchResult(res.result)
-      console.log(searchResult)
     })
   }
   const GetPreview = (filePath) => {
@@ -82,6 +82,20 @@ const SearchPage = ({ authenticated, user }) => {
       })
       .then((res) => {
         let downloadUrl = URL.createObjectURL(res.result.fileBlob)
+        let parser = new DOMParser()
+        let blob = res.result.fileBlob
+        reader.addEventListener('loadend', function () {
+          // console.log(decodeURIComponent(atob(reader.result)))
+          let blobData = parser.parseFromString(reader.result, 'text/html')
+          console.log(
+            'invoice #: ',
+            blobData.getElementsByClassName('xl115')[0]?.innerHTML ||
+              blobData.getElementsByClassName('xl130')[0]?.innerHTML ||
+              blobData.getElementsByClassName('xl104')[1]?.innerHTML
+          )
+        })
+        reader.readAsText(blob)
+
         window.open(downloadUrl)
       })
   }

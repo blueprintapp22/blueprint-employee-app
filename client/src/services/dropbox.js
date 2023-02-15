@@ -22,6 +22,8 @@ export const GetPreview = (filePath) => {
     })
     .then((res) => {
       let downloadUrl = URL.createObjectURL(res.result.fileBlob)
+      reader.readAsDataURL(res.result.blob)
+      console.log(reader.result)
       window.open(downloadUrl)
     })
 }
