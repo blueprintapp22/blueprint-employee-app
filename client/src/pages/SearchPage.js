@@ -238,6 +238,7 @@ const SearchPage = ({ authenticated, user }) => {
               rowSpacing={0}
               justifyContent="center"
               alignItems="center"
+              sx={{ marginBlock: '2vh' }}
             >
               {pageSheets
                 ? pageSheets.map((file) => (
@@ -248,7 +249,6 @@ const SearchPage = ({ authenticated, user }) => {
                       md="auto"
                       lg="auto"
                       key={file.metadata.metadata.id}
-                      // sx={{ marginTop: '10px' }}
                     >
                       <SearchResult
                         GetPreview={GetPreview}
@@ -259,12 +259,22 @@ const SearchPage = ({ authenticated, user }) => {
                   ))
                 : null}
             </Grid>
-            <Pagination
-              count={Math.ceil(searchResult.length / pageSize)}
-              onChange={handlePageChange}
-              color="primary"
-              size="large"
-            />
+            <Box sx={{ color: 'white' }}>
+              {searchResult.length > 0 ? (
+                <Pagination
+                  count={Math.ceil(searchResult.length / pageSize)}
+                  onChange={handlePageChange}
+                  color="primary"
+                  size="large"
+                  sx={{
+                    background: 'white',
+                    borderRadius: '10px',
+                    marginBlock: '1vh',
+                    padding: '10px'
+                  }}
+                />
+              ) : null}
+            </Box>
           </Box>
         ) : null}
       </div>
