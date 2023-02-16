@@ -3,6 +3,7 @@ import {
   Button,
   CircularProgress,
   Grid,
+  Pagination,
   TextField,
   Toolbar,
   Typography
@@ -36,7 +37,14 @@ const CssTextField = styled(TextField)({
 })
 const SearchPage = ({ authenticated, user }) => {
   const [searching, setSearching] = useState(false)
-  const [searchResult, setSearchResult] = useState(false)
+  const [searchResult, setSearchResult] = useState([])
+  const [pageSize, setPageSize] = useState(12)
+  const [pagination, setPagination] = useState({
+    count: 20,
+    from: 0,
+    to: pageSize
+  })
+  const [pageSheets, setPageSheets] = useState([])
 
   const [code, setCode] = useState()
   const [formValue, setFormValue] = useState({
@@ -44,10 +52,22 @@ const SearchPage = ({ authenticated, user }) => {
     codeValue: ''
   })
 
+  useEffect(() => {
+    if (searchResult) {
+      setPageSheets(searchResult.slice(pagination.from, pagination.to))
+    }
+  }, [pagination.from, pagination.to, searchResult])
+
   const handleUpdateFormChange = (prop) => (event) => {
     setFormValue({ ...formValue, [prop]: event.target.value })
   }
 
+  const handlePageChange = (event, page) => {
+    const from = (page - 1) * pageSize
+    const to = (page - 1) * pageSize + pageSize
+
+    setPagination({ ...pagination, from: from, to: to })
+  }
   const dbx = new Dropbox({
     clientId: '90dgr7j93zv48ct',
     clientSecret: process.env.REACT_APP_SECRET,
@@ -58,16 +78,44 @@ const SearchPage = ({ authenticated, user }) => {
     setSearching(true)
     dbx
       .filesSearchV2({
-        query: searchQuery
+        query: searchQuery,
+        options: {
+          max_results: 1000,
+          filename_only: true
+        }
       })
       .then((res) => {
+        setSearchResult(
+          res.result.matches.filter(
+            (word) =>
+              !word.metadata.metadata.name.toLowerCase().includes('payroll') &&
+              !word.metadata.metadata.name
+                .toLowerCase()
+                .includes('collection') &&
+              !word.metadata.metadata.name.toLowerCase().includes('tbp') &&
+              !word.metadata.metadata.name
+                .toLowerCase()
+                .includes('king of the hill') &&
+              !word.metadata.metadata.name
+                .toLowerCase()
+                .includes('undersold') &&
+              !word.metadata.metadata.name.toLowerCase().includes('overdue') &&
+              !word.metadata.metadata.name.toLowerCase().includes('sales') &&
+              !word.metadata.metadata.name.toLowerCase().includes('cancel') &&
+              !word.metadata.metadata.name.toLowerCase().includes('past due') &&
+              !word.metadata.metadata.name.toLowerCase().includes('schedule') &&
+              !word.metadata.metadata.name.toLowerCase().includes('report') &&
+              !word.metadata.metadata.name.toLowerCase().includes('client')
+          )
+        )
+
         setSearching(false)
-        setSearchResult(res.result)
         setFormValue({
           searchValue: ''
         })
       })
   }
+
   const showMore = (cursor) => {
     setSearching(true)
     dbx.filesSearchContinueV2({ cursor: cursor }).then((res) => {
@@ -75,6 +123,7 @@ const SearchPage = ({ authenticated, user }) => {
       setSearchResult(res.result)
     })
   }
+
   const GetPreview = (filePath) => {
     dbx
       .filesGetPreview({
@@ -118,10 +167,10 @@ const SearchPage = ({ authenticated, user }) => {
             flexDirection: 'column'
           }}
         >
-          <ContactPhoneIcon sx={{ fontSize: '150px', color: 'white' }} />
           <Typography variant="h4" sx={{ color: 'white', fontWeight: 'bold' }}>
             Invoice Finder
           </Typography>
+
           <Typography
             variant="h6"
             sx={{ color: 'lightgray', fontWeight: 'bold', textAlign: 'center' }}
@@ -152,23 +201,15 @@ const SearchPage = ({ authenticated, user }) => {
                 value={formValue.searchValue}
                 sx={{ width: '800px' }}
               />
-            </Toolbar>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
               <Button
                 onClick={() => SearchDropbox(formValue.searchValue)}
                 sx={{ margin: '20px', fontSize: '20px' }}
                 disabled={formValue.searchValue ? false : true}
+                variant="contained"
               >
                 Search
               </Button>
-            </Box>
+            </Toolbar>
           </AppBar>
         </Box>
         {searching ? (
@@ -191,69 +232,39 @@ const SearchPage = ({ authenticated, user }) => {
               alignItems: 'center'
             }}
           >
-            <Grid container>
-              {searchResult.matches
-                .filter(
-                  (word) =>
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('payroll') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('collection') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('tbp') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('king of the hill') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('undersold') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('overdue') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('sales') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('cancel') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('past due') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('schedule') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('report') &&
-                    !word.metadata.metadata.name
-                      .toLowerCase()
-                      .includes('client')
-                )
-                .map((file) => (
-                  <Grid
-                    item
-                    xs={2}
-                    sm={3}
-                    md={3}
-                    key={file.metadata.metadata.id}
-                    sx={{ marginTop: '10px' }}
-                  >
-                    <SearchResult
-                      GetPreview={GetPreview}
-                      path={file.metadata.metadata.path_lower}
-                      name={file.metadata.metadata.name}
-                    />
-                  </Grid>
-                ))}
+            <Grid
+              container
+              columnSpacing={2}
+              rowSpacing={0}
+              justifyContent="center"
+              alignItems="center"
+            >
+              {pageSheets
+                ? pageSheets.map((file) => (
+                    <Grid
+                      item
+                      xs="auto"
+                      sm="auto"
+                      md="auto"
+                      lg="auto"
+                      key={file.metadata.metadata.id}
+                      // sx={{ marginTop: '10px' }}
+                    >
+                      <SearchResult
+                        GetPreview={GetPreview}
+                        path={file.metadata.metadata.path_lower}
+                        name={file.metadata.metadata.name}
+                      />
+                    </Grid>
+                  ))
+                : null}
             </Grid>
-            {searchResult.cursor ? (
-              <Button onClick={() => showMore(searchResult.cursor)}>
-                More?
-              </Button>
-            ) : null}
+            <Pagination
+              count={Math.ceil(searchResult.length / pageSize)}
+              onChange={handlePageChange}
+              color="primary"
+              size="large"
+            />
           </Box>
         ) : null}
       </div>
