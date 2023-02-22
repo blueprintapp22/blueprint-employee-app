@@ -1565,3 +1565,251 @@
   "intuit_tid": "1-638fe615-4bd8a58245aca44d13824c16"
 }
 2023-02-14T18:23:35.600Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc&redirect_uri=https%3A%2F%2Fblueprint-employee-app-production.up.railway.app%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T16:04:28.241Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T16:54:02.985Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T16:57:59.916Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:04:46.333Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:07:00.365Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:08:03.839Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:15:45.770Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:34:23.040Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:42:41.837Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost.3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:44:36.053Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:44:38.054Z info: Create Token response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..sPg1I7u5YCm4SHkNKFhouQ.sYQwz6G1CWV1Z3v8AO-ZuE85wZe3sy0OPF0pJb9mwad8v6LJyQDK6sC-Gg25CdsKnvPe9DFKfk0i46o4zrIid9MwBjqFZ4qeD4NoOZbf0MgPmvnGWJ_U8yiSbqXgSISgRaiAPNK9gS_tYCd2BaRZoo3jlaoJC8MgrLRxMAP_r0gf4-pt1IjCu-oGVnwTF6_D5TQBFl3GmLNWRqjDkyILQdLP_GUlgpUx3P8hXZEQvkv4X1Vq2r-E3ywllh-tGmAzlq82AiMjpgfLhcS54eHWFjUygbsRQZytGgYFY4IUR3cYcz4xMTSsy8KkKmNWbb25g5STx2oPaKmfX4rUYWg3AnC6_wObOU2bd2KdQgo4-fiAiAqYNpYFm2UEdA-n5wejnJDsCSpOJ84b5ojpEYfkgWnnRNxIeQRX526QTNhHB-1mjDU0SIdBfCxruX6g-sYErjEG0rWYlfZEhQMiQRCws1M_9PnDYx-CE98jIou_mbEtxVwiCJ5nDPemcDDPaMbDusyQveLggY_eMXnPr5X7-o9pVbtDQ1i-aHag75QzlijcwHD73Nlj1dl8WYwyDQ_Ononxyv5zwIs9N3yEk7R5kfq74XKbVSLBu85gDRpVinTiTXscTHmTjDktCvN27kIl1-R8iO_ahZ793HoXQ7bWLGgBorkuXb_Qa6K5ly2mqVXIEtDg9Gpb0597KBqV2jc4XD8Xk8Erwc0jKi6XkxHi7ucQbYiRXhB9G9hqyg2X0Sw.BCjNm9Jr3wAQ5Oxrj2SN7w",
+    "refresh_token": "AB11685727878e12WJtIp0mkopqeOIufHSaoxacTSEvyUmeClH",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726400,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1677001478053,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Tue, 21 Feb 2023 17:44:38 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-63f50306-2ffe3e8441be98cf5f1af61b",
+      "x-spanid": "85e56931-4ec5-4eec-9a21-4199ac44138c",
+      "x-amzn-trace-id": "Root=1-63f50306-2ffe3e8441be98cf5f1af61b",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "18",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..sPg1I7u5YCm4SHkNKFhouQ.sYQwz6G1CWV1Z3v8AO-ZuE85wZe3sy0OPF0pJb9mwad8v6LJyQDK6sC-Gg25CdsKnvPe9DFKfk0i46o4zrIid9MwBjqFZ4qeD4NoOZbf0MgPmvnGWJ_U8yiSbqXgSISgRaiAPNK9gS_tYCd2BaRZoo3jlaoJC8MgrLRxMAP_r0gf4-pt1IjCu-oGVnwTF6_D5TQBFl3GmLNWRqjDkyILQdLP_GUlgpUx3P8hXZEQvkv4X1Vq2r-E3ywllh-tGmAzlq82AiMjpgfLhcS54eHWFjUygbsRQZytGgYFY4IUR3cYcz4xMTSsy8KkKmNWbb25g5STx2oPaKmfX4rUYWg3AnC6_wObOU2bd2KdQgo4-fiAiAqYNpYFm2UEdA-n5wejnJDsCSpOJ84b5ojpEYfkgWnnRNxIeQRX526QTNhHB-1mjDU0SIdBfCxruX6g-sYErjEG0rWYlfZEhQMiQRCws1M_9PnDYx-CE98jIou_mbEtxVwiCJ5nDPemcDDPaMbDusyQveLggY_eMXnPr5X7-o9pVbtDQ1i-aHag75QzlijcwHD73Nlj1dl8WYwyDQ_Ononxyv5zwIs9N3yEk7R5kfq74XKbVSLBu85gDRpVinTiTXscTHmTjDktCvN27kIl1-R8iO_ahZ793HoXQ7bWLGgBorkuXb_Qa6K5ly2mqVXIEtDg9Gpb0597KBqV2jc4XD8Xk8Erwc0jKi6XkxHi7ucQbYiRXhB9G9hqyg2X0Sw.BCjNm9Jr3wAQ5Oxrj2SN7w\",\"token_type\":\"bearer\",\"x_refresh_token_expires_in\":8726400,\"refresh_token\":\"AB11685727878e12WJtIp0mkopqeOIufHSaoxacTSEvyUmeClH\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..sPg1I7u5YCm4SHkNKFhouQ.sYQwz6G1CWV1Z3v8AO-ZuE85wZe3sy0OPF0pJb9mwad8v6LJyQDK6sC-Gg25CdsKnvPe9DFKfk0i46o4zrIid9MwBjqFZ4qeD4NoOZbf0MgPmvnGWJ_U8yiSbqXgSISgRaiAPNK9gS_tYCd2BaRZoo3jlaoJC8MgrLRxMAP_r0gf4-pt1IjCu-oGVnwTF6_D5TQBFl3GmLNWRqjDkyILQdLP_GUlgpUx3P8hXZEQvkv4X1Vq2r-E3ywllh-tGmAzlq82AiMjpgfLhcS54eHWFjUygbsRQZytGgYFY4IUR3cYcz4xMTSsy8KkKmNWbb25g5STx2oPaKmfX4rUYWg3AnC6_wObOU2bd2KdQgo4-fiAiAqYNpYFm2UEdA-n5wejnJDsCSpOJ84b5ojpEYfkgWnnRNxIeQRX526QTNhHB-1mjDU0SIdBfCxruX6g-sYErjEG0rWYlfZEhQMiQRCws1M_9PnDYx-CE98jIou_mbEtxVwiCJ5nDPemcDDPaMbDusyQveLggY_eMXnPr5X7-o9pVbtDQ1i-aHag75QzlijcwHD73Nlj1dl8WYwyDQ_Ononxyv5zwIs9N3yEk7R5kfq74XKbVSLBu85gDRpVinTiTXscTHmTjDktCvN27kIl1-R8iO_ahZ793HoXQ7bWLGgBorkuXb_Qa6K5ly2mqVXIEtDg9Gpb0597KBqV2jc4XD8Xk8Erwc0jKi6XkxHi7ucQbYiRXhB9G9hqyg2X0Sw.BCjNm9Jr3wAQ5Oxrj2SN7w\",\"token_type\":\"bearer\",\"x_refresh_token_expires_in\":8726400,\"refresh_token\":\"AB11685727878e12WJtIp0mkopqeOIufHSaoxacTSEvyUmeClH\",\"expires_in\":3600}",
+  "json": {
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..sPg1I7u5YCm4SHkNKFhouQ.sYQwz6G1CWV1Z3v8AO-ZuE85wZe3sy0OPF0pJb9mwad8v6LJyQDK6sC-Gg25CdsKnvPe9DFKfk0i46o4zrIid9MwBjqFZ4qeD4NoOZbf0MgPmvnGWJ_U8yiSbqXgSISgRaiAPNK9gS_tYCd2BaRZoo3jlaoJC8MgrLRxMAP_r0gf4-pt1IjCu-oGVnwTF6_D5TQBFl3GmLNWRqjDkyILQdLP_GUlgpUx3P8hXZEQvkv4X1Vq2r-E3ywllh-tGmAzlq82AiMjpgfLhcS54eHWFjUygbsRQZytGgYFY4IUR3cYcz4xMTSsy8KkKmNWbb25g5STx2oPaKmfX4rUYWg3AnC6_wObOU2bd2KdQgo4-fiAiAqYNpYFm2UEdA-n5wejnJDsCSpOJ84b5ojpEYfkgWnnRNxIeQRX526QTNhHB-1mjDU0SIdBfCxruX6g-sYErjEG0rWYlfZEhQMiQRCws1M_9PnDYx-CE98jIou_mbEtxVwiCJ5nDPemcDDPaMbDusyQveLggY_eMXnPr5X7-o9pVbtDQ1i-aHag75QzlijcwHD73Nlj1dl8WYwyDQ_Ononxyv5zwIs9N3yEk7R5kfq74XKbVSLBu85gDRpVinTiTXscTHmTjDktCvN27kIl1-R8iO_ahZ793HoXQ7bWLGgBorkuXb_Qa6K5ly2mqVXIEtDg9Gpb0597KBqV2jc4XD8Xk8Erwc0jKi6XkxHi7ucQbYiRXhB9G9hqyg2X0Sw.BCjNm9Jr3wAQ5Oxrj2SN7w",
+    "token_type": "bearer",
+    "x_refresh_token_expires_in": 8726400,
+    "refresh_token": "AB11685727878e12WJtIp0mkopqeOIufHSaoxacTSEvyUmeClH",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-63f50306-2ffe3e8441be98cf5f1af61b"
+}
+2023-02-21T17:44:39.485Z error: Create Token () threw an exception : {
+  "authResponse": {
+    "token": {
+      "realmId": "4620816365259312120",
+      "token_type": "bearer",
+      "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..sPg1I7u5YCm4SHkNKFhouQ.sYQwz6G1CWV1Z3v8AO-ZuE85wZe3sy0OPF0pJb9mwad8v6LJyQDK6sC-Gg25CdsKnvPe9DFKfk0i46o4zrIid9MwBjqFZ4qeD4NoOZbf0MgPmvnGWJ_U8yiSbqXgSISgRaiAPNK9gS_tYCd2BaRZoo3jlaoJC8MgrLRxMAP_r0gf4-pt1IjCu-oGVnwTF6_D5TQBFl3GmLNWRqjDkyILQdLP_GUlgpUx3P8hXZEQvkv4X1Vq2r-E3ywllh-tGmAzlq82AiMjpgfLhcS54eHWFjUygbsRQZytGgYFY4IUR3cYcz4xMTSsy8KkKmNWbb25g5STx2oPaKmfX4rUYWg3AnC6_wObOU2bd2KdQgo4-fiAiAqYNpYFm2UEdA-n5wejnJDsCSpOJ84b5ojpEYfkgWnnRNxIeQRX526QTNhHB-1mjDU0SIdBfCxruX6g-sYErjEG0rWYlfZEhQMiQRCws1M_9PnDYx-CE98jIou_mbEtxVwiCJ5nDPemcDDPaMbDusyQveLggY_eMXnPr5X7-o9pVbtDQ1i-aHag75QzlijcwHD73Nlj1dl8WYwyDQ_Ononxyv5zwIs9N3yEk7R5kfq74XKbVSLBu85gDRpVinTiTXscTHmTjDktCvN27kIl1-R8iO_ahZ793HoXQ7bWLGgBorkuXb_Qa6K5ly2mqVXIEtDg9Gpb0597KBqV2jc4XD8Xk8Erwc0jKi6XkxHi7ucQbYiRXhB9G9hqyg2X0Sw.BCjNm9Jr3wAQ5Oxrj2SN7w",
+      "refresh_token": "AB11685727878e12WJtIp0mkopqeOIufHSaoxacTSEvyUmeClH",
+      "expires_in": 3600,
+      "x_refresh_token_expires_in": 8726400,
+      "id_token": "",
+      "latency": 60000,
+      "createdAt": 1677001478053,
+      "state": "intuit-test"
+    },
+    "response": {
+      "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+      "headers": {
+        "date": "Tue, 21 Feb 2023 17:44:39 GMT",
+        "content-type": "application/json;charset=utf-8",
+        "content-length": "76",
+        "connection": "close",
+        "intuit_tid": "1-63f50307-742626b2008f62bb74c61c67",
+        "x-spanid": "e9857dd4-b1a2-4a8a-8eef-1daf291c0cc3",
+        "x-amzn-trace-id": "Root=1-63f50307-742626b2008f62bb74c61c67",
+        "x-content-type-options": "nosniff",
+        "server": "envoy",
+        "cache-control": "no-cache, no-store",
+        "pragma": "no-cache",
+        "x-envoy-upstream-service-time": "14",
+        "strict-transport-security": "max-age=31536000"
+      },
+      "body": "{\"error_description\":\"Authorization code incorrect\",\"error\":\"invalid_grant\"}",
+      "status": 400,
+      "statusText": "Bad Request"
+    },
+    "body": "{\"error_description\":\"Authorization code incorrect\",\"error\":\"invalid_grant\"}",
+    "json": {
+      "error_description": "Authorization code incorrect",
+      "error": "invalid_grant"
+    },
+    "intuit_tid": "1-63f50307-742626b2008f62bb74c61c67"
+  },
+  "originalMessage": "Response has an Error",
+  "error": "invalid_grant",
+  "error_description": "Authorization code incorrect",
+  "intuit_tid": "1-63f50307-742626b2008f62bb74c61c67"
+}
+2023-02-21T17:46:32.376Z error: Create Token () threw an exception : {
+  "authResponse": {
+    "token": {
+      "realmId": "4620816365259312120",
+      "token_type": "",
+      "access_token": "",
+      "refresh_token": "",
+      "expires_in": 0,
+      "x_refresh_token_expires_in": 0,
+      "id_token": "",
+      "latency": 60000,
+      "createdAt": 1677001587231,
+      "state": "intuit-test"
+    },
+    "response": {
+      "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+      "headers": {
+        "date": "Tue, 21 Feb 2023 17:46:32 GMT",
+        "content-type": "application/json;charset=utf-8",
+        "content-length": "25",
+        "connection": "close",
+        "intuit_tid": "1-63f50378-50514a2401ea56cb29de3617",
+        "x-spanid": "3f1e9a99-1600-4772-9d1e-78cff0dca9fb",
+        "x-amzn-trace-id": "Root=1-63f50378-50514a2401ea56cb29de3617",
+        "x-content-type-options": "nosniff",
+        "server": "envoy",
+        "cache-control": "no-cache, no-store",
+        "pragma": "no-cache",
+        "x-envoy-upstream-service-time": "25",
+        "strict-transport-security": "max-age=31536000"
+      },
+      "body": "{\"error\":\"invalid_grant\"}",
+      "status": 400,
+      "statusText": "Bad Request"
+    },
+    "body": "{\"error\":\"invalid_grant\"}",
+    "json": {
+      "error": "invalid_grant"
+    },
+    "intuit_tid": "1-63f50378-50514a2401ea56cb29de3617"
+  },
+  "originalMessage": "Response has an Error",
+  "error": "invalid_grant",
+  "error_description": "Bad Request",
+  "intuit_tid": "1-63f50378-50514a2401ea56cb29de3617"
+}
+2023-02-21T17:47:02.422Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:47:04.614Z info: Create Token response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..geBfLJkfeia1XkM43qAnoQ.mad4rPku1agVMQyf0hUaW0Db8iafC-ff5Xq3JNWTbNAbJXC-qY2DJ73WV02pEaJBzWpcdBOXFPOI4SpTNQ2wU0EtfgQ2fBzGEe99Jc-rzVAmzUcHjEWp15a95AX7SDsjiKhbLIsdpfASPgq6y_ImrTHmWKzrjuoemzF_fq7ouQjixSB5Xr-0JEsRBNbzBHXE5-GyEzSZPlnVzsBBlnkcivkTFoXb-QCNMhgNlnTytnJ5UQW8Um4sJPaSaNkO_wDUijaV1EqtF7Wf_VWPWPhnD3ZN77uiDrvmkcomhcMi7LGhgTpwOb1NMlYC9lXdkxbGPMbCEbOwnvM2eihwnAbRh382OF9mFlhKjw14o_YKPhAchBiXjv8RaTjiILbkY1hVC3nDzwd06KLDc4vseIp7sJ219oPhZdCBAJgtq3K-tQy1lK7aFEeBB-Y7TUX5J-j3LUB6cmyRUDd0EPEbLpPPxnW0gQWLO0C8fSaXnkyBIAZJC_hRoYDKGQ2Dwk8ZbATWb8Xw-Hwi3Dz6Np528CuDEcNmy2Xjnk9oFzvIBVCrbK47APLPWbmsLCMDcqVjTCoxKXhUD7nqp5lYH6rsT2NP9OUSD__6ZWe9kppSxcG14h5cLQRz1S9yLA-GZ0wotJdv9CdZj4sGUhmxG0WKvjL3RB36NgF7sB0SPgC1PCfyPKf_l3fnUomGTlMYouKj_bZFyol1n2RTjmTxz6PjDYGECZbM-TJlyT3cjt2FP-yP2F8.U6Z-JGPhWm8CfEGgPyjyJg",
+    "refresh_token": "AB11685728024VF8Nvgm9fQLJyTj67kvd6S2oOL6R4X5w9W1Jg",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726400,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1677001624614,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Tue, 21 Feb 2023 17:47:04 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-63f50398-65db2ceb0ccdedf40c6cd36f",
+      "x-spanid": "47fdb25c-03cc-41e5-a62a-f19a8f554148",
+      "x-amzn-trace-id": "Root=1-63f50398-65db2ceb0ccdedf40c6cd36f",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "21",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"x_refresh_token_expires_in\":8726400,\"refresh_token\":\"AB11685728024VF8Nvgm9fQLJyTj67kvd6S2oOL6R4X5w9W1Jg\",\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..geBfLJkfeia1XkM43qAnoQ.mad4rPku1agVMQyf0hUaW0Db8iafC-ff5Xq3JNWTbNAbJXC-qY2DJ73WV02pEaJBzWpcdBOXFPOI4SpTNQ2wU0EtfgQ2fBzGEe99Jc-rzVAmzUcHjEWp15a95AX7SDsjiKhbLIsdpfASPgq6y_ImrTHmWKzrjuoemzF_fq7ouQjixSB5Xr-0JEsRBNbzBHXE5-GyEzSZPlnVzsBBlnkcivkTFoXb-QCNMhgNlnTytnJ5UQW8Um4sJPaSaNkO_wDUijaV1EqtF7Wf_VWPWPhnD3ZN77uiDrvmkcomhcMi7LGhgTpwOb1NMlYC9lXdkxbGPMbCEbOwnvM2eihwnAbRh382OF9mFlhKjw14o_YKPhAchBiXjv8RaTjiILbkY1hVC3nDzwd06KLDc4vseIp7sJ219oPhZdCBAJgtq3K-tQy1lK7aFEeBB-Y7TUX5J-j3LUB6cmyRUDd0EPEbLpPPxnW0gQWLO0C8fSaXnkyBIAZJC_hRoYDKGQ2Dwk8ZbATWb8Xw-Hwi3Dz6Np528CuDEcNmy2Xjnk9oFzvIBVCrbK47APLPWbmsLCMDcqVjTCoxKXhUD7nqp5lYH6rsT2NP9OUSD__6ZWe9kppSxcG14h5cLQRz1S9yLA-GZ0wotJdv9CdZj4sGUhmxG0WKvjL3RB36NgF7sB0SPgC1PCfyPKf_l3fnUomGTlMYouKj_bZFyol1n2RTjmTxz6PjDYGECZbM-TJlyT3cjt2FP-yP2F8.U6Z-JGPhWm8CfEGgPyjyJg\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"x_refresh_token_expires_in\":8726400,\"refresh_token\":\"AB11685728024VF8Nvgm9fQLJyTj67kvd6S2oOL6R4X5w9W1Jg\",\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..geBfLJkfeia1XkM43qAnoQ.mad4rPku1agVMQyf0hUaW0Db8iafC-ff5Xq3JNWTbNAbJXC-qY2DJ73WV02pEaJBzWpcdBOXFPOI4SpTNQ2wU0EtfgQ2fBzGEe99Jc-rzVAmzUcHjEWp15a95AX7SDsjiKhbLIsdpfASPgq6y_ImrTHmWKzrjuoemzF_fq7ouQjixSB5Xr-0JEsRBNbzBHXE5-GyEzSZPlnVzsBBlnkcivkTFoXb-QCNMhgNlnTytnJ5UQW8Um4sJPaSaNkO_wDUijaV1EqtF7Wf_VWPWPhnD3ZN77uiDrvmkcomhcMi7LGhgTpwOb1NMlYC9lXdkxbGPMbCEbOwnvM2eihwnAbRh382OF9mFlhKjw14o_YKPhAchBiXjv8RaTjiILbkY1hVC3nDzwd06KLDc4vseIp7sJ219oPhZdCBAJgtq3K-tQy1lK7aFEeBB-Y7TUX5J-j3LUB6cmyRUDd0EPEbLpPPxnW0gQWLO0C8fSaXnkyBIAZJC_hRoYDKGQ2Dwk8ZbATWb8Xw-Hwi3Dz6Np528CuDEcNmy2Xjnk9oFzvIBVCrbK47APLPWbmsLCMDcqVjTCoxKXhUD7nqp5lYH6rsT2NP9OUSD__6ZWe9kppSxcG14h5cLQRz1S9yLA-GZ0wotJdv9CdZj4sGUhmxG0WKvjL3RB36NgF7sB0SPgC1PCfyPKf_l3fnUomGTlMYouKj_bZFyol1n2RTjmTxz6PjDYGECZbM-TJlyT3cjt2FP-yP2F8.U6Z-JGPhWm8CfEGgPyjyJg\",\"token_type\":\"bearer\",\"expires_in\":3600}",
+  "json": {
+    "x_refresh_token_expires_in": 8726400,
+    "refresh_token": "AB11685728024VF8Nvgm9fQLJyTj67kvd6S2oOL6R4X5w9W1Jg",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..geBfLJkfeia1XkM43qAnoQ.mad4rPku1agVMQyf0hUaW0Db8iafC-ff5Xq3JNWTbNAbJXC-qY2DJ73WV02pEaJBzWpcdBOXFPOI4SpTNQ2wU0EtfgQ2fBzGEe99Jc-rzVAmzUcHjEWp15a95AX7SDsjiKhbLIsdpfASPgq6y_ImrTHmWKzrjuoemzF_fq7ouQjixSB5Xr-0JEsRBNbzBHXE5-GyEzSZPlnVzsBBlnkcivkTFoXb-QCNMhgNlnTytnJ5UQW8Um4sJPaSaNkO_wDUijaV1EqtF7Wf_VWPWPhnD3ZN77uiDrvmkcomhcMi7LGhgTpwOb1NMlYC9lXdkxbGPMbCEbOwnvM2eihwnAbRh382OF9mFlhKjw14o_YKPhAchBiXjv8RaTjiILbkY1hVC3nDzwd06KLDc4vseIp7sJ219oPhZdCBAJgtq3K-tQy1lK7aFEeBB-Y7TUX5J-j3LUB6cmyRUDd0EPEbLpPPxnW0gQWLO0C8fSaXnkyBIAZJC_hRoYDKGQ2Dwk8ZbATWb8Xw-Hwi3Dz6Np528CuDEcNmy2Xjnk9oFzvIBVCrbK47APLPWbmsLCMDcqVjTCoxKXhUD7nqp5lYH6rsT2NP9OUSD__6ZWe9kppSxcG14h5cLQRz1S9yLA-GZ0wotJdv9CdZj4sGUhmxG0WKvjL3RB36NgF7sB0SPgC1PCfyPKf_l3fnUomGTlMYouKj_bZFyol1n2RTjmTxz6PjDYGECZbM-TJlyT3cjt2FP-yP2F8.U6Z-JGPhWm8CfEGgPyjyJg",
+    "token_type": "bearer",
+    "expires_in": 3600
+  },
+  "intuit_tid": "1-63f50398-65db2ceb0ccdedf40c6cd36f"
+}
+2023-02-21T17:55:06.010Z error: Refresh Token () threw an exception : {}
+2023-02-21T17:57:12.020Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T17:57:15.517Z info: Create Token response is : {
+  "token": {
+    "realmId": "4620816365259312120",
+    "token_type": "bearer",
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..oi0v2PjRay6nWgzjMQEsmg.mv1h82LZFnluzwoFp-Pd-Eg2CUxoJgiqTEd14ti2s8wR4ToTmzBV2qFFXs2vYphOSBmi6pd_Ld2hqIruVSNj8DiHRKxHOLYlRC3jqFOuNZNHMtHtjuOkGFeD8VsMvIjDk1H4CYva5HrhXNPE-ku7V62EJhyEccR0lIRlX0mi30IUOqNsQMeq5iE4R627nWsFmRvaXJWCZnA4_StlBGqwiaijJfQgQCkzTe23I1W1r9EzRwrGuaJO-9EQukjQi0a5vJL48eW9bOG-meTvw4-B1hS7eRU7an92DH5lGI3LckeuuVzYPz95JgaO_Bs1QR_qTjxCXKeG5yAOa6FpSzu-Hk_7pxlilKooTwz1SfOVTWhllu3Aav5-1dEGESoiTkJgpfpKAEctF9oSRFl2QkgTi8RSeWfjsofNN9ic8bJUPWBLxKUCqf0ZbushBfj5AC3lt1a6f6jNb2UWmdOdTca8XGikbGS888mBxesNhAjt86JK1OxiVdvbRAzgJ7LBb64TFPLim19x3FAkw3w5o2APFPzisaa-dX19ACfmbqh32ZbU7U1ZjqqXtFXP11QWcec9AKHtGIfP1igMQACrzdHbcdSSSz3vaJWXuowGSQzfla5cfw-4N4sQMgxzhBLuictkgzUA0ieGjg-2EloWjYPASDJrKPpTkPBc5S1lZV1vRH166_DFeKeV7DAmoIQ9wTcQGrO0fBMJU9AuHTFyokmpfjQ-3NTo_gAmUiABiPiPeRE.uvuKH6FU_0J7XLbdB57GEg",
+    "refresh_token": "AB11685728635V4GL8XUCdGk5ion8zJXq6Y0Ahj3FRdVCf9mm7",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726400,
+    "id_token": "",
+    "latency": 60000,
+    "createdAt": 1677002235517,
+    "state": "intuit-test"
+  },
+  "response": {
+    "url": "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer",
+    "headers": {
+      "date": "Tue, 21 Feb 2023 17:57:15 GMT",
+      "content-type": "application/json;charset=utf-8",
+      "content-length": "1007",
+      "connection": "close",
+      "intuit_tid": "1-63f505fb-4303bac71168d1e73a96a1e2",
+      "x-spanid": "70e4777d-931c-493a-b2b6-79252f122983",
+      "x-amzn-trace-id": "Root=1-63f505fb-4303bac71168d1e73a96a1e2",
+      "x-content-type-options": "nosniff",
+      "server": "envoy",
+      "cache-control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "x-envoy-upstream-service-time": "37",
+      "strict-transport-security": "max-age=31536000"
+    },
+    "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..oi0v2PjRay6nWgzjMQEsmg.mv1h82LZFnluzwoFp-Pd-Eg2CUxoJgiqTEd14ti2s8wR4ToTmzBV2qFFXs2vYphOSBmi6pd_Ld2hqIruVSNj8DiHRKxHOLYlRC3jqFOuNZNHMtHtjuOkGFeD8VsMvIjDk1H4CYva5HrhXNPE-ku7V62EJhyEccR0lIRlX0mi30IUOqNsQMeq5iE4R627nWsFmRvaXJWCZnA4_StlBGqwiaijJfQgQCkzTe23I1W1r9EzRwrGuaJO-9EQukjQi0a5vJL48eW9bOG-meTvw4-B1hS7eRU7an92DH5lGI3LckeuuVzYPz95JgaO_Bs1QR_qTjxCXKeG5yAOa6FpSzu-Hk_7pxlilKooTwz1SfOVTWhllu3Aav5-1dEGESoiTkJgpfpKAEctF9oSRFl2QkgTi8RSeWfjsofNN9ic8bJUPWBLxKUCqf0ZbushBfj5AC3lt1a6f6jNb2UWmdOdTca8XGikbGS888mBxesNhAjt86JK1OxiVdvbRAzgJ7LBb64TFPLim19x3FAkw3w5o2APFPzisaa-dX19ACfmbqh32ZbU7U1ZjqqXtFXP11QWcec9AKHtGIfP1igMQACrzdHbcdSSSz3vaJWXuowGSQzfla5cfw-4N4sQMgxzhBLuictkgzUA0ieGjg-2EloWjYPASDJrKPpTkPBc5S1lZV1vRH166_DFeKeV7DAmoIQ9wTcQGrO0fBMJU9AuHTFyokmpfjQ-3NTo_gAmUiABiPiPeRE.uvuKH6FU_0J7XLbdB57GEg\",\"token_type\":\"bearer\",\"expires_in\":3600,\"x_refresh_token_expires_in\":8726400,\"refresh_token\":\"AB11685728635V4GL8XUCdGk5ion8zJXq6Y0Ahj3FRdVCf9mm7\"}",
+    "status": 200,
+    "statusText": "OK"
+  },
+  "body": "{\"access_token\":\"eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..oi0v2PjRay6nWgzjMQEsmg.mv1h82LZFnluzwoFp-Pd-Eg2CUxoJgiqTEd14ti2s8wR4ToTmzBV2qFFXs2vYphOSBmi6pd_Ld2hqIruVSNj8DiHRKxHOLYlRC3jqFOuNZNHMtHtjuOkGFeD8VsMvIjDk1H4CYva5HrhXNPE-ku7V62EJhyEccR0lIRlX0mi30IUOqNsQMeq5iE4R627nWsFmRvaXJWCZnA4_StlBGqwiaijJfQgQCkzTe23I1W1r9EzRwrGuaJO-9EQukjQi0a5vJL48eW9bOG-meTvw4-B1hS7eRU7an92DH5lGI3LckeuuVzYPz95JgaO_Bs1QR_qTjxCXKeG5yAOa6FpSzu-Hk_7pxlilKooTwz1SfOVTWhllu3Aav5-1dEGESoiTkJgpfpKAEctF9oSRFl2QkgTi8RSeWfjsofNN9ic8bJUPWBLxKUCqf0ZbushBfj5AC3lt1a6f6jNb2UWmdOdTca8XGikbGS888mBxesNhAjt86JK1OxiVdvbRAzgJ7LBb64TFPLim19x3FAkw3w5o2APFPzisaa-dX19ACfmbqh32ZbU7U1ZjqqXtFXP11QWcec9AKHtGIfP1igMQACrzdHbcdSSSz3vaJWXuowGSQzfla5cfw-4N4sQMgxzhBLuictkgzUA0ieGjg-2EloWjYPASDJrKPpTkPBc5S1lZV1vRH166_DFeKeV7DAmoIQ9wTcQGrO0fBMJU9AuHTFyokmpfjQ-3NTo_gAmUiABiPiPeRE.uvuKH6FU_0J7XLbdB57GEg\",\"token_type\":\"bearer\",\"expires_in\":3600,\"x_refresh_token_expires_in\":8726400,\"refresh_token\":\"AB11685728635V4GL8XUCdGk5ion8zJXq6Y0Ahj3FRdVCf9mm7\"}",
+  "json": {
+    "access_token": "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..oi0v2PjRay6nWgzjMQEsmg.mv1h82LZFnluzwoFp-Pd-Eg2CUxoJgiqTEd14ti2s8wR4ToTmzBV2qFFXs2vYphOSBmi6pd_Ld2hqIruVSNj8DiHRKxHOLYlRC3jqFOuNZNHMtHtjuOkGFeD8VsMvIjDk1H4CYva5HrhXNPE-ku7V62EJhyEccR0lIRlX0mi30IUOqNsQMeq5iE4R627nWsFmRvaXJWCZnA4_StlBGqwiaijJfQgQCkzTe23I1W1r9EzRwrGuaJO-9EQukjQi0a5vJL48eW9bOG-meTvw4-B1hS7eRU7an92DH5lGI3LckeuuVzYPz95JgaO_Bs1QR_qTjxCXKeG5yAOa6FpSzu-Hk_7pxlilKooTwz1SfOVTWhllu3Aav5-1dEGESoiTkJgpfpKAEctF9oSRFl2QkgTi8RSeWfjsofNN9ic8bJUPWBLxKUCqf0ZbushBfj5AC3lt1a6f6jNb2UWmdOdTca8XGikbGS888mBxesNhAjt86JK1OxiVdvbRAzgJ7LBb64TFPLim19x3FAkw3w5o2APFPzisaa-dX19ACfmbqh32ZbU7U1ZjqqXtFXP11QWcec9AKHtGIfP1igMQACrzdHbcdSSSz3vaJWXuowGSQzfla5cfw-4N4sQMgxzhBLuictkgzUA0ieGjg-2EloWjYPASDJrKPpTkPBc5S1lZV1vRH166_DFeKeV7DAmoIQ9wTcQGrO0fBMJU9AuHTFyokmpfjQ-3NTo_gAmUiABiPiPeRE.uvuKH6FU_0J7XLbdB57GEg",
+    "token_type": "bearer",
+    "expires_in": 3600,
+    "x_refresh_token_expires_in": 8726400,
+    "refresh_token": "AB11685728635V4GL8XUCdGk5ion8zJXq6Y0Ahj3FRdVCf9mm7"
+  },
+  "intuit_tid": "1-63f505fb-4303bac71168d1e73a96a1e2"
+}
+2023-02-21T19:30:28.153Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABy3SARYHIrTCQK3JLjAdcXWDSXtfj434vteP44jGYIVPGHuOs&redirect_uri=https%3A%2F%2Fblueprint-employee-app-production.up.railway.app%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T19:32:46.606Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc&redirect_uri=https%3A%2F%2Fblueprint-employee-app-production.up.railway.app%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T19:35:42.857Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc&redirect_uri=https%3A%2F%2Fblueprint-employee-app-production.up.railway.app%2Fbea%2Fquickbooks%2Fcallback&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test
+2023-02-21T20:27:16.521Z info: The Authorize Uri is :https://appcenter.intuit.com/connect/oauth2?client_id=ABPkh6TLJ6WrbWPGa1aoWfLP3NusHNwgP33bX8q26yVnBT50Pc&redirect_uri=https%3A%2F%2Fdeveloper.intuit.com%2Fv2%2FOAuth2Playground%2FRedirectUrl&response_type=code&scope=com.intuit.quickbooks.accounting&state=intuit-test

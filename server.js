@@ -50,4 +50,8 @@ app.get('/*', (req, res) => {
   res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
-app.listen(PORT, () => console.log(`Server Running On Port: ${PORT}`))
+app.listen(PORT, () =>
+  console.log(
+    `Server Running On Port: ${PORT}. Node env: ${process.env.NODE_ENV}`
+  )
+)
