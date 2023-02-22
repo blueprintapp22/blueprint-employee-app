@@ -11,14 +11,14 @@ let qbo = new Quickbooks(
 
   process.env.CLIENT_SECRET,
 
-  'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..OHN84r_43zWHwWUiX6MsNA.YfDSIfPy2izjHHumHTdDxrs7Hfo__Y5wy_4q41lTqeFHNiwJT663d9wXhT9sI0w3CFHvNs3upYc6BbpTg0b9UbH3hKbiX8sltFiSd6qpahMLoTBfES4kbgrdkrGaMV9NJS5hII9p65cqAPGJw_rIq5sTyvQeUFkgtFH67KKtNVKMn3qDnaWy9PLh4_wWcjgYr1d_cbD_jFaUodF3rVHUlRobUHJB84nVdC6HwciFDEYhqKPGMczqkJdauK72vjA42mo8LWL9B1tEts0D7hgELnq8t7CKE1S9z0qcTZexA_51l7ZEvzE4_QtkNpHqkVvGt11cVmoQ_OOIkPHmYAMpOYR8qtgucbOsfY9sUTXg3EnuFo9NIM_iOVsSNV823nnndj0_6AaELOK7VhY6dtSXg94es2uoxg2eCr8qJuaJZGFFm0vsK5H9ZP7dN9SJtUDtnlSHy9weLhsLNVF-PnnAZ6JaW1TEfimf8mLFCTNdHA3KR-owYQ9v2h_DXzYpXQN8hk_nsuigwmp6imSqJ89u6x6OY6tfCRrPAb1CsGJIHdFmHKpVUQfxyLW3LD9cUHBQqiE7e7ZZtu6UWwBzhP50nhIGwLQIjJVPB8QucixHptiT6Bn0bh4g1NX16stXmi8QYhM9woOdVREFHxOZRUp6uepi7bX-ydBmxZhNXzPGDQ1GXmLQ6TD6d1p3dFahew3RkTFDNTfJAONFeLxKHOEXmpyDfFND3Px1rTig3cDFEwY.Lyfl-apHQ30ln6XWuv9_TQ',
+  'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..KWRL5fcTDqNNvYv6hIqzfw.zBsw1fsXKWglhY1MLyeacDTe-WiR6ay5uAorT7tsddCGRwKFR8FU-JPRrPz4xB9KgNyUZWtS7SxBPH9S73ALGlttS55PNVyqi1hgYvXZ8EURpRfCdmU8FiAhVoGNuttcgNaZaqEs9G883eksWWqNvqHblDnM99SmeGc7UAKxndMekI1YWE6-SCNF6mLhdf_L9Zyjd-cKpAPyeMsvAGn89vowIiKCGWke_BNlJxH1YtATAfYiHPsCstBuuGae83oy_vCkOFqml-rbETIIxTS2nFnOE3rKKaJOoCGN2AqNGK5pXUzfu4I14lhK4l6rmkoiAiyJED_ijlPxefOF3YXvOgD6HItEQoN22AlLg5VBKEgyqis5q3VReHQNxMHkDj6fqvfmQYVoWBUufqE1f2Ar1F4kzN1VSzyyBaQRQPCHPwRSp9QuQ1TJ1gFZYYkFSnRX5SIl6LZZazUTt3LErZ3jUuzKilAp1wHCAJ_IWMjF1mloF8gh5KzrKihSf5jugN2Fz4QkKbm5nUI_kwUS2ohMXWeg26I3swVV5auo4Loo_X_Nr8VDEnKwUpkBrAPwudxIdOKD9RXP_PqMSeX1GDUosMSeUrbXSqUX9Mm0qmf7gwQwpdYHBwTAToiGmR_D0Y-nBACtQaS1P1HIgMzyuSomWRfXSlhz6icq_7fwnUzhjnKDctgWq1nJxmuFtSP4O8yS-swimHQ7rn1kIXbJth2boUVQJoRcw0-6XeU8Tj1toqc.i46VGB_oeNHSQvkSDbd9IA',
   false,
   '1342692165',
   false,
   true,
   null,
   '2.0',
-  'AB11685745415d770qIff4rb7lKs7rOX7r0J0LezG6Ob67S6aD'
+  'AB11685761792Osa9WiPR9Rqzh88jup4oQk2SjPFjknWilp0j2'
 )
 
 let oauthClient = new OAuthClient({
@@ -115,7 +115,7 @@ const BusinessGetter = (req, res) => {
     let val
     qbo.findInvoices({ DocNumber: id }, (err, invoice) => {
       if (err) console.log(err)
-      if (!invoice) {
+      if (!invoice.QueryResponse.Invoice) {
         res.send('No invoice found')
       } else {
         res.send(invoice.QueryResponse.Invoice[0].CustomerRef.value)
