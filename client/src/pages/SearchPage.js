@@ -67,6 +67,7 @@ const SearchPage = ({ authenticated, user }) => {
 
   //handles the page change for pagination
   const handlePageChange = (event, page) => {
+    event.preventDefault()
     const from = (page - 1) * pageSize
     const to = (page - 1) * pageSize + pageSize
 
@@ -318,6 +319,7 @@ const SearchPage = ({ authenticated, user }) => {
                         // GetPreview={GetPreview}
                         path={file.metadata.metadata.path_lower}
                         name={file.metadata.metadata.name}
+                        dbx={dbx}
                       />
                     </Grid>
                   ))
