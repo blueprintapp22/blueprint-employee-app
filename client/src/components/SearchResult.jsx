@@ -1,5 +1,4 @@
 import { Card, CardContent } from '@mui/material'
-import FolderIcon from '@mui/icons-material/Folder'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../services/api'
@@ -11,6 +10,10 @@ const SearchResult = (props) => {
   const [invoiceError, setInvoiceError] = useState()
 
   let reader = new FileReader()
+  const refreshToken = async () => {
+    await axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
+  }
+
   //handles the quickbooks functionality when an invoice is clicked
   useEffect(() => {
     if (invoiceNumber) {
@@ -56,11 +59,43 @@ const SearchResult = (props) => {
         reader.addEventListener('loadend', function () {
           let blobData = parser.parseFromString(reader.result, 'text/html')
 
-          setInvoiceNumber(
-            blobData.getElementsByClassName('xl98')[0]?.innerHTML ||
-              blobData.getElementsByClassName('xl99')[0]?.innerHTML ||
-              'No invoice # found'
-          )
+          let reg = /(\D)/g
+
+          //This will determine where to grab the invoice number from. As new edge cases are found, this is where we can fix.
+          switch (true) {
+            case !reg.test(
+              blobData.getElementsByClassName('xl97')[0]?.innerHTML
+            ) && blobData.getElementsByClassName('xl97')[0].innerHTML !== '':
+              setInvoiceNumber(
+                blobData.getElementsByClassName('xl97')[0]?.innerHTML
+              )
+              break
+            case !reg.test(
+              blobData.getElementsByClassName('xl98')[0]?.innerHTML
+            ):
+              setInvoiceNumber(
+                blobData.getElementsByClassName('xl98')[0]?.innerHTML
+              )
+              break
+            case !reg.test(
+              blobData.getElementsByClassName('xl99')[0]?.innerHTML
+            ):
+              setInvoiceNumber(
+                blobData.getElementsByClassName('xl99')[0]?.innerHTML
+              )
+              break
+            case !reg.test(
+              blobData.getElementsByClassName('xl102')[0]?.innerHTML
+            ):
+              setInvoiceNumber(
+                blobData.getElementsByClassName('xl102')[0]?.innerHTML
+              )
+              break
+
+            default:
+              setInvoiceNumber(null)
+              break
+          }
         })
         reader.readAsText(blob)
         window.open(downloadUrl)
@@ -69,21 +104,22 @@ const SearchResult = (props) => {
 
   //Takes invoice number and then searches for business ID, then uses that business ID to return all invoices from business
   const getBusiness = async (invoiceNumber) => {
-    let reg = /[a-zA-Z]+/g
-    try {
-      if (!reg.test(invoiceNumber)) {
-        let res = await axios.get(
-          `${BASE_URL}/bea/quickbooks/business/${invoiceNumber}`
-        )
+    if (process.env.NODE_ENV === 'production') {
+      refreshToken()
+    }
 
-        if (res.data !== 'No invoice found') {
-          let invoiceData = await axios.get(
-            `${BASE_URL}/bea/quickbooks/invoice/${res.data}`
-          )
-          setInvoiceData(invoiceData.data)
-        } else {
-          setInvoiceData('Cancelled')
-        }
+    try {
+      let res = await axios.get(
+        `${BASE_URL}/bea/quickbooks/business/${invoiceNumber}`
+      )
+
+      if (res.data !== "No invoice's found") {
+        let invoiceData = await axios.get(
+          `${BASE_URL}/bea/quickbooks/invoice/${res.data}`
+        )
+        setInvoiceData(invoiceData.data)
+      } else {
+        setInvoiceData('Cancelled')
       }
     } catch (error) {
       throw error

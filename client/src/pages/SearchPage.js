@@ -10,14 +10,9 @@ import {
 } from '@mui/material'
 import { Box } from '@mui/system'
 import { styled } from '@mui/material/styles'
-import ContactPhoneIcon from '@mui/icons-material/ContactPhone'
 import SearchResult from '../components/SearchResult'
 import { useEffect, useState } from 'react'
 import { Dropbox } from 'dropbox'
-// import axios from 'axios'
-// import { BASE_URL } from '../services/api'
-
-// let reader = new FileReader()
 
 const inputProps = {
   id: 'input'
@@ -49,9 +44,6 @@ const SearchPage = ({ authenticated, user }) => {
     to: pageSize
   })
   const [pageSheets, setPageSheets] = useState([])
-  // const [invoiceNumber, setInvoiceNumber] = useState()
-  // const [invoiceData, setInvoiceData] = useState([])
-  // const [allPaid, setAllPaid] = useState()
   const [code, setCode] = useState()
   const [formValue, setFormValue] = useState({
     searchValue: '',
@@ -73,58 +65,6 @@ const SearchPage = ({ authenticated, user }) => {
 
     setPagination({ ...pagination, from: from, to: to })
   }
-
-  //handles the quickbooks functionality when an invoice is clicked
-  // useEffect(() => {
-  //   if (invoiceNumber) {
-  //     getBusiness(invoiceNumber)
-  //   }
-  // }, [invoiceNumber])
-
-  //Takes invoice number and then searches for business ID, then uses that business ID to return all invoices from business
-  // const getBusiness = async (invoiceNumber) => {
-  //   let reg = /[a-zA-Z]+/g
-  //   try {
-  //     if (!reg.test(invoiceNumber)) {
-  //       let res = await axios.get(
-  //         `${BASE_URL}/bea/quickbooks/business/${invoiceNumber}`
-  //       )
-  //       if (res.data) {
-  //         let invoiceData = await axios.get(
-  //           `${BASE_URL}/bea/quickbooks/invoice/${res.data}`
-  //         )
-  //         setInvoiceData(invoiceData.data)
-  //       } else {
-  //         setInvoiceData('No data found')
-  //       }
-  //     }
-  //   } catch (error) {
-  //     throw error
-  //   }
-  // }
-
-  //checks for balance on returned invoices and sets allPaid to true or false
-  // useEffect(() => {
-  //   setAllPaid('')
-  //   if (invoiceData) {
-  //     checkInvoiceBalance(invoiceData)
-  //   }
-  //   console.log('allpaid: ', allPaid)
-  // }, [invoiceData])
-
-  //Takes invoice data and determines if there is a balance sum
-  // const checkInvoiceBalance = (invoices) => {
-  //   let sum = 0
-  //   invoices.forEach((invoice) => {
-  //     sum = parseInt(invoice.Balance) + sum
-  //     console.log('sum: ', sum)
-  //   })
-  //   if (sum === 0) {
-  //     setAllPaid(true)
-  //   } else {
-  //     setAllPaid(false)
-  //   }
-  // }
 
   const handleUpdateFormChange = (prop) => (event) => {
     setFormValue({ ...formValue, [prop]: event.target.value })
@@ -179,33 +119,6 @@ const SearchPage = ({ authenticated, user }) => {
         })
       })
   }
-
-  //generates html blob of the chosen invoice. This will also set the invoice number based on a specific class in the html. This needs to be continuously updated, as there are multiple formats of invoices, and the number is not always in the same div and class.
-  // const GetPreview = (filePath) => {
-  //   dbx
-  //     .filesGetPreview({
-  //       path: filePath
-  //     })
-  //     .then((res) => {
-  //       let downloadUrl = URL.createObjectURL(res.result.fileBlob)
-  //       let parser = new DOMParser()
-  //       let blob = res.result.fileBlob
-  //       reader.addEventListener('loadend', function () {
-
-  //         let blobData = parser.parseFromString(reader.result, 'text/html')
-  //         setInvoiceNumber(
-  //           blobData.getElementsByClassName('xl115')[0]?.innerHTML ||
-  //             blobData.getElementsByClassName('xl132')[0]?.innerHTML ||
-  //             blobData.getElementsByClassName('xl130')[0]?.innerHTML ||
-  //             blobData.getElementsByClassName('xl104')[1]?.innerHTML ||
-  //             'No invoice # found'
-  //         )
-  //       })
-  //       reader.readAsText(blob)
-
-  //       window.open(downloadUrl)
-  //     })
-  // }
 
   //*Below code to be used in future update
 

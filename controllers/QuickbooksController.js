@@ -11,14 +11,14 @@ let qbo = new Quickbooks(
 
   process.env.CLIENT_SECRET,
 
-  'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..Mzo5wzH5iVbpeDHhGQfsGw.d-r4ymlYAWOf8stNPODS8P-OqO14OacI0LLndLq1gfmYpOnvRYWY4yekuEahKAva7o0bGnLKxlbA5fxK7gvjvwagV5y4KO-bHi59UGl1Hi-oUSHjsB_jBXhIXLoXIT1MjFuN_OEELARXFTXdpoPMAyNgljiAxkG_wffEiQB1bLmjH_Ng_43p5tVB3kVbta9ABiMoZwAr15bWHfw6XPqGNjiWvTZHE7ciedvt4BquFtuhxqchrx2jycJNXFUOlymQeYEcYdm86NbOZKjpFxahpnKm2TLt1hkyRNXGUFbeNq5UTOzyVuk2aWmTRdeWw8IfYz9dRLgKNfkI-CON8tzkd2cBESZqa_9VQX2jLmnm-TjwpFUqQ1TSoRz72IFEs5g0PSlzLrF1TtPLnm30qXBL44a_lOAZZIPVZ5_sQh-zhv188LkbkasT3hww4ghwFkPXwCbzX9SkEM-FKezriSbBKIZbdgw_SXeSR7xdCOkwP9v5fxD4_yAOB_tnJFct7lvHKpzBzfCLxgAdcou3XW6yKG7Yy40tsA7VxwzERuGdLBxd8w-3GKOJQ88WrkPWuBOhHweZDV2YTogd0yBDZ0tfwK2WkgbTwcAl9m7gg9FkzKGbqmWXPC6Fmfn2o_rVLoZr7nFOsa8dRGQvrriNMF6PJhZNBXVepL5k2eHKNNsMx0ePIs02vnBzvB58auEcppoJICj_XiQwrt7wgbJ2tSRzVpzvlLlfAdTigFGb32dfEAE.iEXxiADFuXvxfmGDKFktXA',
+  'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..Op0OLVhTWOdmf-hCnDbe8w.9Q7zH1ITZysbJz0ltFNAtxFCfLFATJHfkNYNql30NACHeHgtokfgLqCgsGQqF6QLKT8VNkOlfiISzrcVLjMiuS1eWrqgIo-Z5fDPEdS0m7_l9avGOuptNXFfrcdQ20imyUoqTgLuDYqEO0sXlfq3QxanvHTswckSb3Pidf5GNwZ576EYiDKtREAm4AsFs7wIBKlTP35TIy6Bjgz5Rfqsb1cpusXxgnXdYEldQ1nNVNm3br88HO57ETK_5tsh6NagOoCKMMkIirpcee_zWkA8Ote6pIeUy6st3u7gbIOIjGlHtSElNZ1wpQD6N-79YV_TbNNTSXNqlL-xAe09ydZTyXN3GYh8iB62wphuPbpfOww-Es6zXFATVjvnRWOnKenlJDarzNbGB1xwzSm43EZoiQfvJd_GnWIt2_9xUilxxmW5YIYi0q_0tp3wzShbRKZYkthCm0DKYf67uq5FKCROiqM251-w9QWxHbdckkEV83t42zxH_sbfDjWKMR-m9SHY704BaGl5tMWu5pyjb5zJXHUotsAAVieNpDMTw0chSj9PqJCF1W0QPs7bnoYs01EUkIJPHAjds3b4Y5MsOomETeDRwY_eNuhhBIKjzkICWEf0brMRxxWB0jOgqPEhN_coR3cyyqNFu0ftmIEHM1M8lxtbo-nw7As57zhkonZ5xydofkGCX28kyHWE_auq91IabO0JuQ4yBsAIStDGB6t5W2Dvvq8PXzlqOe1Xv4zRYIA.ykJKsWL_ozxFQo3yTjPlEA',
   false,
   '1342692165',
   false,
   true,
   null,
   '2.0',
-  'AB11686269909HZeazE2ZHXSUlwJ0etdXcg805WaymQXAwph6G'
+  'AB11686418867wBBXeRWm3oPDHYGpESNwQZMpgwXOOvL2OICCV'
 )
 
 let oauthClient = new OAuthClient({
@@ -26,16 +26,11 @@ let oauthClient = new OAuthClient({
 
   clientSecret: process.env.CLIENT_SECRET,
 
-  environment:
-    // process.env.NODE_ENV === 'production' ?
-    'production',
-  // : 'sandbox',
+  environment: 'production',
+
   redirectUri:
-    // process.env.NODE_ENV === 'production'
-    //   ?
-    // 'https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/callback',
-    // : 'http://localhost:3001/bea/quickbooks/callback',
-    'https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl',
+    'https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/callback',
+
   logging: true
 })
 
@@ -60,9 +55,7 @@ const Callback = async (req, res) => {
 
     qbo = new Quickbooks(
       process.env.CLIENT_ID,
-
       process.env.CLIENT_SECRET,
-
       oauthClient.getToken().access_token,
       false,
       oauthClient.getToken().realmId,
@@ -112,11 +105,10 @@ const BusinessGetter = (req, res) => {
   try {
     let { id } = req.params
 
-    let val
     qbo.findInvoices({ DocNumber: id }, (err, invoice) => {
       if (err) console.log(err)
       if (!invoice.QueryResponse.Invoice) {
-        res.send('No invoice found')
+        res.send("No invoice's found")
       } else {
         res.send(invoice.QueryResponse.Invoice[0].CustomerRef.value)
       }
