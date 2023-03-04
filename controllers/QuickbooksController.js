@@ -4,22 +4,7 @@ const OAuthClient = require('intuit-oauth')
 
 let oauthToken = null
 
-// let qbo = null
-
-let qbo = new Quickbooks(
-  process.env.CLIENT_ID,
-
-  process.env.CLIENT_SECRET,
-
-  'eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..Op0OLVhTWOdmf-hCnDbe8w.9Q7zH1ITZysbJz0ltFNAtxFCfLFATJHfkNYNql30NACHeHgtokfgLqCgsGQqF6QLKT8VNkOlfiISzrcVLjMiuS1eWrqgIo-Z5fDPEdS0m7_l9avGOuptNXFfrcdQ20imyUoqTgLuDYqEO0sXlfq3QxanvHTswckSb3Pidf5GNwZ576EYiDKtREAm4AsFs7wIBKlTP35TIy6Bjgz5Rfqsb1cpusXxgnXdYEldQ1nNVNm3br88HO57ETK_5tsh6NagOoCKMMkIirpcee_zWkA8Ote6pIeUy6st3u7gbIOIjGlHtSElNZ1wpQD6N-79YV_TbNNTSXNqlL-xAe09ydZTyXN3GYh8iB62wphuPbpfOww-Es6zXFATVjvnRWOnKenlJDarzNbGB1xwzSm43EZoiQfvJd_GnWIt2_9xUilxxmW5YIYi0q_0tp3wzShbRKZYkthCm0DKYf67uq5FKCROiqM251-w9QWxHbdckkEV83t42zxH_sbfDjWKMR-m9SHY704BaGl5tMWu5pyjb5zJXHUotsAAVieNpDMTw0chSj9PqJCF1W0QPs7bnoYs01EUkIJPHAjds3b4Y5MsOomETeDRwY_eNuhhBIKjzkICWEf0brMRxxWB0jOgqPEhN_coR3cyyqNFu0ftmIEHM1M8lxtbo-nw7As57zhkonZ5xydofkGCX28kyHWE_auq91IabO0JuQ4yBsAIStDGB6t5W2Dvvq8PXzlqOe1Xv4zRYIA.ykJKsWL_ozxFQo3yTjPlEA',
-  false,
-  '1342692165',
-  false,
-  true,
-  null,
-  '2.0',
-  'AB11686418867wBBXeRWm3oPDHYGpESNwQZMpgwXOOvL2OICCV'
-)
+let qbo = null
 
 let oauthClient = new OAuthClient({
   clientId: process.env.CLIENT_ID,

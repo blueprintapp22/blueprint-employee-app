@@ -79,6 +79,7 @@ export default function SearchAppBar(props) {
         break
       case 'logout':
         setLogoutModal(false)
+        break
       default:
         setSignUpModal(false)
         break
@@ -103,7 +104,7 @@ export default function SearchAppBar(props) {
               onClick={() => navigate('/')}
               sx={{ mr: 2 }}
             >
-              <img src={logo} id="search-logo" />
+              <img src={logo} id="search-logo" alt="search logo" />
             </IconButton>
             <Typography
               variant="h5"
