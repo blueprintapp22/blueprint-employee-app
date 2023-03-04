@@ -11,14 +11,12 @@ const app = express()
 
 const PORT = process.env.PORT || 3001
 
-if (process.env.NODE_ENV === 'production') {
-  const ipCheck = (req, res, next) => {
-    const ipList = process.env.WHITELIST.split(' ')
-    if (!ipList.includes(req.ip)) {
-      return res.status(403).send(`Invalid IP: ${req.ip}`)
-    } else {
-      next()
-    }
+const ipCheck = (req, res, next) => {
+  const ipList = process.env.WHITELIST.split(' ')
+  if (!ipList.includes(req.ip)) {
+    return res.status(403).send(`Invalid IP: ${req.ip}`)
+  } else {
+    next()
   }
 }
 
