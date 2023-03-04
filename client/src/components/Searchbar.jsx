@@ -19,6 +19,7 @@ import PincodeModal from './PincodeModal'
 import QuickbooksModal from './QuickbooksModal'
 import FactCheckIcon from '@mui/icons-material/FactCheck'
 import axios from 'axios'
+import { BASE_URL } from '../services/api'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -78,6 +79,7 @@ export default function SearchAppBar(props) {
         break
       case 'logout':
         setLogoutModal(false)
+        break
       default:
         setSignUpModal(false)
         break
@@ -85,7 +87,7 @@ export default function SearchAppBar(props) {
   }
 
   const handleQuickbooksModal = async () => {
-    await axios.get(`https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/refresh`)
+    await axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
     setQuickbooksModal(true)
   }
 
@@ -102,7 +104,7 @@ export default function SearchAppBar(props) {
               onClick={() => navigate('/')}
               sx={{ mr: 2 }}
             >
-              <img src={logo} id="search-logo" />
+              <img src={logo} id="search-logo" alt="search logo" />
             </IconButton>
             <Typography
               variant="h5"

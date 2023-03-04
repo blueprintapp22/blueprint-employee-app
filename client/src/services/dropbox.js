@@ -22,6 +22,8 @@ export const GetPreview = (filePath) => {
     })
     .then((res) => {
       let downloadUrl = URL.createObjectURL(res.result.fileBlob)
+      reader.readAsDataURL(res.result.blob)
+
       window.open(downloadUrl)
     })
 }
@@ -32,6 +34,5 @@ export const GetThumbnail = () => {
     })
     .then((res) => {
       let downloadUrl = URL.createObjectURL(res.result.fileBlob)
-      console.log(downloadUrl)
     })
 }

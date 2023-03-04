@@ -12,7 +12,7 @@ import logo from '../images/bplogo.png'
 import { styled } from '@mui/material/styles'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import Visibility from '@mui/icons-material/Visibility'
-
+import { BASE_URL } from '../services/api'
 
 const inputProps = {
   id: 'input'
@@ -79,7 +79,8 @@ function LoginModal({
         password: ''
       })
       setLoginModal(false)
-      window.location.replace(`https://blueprint-employee-app-production.up.railway.app/bea/quickbooks`)
+
+      window.location.replace(`${BASE_URL}/bea/quickbooks`)
     }
   }
   const handleMouseDownPassword = (event) => {

@@ -8,9 +8,14 @@ let qbo = null
 
 let oauthClient = new OAuthClient({
   clientId: process.env.CLIENT_ID,
+
   clientSecret: process.env.CLIENT_SECRET,
+
   environment: 'production',
-  redirectUri: 'https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/callback',
+
+  redirectUri:
+    'https://blueprint-employee-app-production.up.railway.app/bea/quickbooks/callback',
+
   logging: true
 })
 
@@ -46,9 +51,11 @@ const Callback = async (req, res) => {
       oauthClient.getToken().refresh_token
     )
 
-    
-
-    res.redirect('https://bpbd.io')
+    res.redirect(
+      process.env.NODE_ENV === 'production'
+        ? 'https://bpbd.io'
+        : 'http://localhost:3000'
+    )
   } catch (error) {
     throw error
   }
@@ -61,7 +68,9 @@ const RefreshAccessToken = (req, res) => {
     })
     qbo = new Quickbooks(
       process.env.CLIENT_ID,
+
       process.env.CLIENT_SECRET,
+
       oauthClient.getToken().access_token,
       false,
       oauthClient.getToken().realmId,
@@ -80,14 +89,14 @@ const RefreshAccessToken = (req, res) => {
 const BusinessGetter = (req, res) => {
   try {
     let { id } = req.params
-    
-    let val
+
     qbo.findInvoices({ DocNumber: id }, (err, invoice) => {
       if (err) console.log(err)
-      if(!invoice) res.send('No invoice found')
-      
-      res.send(invoice.QueryResponse.Invoice[0].CustomerRef.value)
-      
+      if (!invoice.QueryResponse.Invoice) {
+        res.send("No invoice's found")
+      } else {
+        res.send(invoice.QueryResponse.Invoice[0].CustomerRef.value)
+      }
     })
   } catch (error) {
     res.send(error)
@@ -105,7 +114,7 @@ const InvoiceChecker = (req, res) => {
       ],
       (err, invoice) => {
         if (err) console.log(err)
-        
+
         res.send(invoice.QueryResponse.Invoice)
       }
     )
