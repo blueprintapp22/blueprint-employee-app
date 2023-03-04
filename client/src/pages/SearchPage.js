@@ -72,7 +72,7 @@ const SearchPage = ({ authenticated, user }) => {
 
   //creates new dropbox instance
   const dbx = new Dropbox({
-    clientId: '90dgr7j93zv48ct',
+    clientId: process.env.REACT_APP_DBX_CLIENT_ID,
     clientSecret: process.env.REACT_APP_SECRET,
     refreshToken: process.env.REACT_APP_REFRESH_TOKEN
   })
