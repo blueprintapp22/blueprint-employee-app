@@ -11,7 +11,7 @@ const SearchResult = (props) => {
 
   let reader = new FileReader()
   const refreshToken = async () => {
-    await axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
+    await axios.get(`${BASE_URL}bea/quickbooks/refresh`)
   }
 
   //handles the quickbooks functionality when an invoice is clicked
