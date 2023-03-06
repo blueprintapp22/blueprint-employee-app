@@ -30,13 +30,13 @@ const ipCheck = (req, res, next) => {
 // )
 // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
 app.set('trust proxy', true)
-app.use(logger('dev'))
 if (process.env.NODE_ENV === 'production') {
   app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
   app.use(ipCheck)
 } else {
   app.use(cors())
 }
+app.use(logger('dev'))
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
 

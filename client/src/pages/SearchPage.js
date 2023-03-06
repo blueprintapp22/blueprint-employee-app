@@ -84,8 +84,7 @@ const SearchPage = ({ authenticated, user }) => {
       .filesSearchV2({
         query: searchQuery,
         options: {
-          max_results: 1000,
-          filename_only: true
+          max_results: 1000
         }
       })
       .then((res) => {
