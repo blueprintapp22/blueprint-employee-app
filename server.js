@@ -1,24 +1,24 @@
-const express = require('express')
-const Quickbooks = require('node-quickbooks')
-const OAuthClient = require('intuit-oauth')
-const db = require('./db')
-const axios = require('axios')
-const cors = require('cors')
-const logger = require('morgan')
-const AuthRouter = require('./routes/AuthRouter')
-const AppRouter = require('./routes/AppRouter')
-const app = express()
+const express = require("express");
+const Quickbooks = require("node-quickbooks");
+const OAuthClient = require("intuit-oauth");
+const db = require("./db");
+const axios = require("axios");
+const cors = require("cors");
+const logger = require("morgan");
+const AuthRouter = require("./routes/AuthRouter");
+const AppRouter = require("./routes/AppRouter");
+const app = express();
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 
 const ipCheck = (req, res, next) => {
-  const ipList = process.env.WHITELIST.split(' ')
+  const ipList = process.env.WHITELIST.split(" ");
   if (!ipList.includes(req.ip)) {
-    return res.status(403).send(`Invalid IP: ${req.ip}`)
+    return res.status(403).send(`Invalid IP: ${req.ip}`);
   } else {
-    next()
+    next();
   }
-}
+};
 
 // app.use(
 //   cors({
@@ -29,27 +29,27 @@ const ipCheck = (req, res, next) => {
 //   })
 // )
 // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
-app.set('trust proxy', true)
-if (process.env.NODE_ENV === 'production') {
-  app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
-  app.use(ipCheck)
+app.set("trust proxy", true);
+if (process.env.NODE_ENV === "production") {
+  app.use(cors({ origin: "https://bpbd.info", optionsSuccessStatus: 200 }));
+  app.use(ipCheck);
 } else {
-  app.use(cors())
+  app.use(cors());
 }
-app.use(logger('dev'))
-app.use(express.json())
-app.use(express.static(`${__dirname}/client/build`))
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.static(`${__dirname}/client/build`));
 
-app.get('/', (req, res) => res.json({ message: 'Server Works' }))
-app.use('/auth', AuthRouter)
-app.use('/bea', AppRouter)
+app.get("/", (req, res) => res.json({ message: "Server Works" }));
+app.use("/auth", AuthRouter);
+app.use("/bea", AppRouter);
 
-app.get('/*', (req, res) => {
-  res.sendFile(`${__dirname}/client/build/index.html`)
-})
+app.get("/*", (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`);
+});
 
 app.listen(PORT, () =>
   console.log(
     `Server Running On Port: ${PORT}. Node env: ${process.env.NODE_ENV}`
   )
-)
+);
