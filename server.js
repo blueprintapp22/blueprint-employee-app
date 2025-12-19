@@ -31,7 +31,7 @@ const ipCheck = (req, res, next) => {
 // Production: app.use(cors({ origin: 'https://bpbd.io', optionsSuccessStatus: 200 }))
 app.set("trust proxy", true);
 if (process.env.NODE_ENV === "production") {
-  app.use(cors({ origin: "https://bpbd.info", optionsSuccessStatus: 200 }));
+  app.use(cors({ origin: "https://www.bpbd.info", optionsSuccessStatus: 200 }));
   app.use(ipCheck);
 } else {
   app.use(cors());
