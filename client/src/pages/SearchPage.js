@@ -72,7 +72,9 @@ const SearchPage = ({ authenticated, user }) => {
 
   //creates new dropbox instance
   const dbx = new Dropbox({
-    accessToken: process.env.REACT_APP_DBX_TOKEN
+    clientId: process.env.REACT_APP_DBX_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_SECRET,
+    refreshToken: process.env.REACT_APP_REFRESH_TOKEN
   })
 
   //search dropbox for any file where the name matches the search query.
