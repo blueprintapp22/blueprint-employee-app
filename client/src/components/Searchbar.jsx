@@ -85,9 +85,19 @@ export default function SearchAppBar(props) {
         break
     }
   }
-
-  const handleQuickbooksModal = async () => {
+const refreshToken = async () => {
+  try {
     await axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data)
+    } else {
+      console.error('Unexpected error:', error)
+    }
+  }
+}
+  const handleQuickbooksModal = async () => {
+    refreshToken()
     setQuickbooksModal(true)
   }
 
