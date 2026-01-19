@@ -52,9 +52,17 @@ function QuickbooksModal({ quickbooksModal, setQuickbooksModal }) {
     setFormValue({ ...formValue, ['docNum']: event.target.value })
   }
 
-  const refreshToken = async () => {
-    axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
+const refreshToken = async () => {
+  try {
+    await axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data)
+    } else {
+      console.error('Unexpected error:', error)
+    }
   }
+}
   const checkInvoice = async (id) => {
     let reg = /[a-zA-Z]+/g
     if (

@@ -10,9 +10,17 @@ const SearchResult = (props) => {
   const [invoiceError, setInvoiceError] = useState()
 
   let reader = new FileReader()
-  const refreshToken = async () => {
+const refreshToken = async () => {
+  try {
     await axios.get(`${BASE_URL}/bea/quickbooks/refresh`)
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data)
+    } else {
+      console.error('Unexpected error:', error)
+    }
   }
+}
 
   //handles the quickbooks functionality when an invoice is clicked
   useEffect(() => {
