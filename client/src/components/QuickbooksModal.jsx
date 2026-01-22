@@ -90,14 +90,14 @@ const refreshToken = async () => {
     setInvoiceData(code)
   }
 
-  const closeQuickbooksModal = () => {
-    refreshToken()
-    setQuickbooksModal(false)
-    setClicked(false)
-    setCustNum(false)
-    setInvoiceData(false)
-    setFormValue({ ...formValue, ['docNum']: '' })
-  }
+  // const closeQuickbooksModal = () => {
+  //   refreshToken()
+  //   setQuickbooksModal(false)
+  //   setClicked(false)
+  //   setCustNum(false)
+  //   setInvoiceData(false)
+  //   setFormValue({ ...formValue, ['docNum']: '' })
+  // }
 
   return (
     <div>

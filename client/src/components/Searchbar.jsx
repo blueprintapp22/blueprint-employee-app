@@ -96,10 +96,10 @@ const refreshToken = async () => {
     }
   }
 }
-  const handleQuickbooksModal = async () => {
-    refreshToken()
-    setQuickbooksModal(true)
-  }
+  // const handleQuickbooksModal = async () => {
+  //   refreshToken()
+  //   setQuickbooksModal(true)
+  // }
 
   return (
     <div>
@@ -213,10 +213,10 @@ const refreshToken = async () => {
         pincodeModal={pincodeModal}
         setPincodeModal={setPincodeModal}
       /> */}
-      <QuickbooksModal
+      {/* <QuickbooksModal
         quickbooksModal={quickbooksModal}
         setQuickbooksModal={setQuickbooksModal}
-      />
+      /> */}
     </div>
   )
 }
