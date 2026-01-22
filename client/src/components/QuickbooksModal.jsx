@@ -103,7 +103,7 @@ const refreshToken = async () => {
     <div>
       <Modal
         open={quickbooksModal}
-        onClose={() => closeQuickbooksModal()}
+        // onClose={() => closeQuickbooksModal()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
