@@ -80,7 +80,7 @@ function LoginModal({
       })
       setLoginModal(false)
 
-      window.location.replace(`${BASE_URL}/bea/quickbooks`)
+      // window.location.replace(`${BASE_URL}/bea/quickbooks`)
     }
   }
   const handleMouseDownPassword = (event) => {

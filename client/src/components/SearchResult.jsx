@@ -23,36 +23,36 @@ const refreshToken = async () => {
 }
 
   //handles the quickbooks functionality when an invoice is clicked
-  useEffect(() => {
-    if (invoiceNumber) {
-      if (invoiceNumber !== 'No invoice # found') {
-        getBusiness(invoiceNumber)
-      } else {
-        setInvoiceError(invoiceNumber)
-        setBackgroundColor('yellow')
-      }
-    }
-  }, [invoiceNumber])
+  // useEffect(() => {
+  //   if (invoiceNumber) {
+  //     if (invoiceNumber !== 'No invoice # found') {
+  //       getBusiness(invoiceNumber)
+  //     } else {
+  //       setInvoiceError(invoiceNumber)
+  //       setBackgroundColor('yellow')
+  //     }
+  //   }
+  // }, [invoiceNumber])
 
   //checks for balance on returned invoices and sets allPaid to true or false
-  useEffect(() => {
-    let balance = -1
+  // useEffect(() => {
+  //   let balance = -1
 
-    if (invoiceData.length > 0) {
-      if (invoiceData !== 'Cancelled') {
-        balance = checkInvoiceBalance(invoiceData)
-        if (balance === 0) {
-          setBackgroundColor('green')
-        } else {
-          setBackgroundColor('red')
-          setInvoiceError('Open')
-        }
-      } else {
-        setInvoiceError('Cancelled')
-        setBackgroundColor('red')
-      }
-    }
-  }, [invoiceData])
+  //   if (invoiceData.length > 0) {
+  //     if (invoiceData !== 'Cancelled') {
+  //       balance = checkInvoiceBalance(invoiceData)
+  //       if (balance === 0) {
+  //         setBackgroundColor('green')
+  //       } else {
+  //         setBackgroundColor('red')
+  //         setInvoiceError('Open')
+  //       }
+  //     } else {
+  //       setInvoiceError('Cancelled')
+  //       setBackgroundColor('red')
+  //     }
+  //   }
+  // }, [invoiceData])
 
   //generates html blob of the chosen invoice. This will also set the invoice number based on a specific class in the html.
   const getPreview = () => {
